@@ -6,6 +6,37 @@ import { site, type SiteContent } from "@/src/content/site";
 
 export const approvedProductionOrigin = null;
 
+const netlifyPreviewHost = /\.netlify\.app$/i;
+
+export function siteMetadataBase(): URL | undefined {
+  const candidate = process.env.DEPLOY_PRIME_URL ?? process.env.URL;
+  if (!candidate) {
+    return undefined;
+  }
+
+  try {
+    const origin = new URL(candidate);
+    if (
+      origin.hostname === "cjnailstudio.com" ||
+      origin.hostname.endsWith(".cjnailstudio.com")
+    ) {
+      return undefined;
+    }
+    if (origin.protocol !== "https:" && origin.protocol !== "http:") {
+      return undefined;
+    }
+    if (
+      !netlifyPreviewHost.test(origin.hostname) &&
+      origin.hostname !== "127.0.0.1"
+    ) {
+      return undefined;
+    }
+    return origin;
+  } catch {
+    return undefined;
+  }
+}
+
 export const robotsPolicy = {
   index: false,
   follow: false,
@@ -126,11 +157,20 @@ export function createRouteMetadata(page: {
       type: "website",
       siteName: site.business.name,
       locale: "en",
+      images: [
+        {
+          url: "/og/studio-share.png",
+          width: 1200,
+          height: 630,
+          alt: "Decorative studio artwork for Beauty Nail Studio by Cj; no customer image is used",
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: page.title,
       description: page.description,
+      images: ["/og/studio-share.png"],
     },
   };
 }
