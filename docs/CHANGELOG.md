@@ -19,6 +19,7 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 - Formatting, lint, strict type checking and production build pass.
 - 6 unit tests pass.
 - 18 responsive Playwright checks pass across mobile, tablet and desktop, including serious/critical axe checks on every implemented route.
+- GitHub Actions CI run #1 passes on draft PR #1.
 
 ### Security
 
