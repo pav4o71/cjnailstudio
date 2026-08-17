@@ -70,4 +70,17 @@ describe("consent-safe public art", () => {
 
     expect(violations).toEqual([]);
   });
+
+  it("treats the Open Graph share card as original decoration", () => {
+    const shareCard = "public/og/studio-share.png";
+    expect(existsSync(shareCard)).toBe(true);
+    expect(shareCard).not.toMatch(retainedMediaId);
+
+    const png = readFileSync(shareCard);
+    expect([...png.subarray(0, 8)]).toEqual([
+      0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a,
+    ]);
+    expect(png.readUInt32BE(16)).toBe(1200);
+    expect(png.readUInt32BE(20)).toBe(630);
+  });
 });

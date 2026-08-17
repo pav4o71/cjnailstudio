@@ -37,6 +37,22 @@ test("launch routes expose unique Open Graph tags, relative canonicals and noind
       .locator('link[rel="canonical"]')
       .getAttribute("href");
     expect(canonicalHref).not.toMatch(/cjnailstudio\.com|example\.com/i);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+      "content",
+      /\/og\/studio-share\.png/,
+    );
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute(
+      "content",
+      /\/og\/studio-share\.png/,
+    );
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute(
+      "content",
+      "summary_large_image",
+    );
+    const ogImage = await page
+      .locator('meta[property="og:image"]')
+      .getAttribute("content");
+    expect(ogImage).not.toMatch(/cjnailstudio\.com|example\.com/i);
 
     ogTitles.push(
       (await page

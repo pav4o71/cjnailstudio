@@ -8,11 +8,13 @@ import { SiteFooter } from "@/src/components/shell/site-footer";
 import { SiteHeader } from "@/src/components/shell/site-header";
 import { publicLocationLabel } from "@/src/content/navigation";
 import { layoutMetadata } from "@/src/content/pages";
-import { robotsPolicy } from "@/src/content/seo";
+import { robotsPolicy, siteMetadataBase } from "@/src/content/seo";
 import { site } from "@/src/content/site";
 import { createManualHandoffs } from "@/src/domain/booking";
 
 import "./globals.css";
+
+const previewOrigin = siteMetadataBase();
 
 export const metadata: Metadata = {
   title: {
@@ -29,6 +31,7 @@ export const metadata: Metadata = {
     siteName: site.business.name,
     locale: "en",
   },
+  ...(previewOrigin ? { metadataBase: previewOrigin } : {}),
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

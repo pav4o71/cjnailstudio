@@ -1,10 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { instagramProfileUrl } from "./navigation";
 import { pageMetadata, publicPageList } from "./pages";
 import {
   approvedProductionOrigin,
   createRouteMetadata,
+  siteMetadataBase,
   deferredPaths,
   launchSitemapPaths,
   localBusinessJsonLd,
@@ -20,6 +21,19 @@ describe("indexation until an approved production origin exists", () => {
     expect(robotsPolicy.index).toBe(false);
     expect(robotsPolicy.follow).toBe(false);
     expect(sitemapEntries()).toEqual([]);
+    expect(siteMetadataBase()).toBeUndefined();
+  });
+
+  it("may use a Netlify preview host and never a custom production domain", () => {
+    vi.stubEnv("DEPLOY_PRIME_URL", "https://draft--cjnailstudio.netlify.app");
+    expect(siteMetadataBase()?.origin).toBe(
+      "https://draft--cjnailstudio.netlify.app",
+    );
+
+    vi.stubEnv("DEPLOY_PRIME_URL", "https://cjnailstudio.com");
+    expect(siteMetadataBase()).toBeUndefined();
+    vi.unstubAllEnvs();
+    expect(siteMetadataBase()).toBeUndefined();
   });
 
   it("lists only compact-sitemap launch paths for a future origin-backed sitemap", () => {
@@ -54,7 +68,19 @@ describe("route metadata", () => {
         siteName: site.business.name,
       });
       expect(route.openGraph && "url" in route.openGraph).toBe(false);
-      expect(route.openGraph?.images).toBeUndefined();
+      expect(route.metadataBase).toBeUndefined();
+      expect(route.openGraph?.images).toEqual([
+        {
+          url: "/og/studio-share.png",
+          width: 1200,
+          height: 630,
+          alt: "Decorative studio artwork for Beauty Nail Studio by Cj; no customer image is used",
+        },
+      ]);
+      expect(route.twitter).toMatchObject({
+        card: "summary_large_image",
+        images: ["/og/studio-share.png"],
+      });
       expect(route.alternates?.canonical).toBeUndefined();
     }
 
