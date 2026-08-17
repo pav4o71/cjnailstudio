@@ -97,6 +97,10 @@
   width: 2rem;
 }
 
+.info {
+  --status-color: var(--color-focus);
+}
+
 .success {
   --status-color: var(--color-success);
 }

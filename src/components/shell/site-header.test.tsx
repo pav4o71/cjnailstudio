@@ -1,4 +1,10 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  within,
+} from "@testing-library/react";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 
 import { SiteHeader } from "./site-header";
@@ -28,11 +34,8 @@ afterEach(cleanup);
 const props = {
   businessName: "Beauty Nail Studio by Cj",
   hours: "Open daily, 12:00 noon–9:00 PM",
-  locationLabel: "Knightsbridge · Makati",
-  navItems: [
-    { href: "/services", label: "Services" },
-    { href: "/gallery", label: "Gallery" },
-  ],
+  locationLabel: "Knightsbridge Residences · Makati City",
+  phoneDisplay: "+63 961 740 0664",
   phoneHref: "tel:+639617400664",
   whatsappHref: "https://wa.me/639617400664",
 } as const;
@@ -57,5 +60,24 @@ describe("SiteHeader", () => {
     fireEvent.click(screen.getByRole("button", { name: "Close menu" }));
     expect(trigger).toHaveAttribute("aria-expanded", "false");
     expect(trigger).toHaveFocus();
+  });
+
+  it("moves focus to main after choosing a menu destination", () => {
+    render(
+      <>
+        <SiteHeader {...props} />
+        <main id="main" tabIndex={-1}>
+          Main
+        </main>
+      </>,
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: /Menu/ }));
+    fireEvent.click(
+      within(screen.getByRole("dialog")).getByRole("link", { name: "Gallery" }),
+    );
+
+    expect(document.getElementById("main")).toHaveFocus();
+    expect(screen.getByRole("button", { name: /Menu/ })).not.toHaveFocus();
   });
 });

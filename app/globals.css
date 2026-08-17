@@ -64,8 +64,10 @@ body:has(dialog[open]) {
   overflow: hidden;
 }
 
-main:focus {
-  outline: none;
+main:focus,
+main:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
 }
 
 img,
@@ -344,18 +346,18 @@ p {
 }
 
 @media (max-width: 64rem) {
-  .card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 48rem) {
   .page {
     padding-bottom: calc(
       var(--space-24) + 4.5rem + env(safe-area-inset-bottom)
     );
   }
 
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 48rem) {
   .hero {
     grid-template-columns: 1fr;
   }
@@ -371,11 +373,7 @@ p {
   }
 }
 
-@media (max-width: 22rem) {
-  :root {
-    --gutter: 1rem;
-  }
-
+@media (max-width: 36rem) {
   .actions {
     align-items: stretch;
     flex-direction: column;

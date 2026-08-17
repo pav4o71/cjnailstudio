@@ -40,6 +40,7 @@
   display: inline-flex;
   font-weight: 700;
   min-height: 2.75rem;
+  min-width: 2.75rem;
 }
 
 .headerInner {
@@ -101,6 +102,7 @@
   font-size: 0.9375rem;
   font-weight: 700;
   min-height: 2.75rem;
+  min-width: 2.75rem;
   padding-inline: var(--space-3);
   text-decoration: none;
 }
@@ -199,10 +201,8 @@
   text-decoration: none;
 }
 
-.mobileNavList a::after {
+.mobileNavList a span {
   color: var(--color-brand-strong);
-  content: "→";
-  font-family: var(--font-ui);
 }
 
 .mobileNavList a[aria-current="page"] {
@@ -259,6 +259,7 @@
   align-items: center;
   display: inline-flex;
   min-height: 2.75rem;
+  min-width: 2.75rem;
 }
 
 .footer a {
@@ -280,17 +281,57 @@
   display: none;
 }
 
+:global(html.no-js) .headerInner {
+  flex-wrap: wrap;
+}
+
 @media (max-width: 64rem) {
-  .desktopNav {
+  :global(html:not(.no-js)) .desktopNav {
     display: none;
   }
 
-  .menuTrigger {
+  :global(html:not(.no-js)) .menuTrigger {
     display: inline-flex;
+  }
+
+  :global(html.no-js) .desktopNav {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  :global(html.no-js) .utilityInner {
+    justify-content: space-between;
+  }
+
+  :global(html.no-js) .utilityLinks {
+    display: flex;
   }
 
   .footerInner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer {
+    padding-bottom: calc(6.75rem + env(safe-area-inset-bottom));
+  }
+
+  .mobileActionBar {
+    background: rgb(255 255 255 / 96%);
+    border-top: 1px solid var(--color-border);
+    bottom: 0;
+    display: grid;
+    gap: var(--space-2);
+    grid-template-columns: 1fr 1fr;
+    inset-inline: 0;
+    padding: var(--space-2) var(--gutter)
+      calc(var(--space-2) + env(safe-area-inset-bottom));
+    position: fixed;
+    z-index: 25;
+  }
+
+  :global(body:has(dialog[open])) .mobileActionBar {
+    display: none;
   }
 }
 
@@ -312,34 +353,12 @@
     max-width: 13.5rem;
   }
 
-  .footer {
-    padding-bottom: calc(6.75rem + env(safe-area-inset-bottom));
-  }
-
   .footerInner {
     grid-template-columns: 1fr;
   }
 
   .footerBottom {
     display: grid;
-  }
-
-  .mobileActionBar {
-    background: rgb(255 255 255 / 96%);
-    border-top: 1px solid var(--color-border);
-    bottom: 0;
-    display: grid;
-    gap: var(--space-2);
-    grid-template-columns: 1fr 1fr;
-    inset-inline: 0;
-    padding: var(--space-2) var(--gutter)
-      calc(var(--space-2) + env(safe-area-inset-bottom));
-    position: fixed;
-    z-index: 25;
-  }
-
-  body:has(dialog[open]) .mobileActionBar {
-    display: none;
   }
 }
 

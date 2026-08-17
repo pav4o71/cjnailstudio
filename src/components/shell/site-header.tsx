@@ -4,25 +4,28 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-import styles from "./site-shell.module.css";
+import {
+  desktopBookCta,
+  desktopPrimaryNav,
+  mobileMenuNav,
+  type NavigationItem,
+} from "@/src/content/navigation";
 
-export type NavigationItem = Readonly<{
-  href: string;
-  label: string;
-}>;
+import styles from "./site-shell.module.css";
 
 type SiteHeaderProps = Readonly<{
   businessName: string;
   hours: string;
   locationLabel: string;
-  navItems: readonly NavigationItem[];
+  phoneDisplay: string;
   phoneHref: string;
   whatsappHref: string;
 }>;
 
+type MenuCloseReason = "dismiss" | "navigate";
+
 function isCurrentRoute(pathname: string, href: string): boolean {
-  if (href === "/") return pathname === href;
-  return pathname === href || pathname.startsWith(`${href}/`);
+  return pathname === href;
 }
 
 function MenuIcon() {
@@ -41,66 +44,89 @@ function CloseIcon() {
   );
 }
 
-export function SiteHeader({
-  businessName,
-  hours,
-  locationLabel,
-  navItems,
-  phoneHref,
-  whatsappHref,
-}: SiteHeaderProps) {
-  const pathname = usePathname();
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (dialog?.open) dialog.close();
-  }, [pathname]);
-
-  function openMenu() {
-    dialogRef.current?.showModal();
-    setIsOpen(true);
-  }
-
-  function closeMenu() {
-    dialogRef.current?.close();
-  }
-
-  function handleClose() {
-    setIsOpen(false);
-    triggerRef.current?.focus();
-  }
-
-  const navigation = (className: string | undefined, includeHome = false) => (
+function NavList({
+  className,
+  includeTrailingMark = false,
+  items,
+  onNavigate,
+  pathname,
+}: Readonly<{
+  className?: string;
+  includeTrailingMark?: boolean;
+  items: readonly NavigationItem[];
+  onNavigate?: () => void;
+  pathname: string;
+}>) {
+  return (
     <ul className={className}>
-      {includeHome ? (
-        <li>
-          <Link
-            href="/"
-            aria-current={pathname === "/" ? "page" : undefined}
-            onClick={closeMenu}
-          >
-            Home
-          </Link>
-        </li>
-      ) : null}
-      {navItems.map((item) => (
+      {items.map((item) => (
         <li key={item.href}>
           <Link
             href={item.href}
             aria-current={
               isCurrentRoute(pathname, item.href) ? "page" : undefined
             }
-            onClick={closeMenu}
+            onClick={onNavigate}
           >
             {item.label}
+            {includeTrailingMark ? <span aria-hidden="true">→</span> : null}
           </Link>
         </li>
       ))}
     </ul>
   );
+}
+
+export function SiteHeader({
+  businessName,
+  hours,
+  locationLabel,
+  phoneDisplay,
+  phoneHref,
+  whatsappHref,
+}: SiteHeaderProps) {
+  const pathname = usePathname();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeReasonRef = useRef<MenuCloseReason>("dismiss");
+  const moveFocusToMainRef = useRef(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (dialog?.open) {
+      closeReasonRef.current = "navigate";
+      moveFocusToMainRef.current = true;
+      dialog.close();
+    }
+    if (moveFocusToMainRef.current) {
+      moveFocusToMainRef.current = false;
+      document.getElementById("main")?.focus();
+    }
+  }, [pathname]);
+
+  function openMenu() {
+    closeReasonRef.current = "dismiss";
+    dialogRef.current?.showModal();
+    setIsOpen(true);
+  }
+
+  function closeMenu(reason: MenuCloseReason = "dismiss") {
+    closeReasonRef.current = reason;
+    if (reason === "navigate") moveFocusToMainRef.current = true;
+    dialogRef.current?.close();
+  }
+
+  function handleClose() {
+    const reason = closeReasonRef.current;
+    closeReasonRef.current = "dismiss";
+    setIsOpen(false);
+    if (reason === "navigate") {
+      document.getElementById("main")?.focus();
+      return;
+    }
+    triggerRef.current?.focus();
+  }
 
   return (
     <header className={styles.header}>
@@ -108,8 +134,8 @@ export function SiteHeader({
         <div className={styles.utilityInner}>
           <span>{hours}</span>
           <span className={styles.utilityLinks}>
-            <a href={whatsappHref}>WhatsApp</a>
-            <a href={phoneHref}>Call</a>
+            <a href={whatsappHref}>WhatsApp the studio</a>
+            <a href={phoneHref}>Call {phoneDisplay}</a>
           </span>
         </div>
       </div>
@@ -123,9 +149,19 @@ export function SiteHeader({
           <small>{locationLabel}</small>
         </Link>
         <nav className={styles.desktopNav} aria-label="Primary navigation">
-          {navigation(styles.navList)}
-          <Link className="button button-small" href="/book">
-            Book
+          <NavList
+            className={styles.navList}
+            items={desktopPrimaryNav}
+            pathname={pathname}
+          />
+          <Link
+            className="button button-small"
+            href={desktopBookCta.href}
+            aria-current={
+              isCurrentRoute(pathname, desktopBookCta.href) ? "page" : undefined
+            }
+          >
+            {desktopBookCta.label}
           </Link>
         </nav>
         <button
@@ -154,17 +190,27 @@ export function SiteHeader({
           <button
             className={styles.closeButton}
             type="button"
-            onClick={closeMenu}
+            onClick={() => closeMenu("dismiss")}
             aria-label="Close menu"
           >
             <CloseIcon />
           </button>
         </div>
         <nav aria-label="Mobile navigation">
-          {navigation(styles.mobileNavList, true)}
+          <NavList
+            className={styles.mobileNavList}
+            includeTrailingMark
+            items={mobileMenuNav}
+            onNavigate={() => closeMenu("navigate")}
+            pathname={pathname}
+          />
         </nav>
         <div className={styles.dialogActions}>
-          <Link className="button" href="/book" onClick={closeMenu}>
+          <Link
+            className="button"
+            href={desktopBookCta.href}
+            onClick={() => closeMenu("navigate")}
+          >
             Book or contact
           </Link>
           <a className="button-secondary" href={whatsappHref}>

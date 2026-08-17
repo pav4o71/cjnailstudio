@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+import {
+  footerDocumentNav,
+  instagramProfileUrl,
+} from "@/src/content/navigation";
 import { site } from "@/src/content/site";
 import { createManualHandoffs } from "@/src/domain/booking";
 
@@ -18,18 +22,11 @@ export function SiteFooter() {
         <div>
           <h2 className={styles.footerHeading}>Explore</h2>
           <ul className={styles.footerList}>
-            <li>
-              <Link href="/services">Services</Link>
-            </li>
-            <li>
-              <Link href="/gallery">Gallery</Link>
-            </li>
-            <li>
-              <Link href="/visit">Visit</Link>
-            </li>
-            <li>
-              <Link href="/book">Book or contact</Link>
-            </li>
+            {footerDocumentNav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
@@ -45,7 +42,7 @@ export function SiteFooter() {
               <a href={`mailto:${site.business.email}`}>Email the studio</a>
             </li>
             <li>
-              <a href="https://www.instagram.com/beautynailstudiobycj/">
+              <a href={instagramProfileUrl(site.business.instagramHandle)}>
                 Instagram {site.business.instagramHandle}
               </a>
             </li>

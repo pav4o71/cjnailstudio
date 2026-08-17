@@ -16,6 +16,7 @@ export default function GalleryPage() {
       <h1>Nail art by Beauty Nail Studio by Cj</h1>
       <div className="section">
         <MediaFallback
+          eyebrow="Consent-safe gallery"
           title="Website gallery in preparation"
           description="Portfolio images are being reviewed for website-use rights and customer consent. No social image is published here by default. You can still discuss the look you have in mind with the studio."
           action={

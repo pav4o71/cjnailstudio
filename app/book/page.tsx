@@ -38,10 +38,19 @@ export default function BookPage() {
         </Link>
       </div>
       <div className="section">
-        <StatusCallout title="Walk-ins accepted" tone="success">
+        <StatusCallout
+          title="Walk-ins are welcome"
+          tone="info"
+          action={
+            <Link className="button-secondary" href="/visit">
+              See address and hours
+            </Link>
+          }
+        >
           <p>
-            Visit information is available below. Contact the studio if you want
-            to ask about the current service options before arriving.
+            Walk-ins are welcome, but availability is not guaranteed. Check
+            visit information for the studio address and hours, or contact the
+            studio before arriving.
           </p>
         </StatusCallout>
       </div>
