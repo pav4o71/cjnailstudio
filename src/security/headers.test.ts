@@ -1,3 +1,6 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import { securityHeaders } from "./headers";
@@ -28,5 +31,12 @@ describe("production security headers", () => {
     expect(csp).toContain("frame-ancestors 'none'");
     expect(csp).toContain("object-src 'none'");
     expect(csp).not.toMatch(/googletagmanager|google-analytics|facebook\.net/i);
+  });
+
+  it("keeps Netlify CDN responses noindex until ODR-024", () => {
+    const netlify = readFileSync(join(process.cwd(), "netlify.toml"), "utf8");
+
+    expect(netlify).toMatch(/X-Robots-Tag\s*=\s*"noindex, nofollow"/);
+    expect(netlify).not.toMatch(/X-Robots-Tag\s*=\s*"index/i);
   });
 });

@@ -41,7 +41,7 @@ This register keeps owner-dependent business rules out of production configurati
 | ODR-021 | Provider data ownership/export, subprocessors/transfers, support/SLA, termination and retention | Keep the adapter provider-neutral; do not procure a provider |
 | ODR-022 | Loyalty, gift-card, package and membership terms | Omit; treat `media-020` as reference only |
 | ODR-023 | GitHub Issues/PR authorization and valid CLI/app access | Continue local branch work; do not invent links or bypass review/merge gates |
-| ODR-024 | Production host/domain/DNS, credentials, deployment approval and accountable operator | Produce portable artifacts/runbooks only |
+| ODR-024 | Production host/domain/DNS, credentials, deployment approval and accountable operator | Produce portable artifacts/runbooks only; keep fail-closed noindex. Flip checklist: `docs/runbooks/INDEXATION.md` |
 | ODR-025 | Explicit authorization for live scheduling, payments, notifications and production secrets | Keep every external capability flag off |
 
 ## Confirmed decisions already safe to implement
