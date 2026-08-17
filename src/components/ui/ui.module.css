@@ -145,7 +145,34 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-feature);
   box-shadow: var(--shadow-dialog);
+  opacity: 1;
   overflow: hidden;
+  transform: translateY(0);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+@starting-style {
+  .studioArt {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studioArt {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  @starting-style {
+    .studioArt {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 .studioArt svg {
