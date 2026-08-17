@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { site } from "@/src/content/site";
-import { createManualHandoffs } from "@/src/domain/booking";
+import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
   title: pageMetadata.customNailArt.title,
@@ -20,7 +20,13 @@ export default function CustomNailArtPage() {
       <h1>{pageMetadata.customNailArt.h1}</h1>
       <p className="lede">{pageCopy.customNailArtIntro.text}</p>
       <div className="actions">
-        <Link className="button" href="/book">
+        <Link
+          className="button"
+          href={bookingHref({
+            entryPoint: "services",
+            serviceCategoryId: "custom-nail-art",
+          })}
+        >
           Book this kind of look
         </Link>
         <a className="button-secondary" href={handoffs.whatsapp.href}>
@@ -36,7 +42,13 @@ export default function CustomNailArtPage() {
           title="Portfolio images are not published here yet"
           description={pageCopy.galleryFallback.text}
           action={
-            <Link className="button-secondary" href="/book">
+            <Link
+              className="button-secondary"
+              href={bookingHref({
+                entryPoint: "services",
+                serviceCategoryId: "custom-nail-art",
+              })}
+            >
               Book or contact the studio
             </Link>
           }

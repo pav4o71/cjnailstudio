@@ -6,6 +6,7 @@ import { galleryItems, publishedGalleryItems } from "@/src/content/gallery";
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { site } from "@/src/content/site";
+import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
   title: pageMetadata.gallery.title,
@@ -32,7 +33,10 @@ export default function GalleryPage() {
             description={pageCopy.galleryFallback.text}
             action={
               <div className="actions">
-                <Link className="button" href="/book">
+                <Link
+                  className="button"
+                  href={bookingHref({ entryPoint: "gallery" })}
+                >
                   Book or contact the studio
                 </Link>
                 <a className="button-secondary" href={instagramHref}>

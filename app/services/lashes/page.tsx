@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { site } from "@/src/content/site";
-import { createManualHandoffs } from "@/src/domain/booking";
+import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
   title: pageMetadata.lashes.title,
@@ -20,7 +20,13 @@ export default function LashesPage() {
       <h1>{pageMetadata.lashes.h1}</h1>
       <p className="lede">{pageCopy.lashesIntro.text}</p>
       <div className="actions">
-        <Link className="button" href="/book">
+        <Link
+          className="button"
+          href={bookingHref({
+            entryPoint: "services",
+            serviceCategoryId: "lashes",
+          })}
+        >
           Ask or book lash services
         </Link>
         <a className="button-secondary" href={handoffs.whatsapp.href}>
@@ -33,7 +39,13 @@ export default function LashesPage() {
           title="Lash results stay off the website until consent is cleared"
           description={pageCopy.lashesMedia.text}
           action={
-            <Link className="button-secondary" href="/book">
+            <Link
+              className="button-secondary"
+              href={bookingHref({
+                entryPoint: "services",
+                serviceCategoryId: "lashes",
+              })}
+            >
               Book or contact the studio
             </Link>
           }
