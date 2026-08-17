@@ -1,5 +1,10 @@
 import { expect, test } from "@playwright/test";
 
+import {
+  blockedClaimPattern,
+  pinnedSourceBackedCopy,
+} from "../src/content/claim-guards";
+
 const launchPages = [
   {
     path: "/",
@@ -58,9 +63,6 @@ const launchPages = [
   },
 ] as const;
 
-const blockedClaimPattern =
-  /₱|\bphp\b|gcash|deposit|matcha|beacon tower|medical towers|autoclave|\brufa\b|\bkris\b|loyalty|gift card|membership/i;
-
 test.describe("milestone 3 public pages", () => {
   for (const route of launchPages) {
     test(`${route.path} renders unique evidence-backed content`, async ({
@@ -92,7 +94,13 @@ test.describe("milestone 3 public pages", () => {
   }
 
   test("deferred routes stay absent", async ({ page }) => {
-    for (const path of ["/matcha", "/team", "/reviews"]) {
+    for (const path of [
+      "/matcha",
+      "/team",
+      "/reviews",
+      "/pricing",
+      "/beacon-tower",
+    ]) {
       const response = await page.goto(path);
       expect(response?.status()).toBe(404);
       await expect(
@@ -105,12 +113,22 @@ test.describe("milestone 3 public pages", () => {
     page,
   }) => {
     await page.goto("/gallery");
-    await expect(
-      page.getByText("0 looks published on this website."),
-    ).toBeVisible();
-    await expect(
-      page.getByRole("heading", { name: "Website gallery in preparation" }),
-    ).toBeVisible();
+    const countText = await page.locator(".lede").innerText();
+    const publishedCount = Number(/^(\d+) look/.exec(countText)?.[1] ?? -1);
+
+    if (publishedCount === 0) {
+      await expect(
+        page.getByText("0 looks published on this website."),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("heading", { name: "Website gallery in preparation" }),
+      ).toBeVisible();
+    } else {
+      expect(
+        await page.locator("#main img, #main [data-gallery-item]").count(),
+      ).toBeGreaterThan(0);
+    }
+
     await expect(
       page
         .locator("#main")
@@ -119,6 +137,40 @@ test.describe("milestone 3 public pages", () => {
       "href",
       "https://www.instagram.com/beautynailstudiobycj/",
     );
+  });
+
+  test("rendered #main pins source-backed hygiene, categories, walk-in and review themes", async ({
+    page,
+  }) => {
+    await page.goto("/studio");
+    const studioMain = await page.locator("#main").innerText();
+    expect(studioMain).toContain(pinnedSourceBackedCopy.hygieneSummary);
+    for (const heading of pinnedSourceBackedCopy.reviewThemeHeadings) {
+      expect(studioMain).toContain(heading);
+    }
+
+    await page.goto("/services");
+    const servicesMain = await page.locator("#main").innerText();
+    expect(pinnedSourceBackedCopy.categoryLabels).toHaveLength(6);
+    for (const label of pinnedSourceBackedCopy.categoryLabels) {
+      expect(servicesMain).toContain(label);
+    }
+
+    await page.goto("/visit");
+    const visitMain = await page.locator("#main").innerText();
+    expect(visitMain).toContain(pinnedSourceBackedCopy.walkInCaveat);
+
+    await page.goto("/faq");
+    await page.locator("#are-walk-ins-accepted").locator("summary").click();
+    await expect(page.locator("#are-walk-ins-accepted")).toHaveJSProperty(
+      "open",
+      true,
+    );
+    await expect(
+      page
+        .locator("#are-walk-ins-accepted")
+        .getByText(pinnedSourceBackedCopy.walkInCaveat),
+    ).toBeVisible();
   });
 
   test("FAQ uses native details for verified first-visit answers", async ({

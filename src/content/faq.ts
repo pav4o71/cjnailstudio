@@ -1,10 +1,7 @@
 import { z } from "zod";
 
-import {
-  copyBlockSchema,
-  ownerConfirmation,
-  verifiedFact,
-} from "@/src/content/evidence";
+import { copyBlockSchema, verifiedFact } from "@/src/content/evidence";
+import { pageCopy } from "@/src/content/pages";
 import { site } from "@/src/content/site";
 
 const faqItemSchema = z.object({
@@ -49,8 +46,8 @@ export const faqs = z
       question: "Are walk-ins accepted?",
       answer: {
         id: "faq-walk-ins",
-        text: "Yes, walk-ins are accepted. Availability is not guaranteed, so you can contact the studio if you want to check before arriving.",
-        evidence: ownerConfirmation(["instagram-profile", "ODR-003"]),
+        text: pageCopy.walkIn.text,
+        evidence: pageCopy.walkIn.evidence,
       },
     },
     {
