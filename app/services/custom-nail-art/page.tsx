@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
+import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
 import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
-export const metadata: Metadata = {
-  title: pageMetadata.customNailArt.title,
-  description: pageMetadata.customNailArt.description,
-};
+export const metadata: Metadata = createRouteMetadata(
+  pageMetadata.customNailArt,
+);
 
 export default function CustomNailArtPage() {
   const handoffs = createManualHandoffs(site.phone.e164);
 
   return (
     <div className="page">
+      <CanonicalLink path={pageMetadata.customNailArt.path} />
       <p className="eyebrow">Custom nail art</p>
       <h1>{pageMetadata.customNailArt.h1}</h1>
       <p className="lede">{pageCopy.customNailArtIntro.text}</p>

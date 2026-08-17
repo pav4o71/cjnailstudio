@@ -31,6 +31,7 @@ const siteSchema = z.object({
     name: z.string().min(1),
     email: z.string().email(),
     instagramHandle: z.string().startsWith("@"),
+    facebookUrl: z.string().url().startsWith("https://www.facebook.com/"),
     evidence: evidenceSchema,
   }),
   location: z.object({
@@ -54,6 +55,8 @@ export const site = siteSchema.parse({
     name: "Beauty Nail Studio by Cj",
     email: "thenailstudiobycj@gmail.com",
     instagramHandle: "@beautynailstudiobycj",
+    facebookUrl:
+      "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
     evidence: {
       evidenceClass: "verified_fact",
       sourceIds: ["facebook-profile", "instagram-profile"],

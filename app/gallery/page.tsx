@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { galleryItems, publishedGalleryItems } from "@/src/content/gallery";
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
+import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
 import { bookingHref } from "@/src/domain/booking";
 
-export const metadata: Metadata = {
-  title: pageMetadata.gallery.title,
-  description: pageMetadata.gallery.description,
-};
+export const metadata: Metadata = createRouteMetadata(pageMetadata.gallery);
 
 export default function GalleryPage() {
   const published = publishedGalleryItems(galleryItems);
@@ -19,6 +18,7 @@ export default function GalleryPage() {
 
   return (
     <div className="page">
+      <CanonicalLink path={pageMetadata.gallery.path} />
       <p className="eyebrow">Gallery</p>
       <h1>{pageMetadata.gallery.h1}</h1>
       <p className="lede" aria-live="polite">

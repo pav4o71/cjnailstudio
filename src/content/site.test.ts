@@ -8,6 +8,9 @@ describe("canonical site content", () => {
     expect(site.location.address).toContain("Knightsbridge Residences");
     expect(site.location.hours).toBe("Open daily, 12:00 noon–9:00 PM");
     expect(site.walkIns.accepted).toBe(true);
+    expect(site.business.facebookUrl).toBe(
+      "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+    );
   });
 
   it("contains only broad verified service categories", () => {
