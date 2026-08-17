@@ -1,0 +1,200 @@
+.sectionIntro {
+  max-width: var(--measure);
+}
+
+.sectionIntro h2 {
+  margin-block: 0;
+}
+
+.introCopy {
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  margin-top: var(--space-4);
+}
+
+.introCopy > :first-child,
+.statusCopy > :first-child {
+  margin-top: 0;
+}
+
+.introCopy > :last-child,
+.statusCopy > :last-child {
+  margin-bottom: 0;
+}
+
+.serviceCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  min-height: 13.5rem;
+  padding: var(--space-6);
+  position: relative;
+}
+
+.serviceCard::before {
+  background: linear-gradient(
+    90deg,
+    var(--color-brand),
+    var(--color-rose-soft)
+  );
+  border-radius: var(--radius-pill);
+  content: "";
+  height: 3px;
+  inset: 0 var(--space-6) auto;
+  position: absolute;
+}
+
+.serviceCard h2,
+.serviceCard h3 {
+  font-size: clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem);
+  margin: var(--space-4) 0;
+}
+
+.cardMark {
+  color: var(--color-brand);
+  font-size: 1.25rem;
+}
+
+.cardLink {
+  align-items: center;
+  align-self: flex-start;
+  display: inline-flex;
+  font-weight: 750;
+  margin-top: auto;
+  min-height: 2.75rem;
+}
+
+.statusCallout {
+  --status-color: var(--color-focus);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-inline-start: 4px solid var(--status-color);
+  border-radius: var(--radius-card);
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: auto 1fr;
+  max-width: var(--measure);
+  padding: var(--space-6);
+}
+
+.statusCallout h2 {
+  font-size: 1.5rem;
+  margin: 0 0 var(--space-2);
+}
+
+.statusIcon {
+  align-items: center;
+  border: 2px solid var(--status-color);
+  border-radius: 50%;
+  color: var(--status-color);
+  display: inline-flex;
+  font-weight: 800;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.info {
+  --status-color: var(--color-focus);
+}
+
+.success {
+  --status-color: var(--color-success);
+}
+
+.warning {
+  --status-color: var(--color-warning);
+}
+
+.danger {
+  --status-color: var(--color-danger);
+}
+
+.statusCopy {
+  color: var(--color-muted);
+}
+
+.statusAction,
+.fallbackAction {
+  margin-top: var(--space-4);
+}
+
+.mediaFallback {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-feature);
+  box-shadow: var(--shadow-card);
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr);
+  margin: 0;
+  max-width: var(--content);
+  overflow: hidden;
+}
+
+.fallbackArtwork {
+  background:
+    radial-gradient(circle at 28% 32%, white 0 7%, transparent 7.5%),
+    radial-gradient(
+      circle at 68% 64%,
+      var(--color-rose-soft) 0 9%,
+      transparent 9.5%
+    ),
+    linear-gradient(145deg, var(--color-surface-blush), #eab9c7);
+  min-height: 24rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.fallbackArtwork span {
+  border: 2px solid rgb(123 46 75 / 48%);
+  border-radius: 50%;
+  inset: 20% 16% 22% 24%;
+  position: absolute;
+  transform: rotate(-20deg);
+}
+
+.fallbackArtwork span:nth-child(2) {
+  border-color: rgb(255 255 255 / 76%);
+  inset: 12% 36% 48% 8%;
+}
+
+.fallbackArtwork span:nth-child(3) {
+  border-color: rgb(87 109 140 / 35%);
+  inset: 54% 8% 10% 46%;
+}
+
+.mediaFallback figcaption {
+  align-self: center;
+  padding: clamp(var(--space-6), 5vw, var(--space-12));
+}
+
+.mediaFallback h2 {
+  margin-block: 0;
+}
+
+.mediaFallback figcaption > p:not(.eyebrow) {
+  color: var(--color-muted);
+  max-width: 34rem;
+}
+
+@media (max-width: 48rem) {
+  .mediaFallback {
+    grid-template-columns: 1fr;
+  }
+
+  .fallbackArtwork {
+    min-height: 16rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .serviceCard,
+  .statusCallout,
+  .mediaFallback {
+    border: 2px solid CanvasText;
+  }
+}

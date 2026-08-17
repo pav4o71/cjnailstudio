@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
+import { ServiceCard } from "@/src/components/ui/service-card";
 import { site } from "@/src/content/site";
 
 export const metadata: Metadata = {
@@ -20,9 +20,8 @@ export default function ServicesPage() {
       </p>
       <ul className="card-grid">
         {site.services.map((service) => (
-          <li className="card" key={service.id}>
-            <h2>{service.label}</h2>
-            <Link href="/book">Ask about this service</Link>
+          <li key={service.id}>
+            <ServiceCard headingLevel="h2" label={service.label} />
           </li>
         ))}
       </ul>

@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { SectionIntro } from "@/src/components/ui/section-intro";
+import { ServiceCard } from "@/src/components/ui/service-card";
 import { site } from "@/src/content/site";
 
 export default function HomePage() {
@@ -29,13 +31,20 @@ export default function HomePage() {
         />
       </section>
       <section className="section" aria-labelledby="choose-heading">
-        <p className="eyebrow">Start with what you want</p>
-        <h2 id="choose-heading">Find a service category</h2>
+        <SectionIntro
+          eyebrow="Start with what you want"
+          heading="Find a service category"
+          headingId="choose-heading"
+        >
+          <p>
+            Choose a starting point, then contact the studio to confirm what
+            suits the look you have in mind.
+          </p>
+        </SectionIntro>
         <ul className="card-grid">
           {site.services.map((service) => (
-            <li className="card" key={service.id}>
-              <h3>{service.label}</h3>
-              <Link href="/book">Ask about this service</Link>
+            <li key={service.id}>
+              <ServiceCard label={service.label} />
             </li>
           ))}
         </ul>
