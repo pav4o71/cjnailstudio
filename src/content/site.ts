@@ -40,6 +40,10 @@ const siteSchema = z.object({
     evidence: evidenceSchema,
   }),
   phone: contactSchema,
+  walkIns: z.object({
+    accepted: z.literal(true),
+    evidence: evidenceSchema,
+  }),
   services: z.array(serviceCategorySchema).length(6),
 });
 
@@ -75,6 +79,15 @@ export const site = siteSchema.parse({
     evidence: {
       evidenceClass: "verified_fact",
       sourceIds: ["facebook-profile"],
+      capturedAt,
+      publishability: "publishable",
+    },
+  },
+  walkIns: {
+    accepted: true,
+    evidence: {
+      evidenceClass: "verified_fact",
+      sourceIds: ["instagram-profile"],
       capturedAt,
       publishability: "publishable",
     },
@@ -145,3 +158,10 @@ export const site = siteSchema.parse({
 
 export type SiteContent = z.infer<typeof siteSchema>;
 export type ServiceCategoryId = SiteContent["services"][number]["id"];
+
+export function mapsSearchUrl(address: string): string {
+  const url = new URL("https://www.google.com/maps/search/");
+  url.searchParams.set("api", "1");
+  url.searchParams.set("query", address);
+  return url.href;
+}

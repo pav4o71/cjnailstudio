@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { StatusCallout } from "@/src/components/ui/status-callout";
+import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { site } from "@/src/content/site";
 import { createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
-  title: "Book or Contact the Studio",
-  description:
-    "Contact Beauty Nail Studio by Cj by WhatsApp or phone, or view the Knightsbridge studio details.",
+  title: pageMetadata.book.title,
+  description: pageMetadata.book.description,
 };
 
 export default function BookPage() {
@@ -17,11 +17,8 @@ export default function BookPage() {
   return (
     <div className="page">
       <p className="eyebrow">Manual booking handoff</p>
-      <h1>Book or contact the studio</h1>
-      <p className="lede">
-        Choose how you&apos;d like to contact the studio. The website does not
-        show live availability or confirm an appointment.
-      </p>
+      <h1>{pageMetadata.book.h1}</h1>
+      <p className="lede">{pageCopy.bookIntro.text}</p>
       <div
         className="actions"
         role="group"
@@ -47,11 +44,7 @@ export default function BookPage() {
             </Link>
           }
         >
-          <p>
-            Walk-ins are welcome, but availability is not guaranteed. Check
-            visit information for the studio address and hours, or contact the
-            studio before arriving.
-          </p>
+          <p>{pageCopy.walkIn.text}</p>
         </StatusCallout>
       </div>
     </div>

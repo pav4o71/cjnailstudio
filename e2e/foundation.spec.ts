@@ -196,7 +196,19 @@ test.describe("no JavaScript", () => {
   });
 });
 
-for (const path of ["/", "/services", "/gallery", "/book", "/visit"]) {
+for (const path of [
+  "/",
+  "/services",
+  "/services/custom-nail-art",
+  "/services/lashes",
+  "/gallery",
+  "/studio",
+  "/visit",
+  "/faq",
+  "/book",
+  "/privacy",
+  "/terms",
+]) {
   test(`${path} has no serious or critical automated accessibility findings`, async ({
     page,
   }) => {

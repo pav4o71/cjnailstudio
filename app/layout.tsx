@@ -6,6 +6,7 @@ import { MobileActionBar } from "@/src/components/shell/mobile-action-bar";
 import { SiteFooter } from "@/src/components/shell/site-footer";
 import { SiteHeader } from "@/src/components/shell/site-header";
 import { publicLocationLabel } from "@/src/content/navigation";
+import { layoutMetadata } from "@/src/content/pages";
 import { site } from "@/src/content/site";
 import { createManualHandoffs } from "@/src/domain/booking";
 
@@ -13,11 +14,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Beauty Nail Studio by Cj | Nail & Lash Studio in Makati",
-    template: "%s | Beauty Nail Studio by Cj",
+    default: layoutMetadata.title.default,
+    template: layoutMetadata.title.template,
   },
-  description:
-    "Explore custom nail art, BIAB, soft gel, nail extensions and lash services at Knightsbridge, Makati. Book, WhatsApp or call the studio.",
+  description: layoutMetadata.description,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
