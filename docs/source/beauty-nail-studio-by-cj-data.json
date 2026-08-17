@@ -1,0 +1,2058 @@
+{
+  "metadata": {
+    "title": "Beauty Nail Studio by Cj research dataset",
+    "schema_version": "1.0.0",
+    "language": "en",
+    "captured_at": "2026-08-17T03:09:11+02:00",
+    "subject_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+    "methodology": "Public-source research using the official Facebook and Instagram profiles, Google Maps, public directories, customer discussions, competitor sites and aspirational reference sites. Facts, customer opinions and analyst inferences are explicitly separated.",
+    "limitations": [
+      "Dynamic social feeds and metrics will change after capture.",
+      "Signed social-media asset URLs expire; local retained copies are the stable planning artifacts.",
+      "Google reviews are user-generated and Google labels them unverified.",
+      "No owner interview, private records or authenticated business dashboards were used.",
+      "No complete official price list or booking policy was located."
+    ]
+  },
+  "business": {
+    "name": {
+      "value": "Beauty Nail Studio by Cj",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "category": {
+      "value": "Beauty, cosmetic and personal care / nail salon",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "address": {
+      "value": "G/F Unit R19, Knightsbridge Residences, Makati City, Metro Manila, Philippines 1210",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "phone": {
+      "value": "+63 961 740 0664",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "email": {
+      "value": "thenailstudiobycj@gmail.com",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "instagram_handle": {
+      "value": "@beautynailstudiobycj",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "hours": {
+      "value": "Open daily, 12:00 noon–9:00 PM",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "facebook_metrics": {
+      "value": {
+        "followers": 470,
+        "recommendation_percent": 92,
+        "recommendation_count": 19
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "instagram_metrics": {
+      "value": {
+        "posts": 392,
+        "followers": 793,
+        "following": 2
+      },
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "google_metrics": {
+      "value": {
+        "rating": 4.8,
+        "review_count": 135
+      },
+      "source_id": "google-maps",
+      "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "third_party_aggregate"
+    },
+    "current_location_opening": {
+      "value": "Knightsbridge location announced as officially open",
+      "source_id": "directory-mirror",
+      "source_url": "https://www.beautynailhairsalons.com/PH/Makati/422585757615944/Beauty-Nail-Studio-by-Cj",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-04-18",
+      "confidence": "medium",
+      "classification": "official_claim_mirrored_by_third_party"
+    },
+    "legacy_location_warning": {
+      "value": "Public legacy/second-location entries reference Beacon Tower 3 and Medical Towers with different phone numbers",
+      "source_id": "legacy-directory",
+      "source_url": "https://www.beautynailhairsalons.com/PH/Makati/100190976090257/Beauty-Nail-Studio-by-Cj-2",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "medium",
+      "classification": "third_party_observation",
+      "notes": "Do not merge or redirect these identities until the owner confirms the relationship."
+    }
+  },
+  "sources": [
+    {
+      "id": "facebook-profile",
+      "title": "Beauty Nail Studio by Cj — Facebook",
+      "url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_type": "official_social",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "notes": "Current profile metadata, contact details, follower count, recommendation score, recent posts and media."
+    },
+    {
+      "id": "instagram-profile",
+      "title": "@beautynailstudiobycj — Instagram",
+      "url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_type": "official_social",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "notes": "Current bio, metrics, highlights, post/reel captions and media."
+    },
+    {
+      "id": "google-maps",
+      "title": "Beauty Nail Studio by CJ — Google Maps",
+      "url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+      "source_type": "third_party_listing_and_reviews",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "notes": "Current rating, review count, address, phone, website link and a relevance-sorted review sample. Google states reviews are not verified."
+    },
+    {
+      "id": "directory-mirror",
+      "title": "Beauty Nail Studio by Cj — BeautyNailHairSalons mirror",
+      "url": "https://www.beautynailhairsalons.com/PH/Makati/422585757615944/Beauty-Nail-Studio-by-Cj",
+      "source_type": "third_party_social_mirror",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "notes": "Mirrors dated business posts and opening hours; useful for chronology but less authoritative than the official profiles."
+    },
+    {
+      "id": "corner-listing",
+      "title": "Beauty Nail Studio by CJ — Corner",
+      "url": "https://www.corner.inc/place/p11cPMoZwy2T",
+      "source_type": "third_party_curated_listing",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "notes": "Curator-authored positioning and payment claims; not treated as official confirmation."
+    },
+    {
+      "id": "reddit-june-2026",
+      "title": "Makati nail-tech recommendations — Reddit",
+      "url": "https://www.reddit.com/r/makati/comments/1u8wqws/any_recos_for_nail_tech/",
+      "source_type": "customer_generated_discussion",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-06-18",
+      "notes": "One customer reports a plain pearl-white BIAB wedding set at PHP 1,188 and later says booking was via Instagram."
+    },
+    {
+      "id": "reddit-september-2025",
+      "title": "Makati nail-salon recommendations — Reddit",
+      "url": "https://www.reddit.com/r/makati/comments/1n6aa3m/lf_nail_salon_in_makati/",
+      "source_type": "customer_generated_discussion",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2025-09-02",
+      "notes": "A customer recommends the business's older Beacon-area presence and names technician Rufa."
+    },
+    {
+      "id": "legacy-directory",
+      "title": "Beauty Nail Studio by Cj 2 — legacy/second-location directory entry",
+      "url": "https://www.beautynailhairsalons.com/PH/Makati/100190976090257/Beauty-Nail-Studio-by-Cj-2",
+      "source_type": "third_party_social_mirror",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "notes": "Contains Beacon Tower 3 and Medical Towers references with other phone numbers; relationship to the current Knightsbridge studio is unresolved."
+    },
+    {
+      "id": "dear-alice",
+      "title": "Dear Alice Nail Lounge",
+      "url": "https://dearaliceph.com/",
+      "source_type": "competitor_official_site",
+      "captured_at": "2026-08-17T03:09:11+02:00"
+    },
+    {
+      "id": "tulua",
+      "title": "Tulua Nail Spa & Cafe",
+      "url": "https://tuluawellness.com.ph/contact-us/",
+      "source_type": "competitor_official_site",
+      "captured_at": "2026-08-17T03:09:11+02:00"
+    },
+    {
+      "id": "nail-tropics",
+      "title": "Nail Tropics",
+      "url": "https://www.nailtropics.com/locations",
+      "source_type": "competitor_official_site",
+      "captured_at": "2026-08-17T03:09:11+02:00"
+    },
+    {
+      "id": "fresha-makati",
+      "title": "Fresha — Makati nail salons",
+      "url": "https://www.fresha.com/lp/en/bt/nail-salons/in/ph-makati",
+      "source_type": "marketplace_benchmark",
+      "captured_at": "2026-08-17T03:09:11+02:00"
+    },
+    {
+      "id": "nails-theory",
+      "title": "Nails Theory Beauty",
+      "url": "https://www.nailstheorybeauty.com/",
+      "source_type": "aspirational_reference_official_site",
+      "captured_at": "2026-08-17T03:09:11+02:00"
+    },
+    {
+      "id": "saturn-beauty",
+      "title": "Saturn Beauty Bar",
+      "url": "https://www.saturnbeautybar.com/",
+      "source_type": "aspirational_reference_official_site",
+      "captured_at": "2026-08-17T03:09:11+02:00"
+    },
+    {
+      "id": "nail-bar-beautique",
+      "title": "The Nail Bar & Beautique",
+      "url": "https://thenailbarandbeautique.com/",
+      "source_type": "aspirational_reference_official_site",
+      "captured_at": "2026-08-17T03:09:11+02:00"
+    }
+  ],
+  "services_and_offers": [
+    {
+      "value": "Nail services",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    {
+      "value": "Lash services / lash extensions",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    {
+      "value": "Custom nail art",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    {
+      "value": "Nail extensions",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    {
+      "value": "BIAB and BIAB infill",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    {
+      "value": "Soft gel",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    {
+      "value": "Walk-in clients accepted",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact",
+      "notes": "Repeated in official post captions."
+    },
+    {
+      "value": "10% new-client discount",
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-07-15",
+      "confidence": "high",
+      "classification": "verified_fact",
+      "notes": "Promotion was current in the sampled post; continued availability is not guaranteed."
+    },
+    {
+      "value": "10% Mother's Day nail-service promotion",
+      "source_id": "directory-mirror",
+      "source_url": "https://www.beautynailhairsalons.com/PH/Makati/422585757615944/Beauty-Nail-Studio-by-Cj",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-05-10",
+      "confidence": "medium",
+      "classification": "official_claim_mirrored_by_third_party"
+    },
+    {
+      "value": "Matcha café concept promoted together with nail and lash services",
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-06-26",
+      "confidence": "high",
+      "classification": "verified_fact",
+      "notes": "Current operating status and menu were not independently verified."
+    },
+    {
+      "value": "Plain pearl-white BIAB wedding set reported at PHP 1,188",
+      "source_id": "reddit-june-2026",
+      "source_url": "https://www.reddit.com/r/makati/comments/1u8wqws/any_recos_for_nail_tech/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-06-18",
+      "confidence": "low",
+      "classification": "customer_report",
+      "notes": "Single customer report; not an official or current price list."
+    }
+  ],
+  "content_samples": [
+    {
+      "value": {
+        "theme": "playful custom art",
+        "summary": "Spider-Man themed nail work; invites bookings and walk-ins.",
+        "engagement": {
+          "reactions": 7,
+          "shares": 1,
+          "views": 392
+        }
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-08-11",
+      "confidence": "high",
+      "classification": "verified_official_content",
+      "notes": "Date inferred from a six-days-ago label captured on 2026-08-17."
+    },
+    {
+      "value": {
+        "theme": "retention and value",
+        "summary": "Contrasts two-month retention with a fresh set and frames longevity as value.",
+        "engagement": {
+          "reactions": 3,
+          "comments": 1,
+          "shares": 1,
+          "views": 582
+        }
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-07-30",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "self-care and confidence",
+        "summary": "Positions the studio as a warm place for self-care and confidence.",
+        "engagement": {
+          "reactions": 7,
+          "shares": 3,
+          "views": 664
+        }
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-07-25",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "portfolio and promotion",
+        "summary": "Shows recent nail work and promotes a July/August 10% discount.",
+        "engagement": {
+          "reactions": 2,
+          "comments": 1,
+          "shares": 2
+        }
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-07-23",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "hygiene",
+        "summary": "Says tools are cleaned, disinfected and sanitized after every client.",
+        "engagement": {
+          "reactions": 3,
+          "shares": 1,
+          "views": 516
+        }
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-07-23",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "process and conversion",
+        "summary": "Uses a process-led nail video and repeats the new-client discount, location, phone and booking CTA.",
+        "engagement": {
+          "reactions": 1,
+          "views": 698
+        }
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-07-15",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "seasonal mood",
+        "summary": "Describes March nails as light, polished and quietly put together.",
+        "format": "carousel/moodboard"
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-03-31",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "lash conversion",
+        "summary": "Promotes lash extensions as an easy way to elevate natural beauty and invites messages or walk-ins."
+      },
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "hybrid concept",
+        "summary": "Promotes lash, nail and matcha café services together."
+      },
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-06-26",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    },
+    {
+      "value": {
+        "theme": "grand opening",
+        "summary": "Announces the Knightsbridge opening, calm/care/creativity positioning and a one-day 10% nail-service offer."
+      },
+      "source_id": "directory-mirror",
+      "source_url": "https://www.beautynailhairsalons.com/PH/Makati/422585757615944/Beauty-Nail-Studio-by-Cj",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-04-18",
+      "confidence": "medium",
+      "classification": "official_claim_mirrored_by_third_party"
+    },
+    {
+      "value": {
+        "theme": "local cultural calendar",
+        "summary": "Publishes Mother's Day, Labor Day and summer-season messages/offers."
+      },
+      "source_id": "directory-mirror",
+      "source_url": "https://www.beautynailhairsalons.com/PH/Makati/422585757615944/Beauty-Nail-Studio-by-Cj",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-05-01",
+      "confidence": "medium",
+      "classification": "official_claim_mirrored_by_third_party"
+    },
+    {
+      "value": {
+        "theme": "loyalty",
+        "summary": "A branded collect-and-stamp card visual promotes repeat visits."
+      },
+      "source_id": "instagram-profile",
+      "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": "2026-03-11",
+      "confidence": "high",
+      "classification": "verified_official_content"
+    }
+  ],
+  "reviews": {
+    "aggregate": {
+      "value": {
+        "rating": 4.8,
+        "count": 135
+      },
+      "source_id": "google-maps",
+      "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "third_party_aggregate"
+    },
+    "facebook_recommendations": {
+      "value": {
+        "recommendation_percent": 92,
+        "count": 19
+      },
+      "source_id": "facebook-profile",
+      "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "confidence": "high",
+      "classification": "verified_fact"
+    },
+    "sample": [
+      {
+        "value": {
+          "reviewer": "Claire Candelaria",
+          "rating": 5,
+          "relative_date": "2 months before capture",
+          "themes": [
+            "last-minute discovery via TikTok",
+            "foot spa and manicure",
+            "cleanliness",
+            "autoclave/sterility"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Arielle Alibudbud",
+          "rating": 5,
+          "relative_date": "2 months before capture",
+          "themes": [
+            "technician Rufa",
+            "careful service",
+            "design guidance",
+            "happy with result"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Sophie F",
+          "rating": 5,
+          "relative_date": "3 months before capture",
+          "themes": [
+            "custom frog-inspired design",
+            "matched inspiration",
+            "unique work",
+            "technician Rufa"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Beckie Cole",
+          "rating": 5,
+          "relative_date": "3 months before capture",
+          "themes": [
+            "snacks and water",
+            "slippers",
+            "professional technician",
+            "accurate design replication"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Yona Sofie Brand",
+          "rating": 5,
+          "relative_date": "1 month before capture",
+          "themes": [
+            "cute décor",
+            "professional and fast staff",
+            "cat-eye lash extensions",
+            "reasonable price"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Jasmin Ahrendsen",
+          "rating": 5,
+          "relative_date": "3 months before capture",
+          "themes": [
+            "manicure repair",
+            "kind and talented technician",
+            "friendly team",
+            "good equipment"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Sandra Moser",
+          "rating": 5,
+          "relative_date": "4 months before capture",
+          "themes": [
+            "favorite set",
+            "kind and attentive team",
+            "comfortable design consultation"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Sophia M",
+          "rating": 5,
+          "relative_date": "7 months before capture",
+          "themes": [
+            "technician Kris",
+            "visitor/tourist use case",
+            "TikTok and reviews influenced choice"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Chelsea Arceo",
+          "rating": 5,
+          "relative_date": "4 months before capture",
+          "themes": [
+            "technician Rufa",
+            "attention to detail",
+            "careful builder-gel removal",
+            "design execution"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      },
+      {
+        "value": {
+          "reviewer": "Cam L",
+          "rating": 5,
+          "relative_date": "5 months before capture",
+          "themes": [
+            "service quality",
+            "customer service"
+          ]
+        },
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "customer_review"
+      }
+    ],
+    "synthesized_themes": [
+      {
+        "value": "Accurate replication of inspiration images and custom designs",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_synthesis"
+      },
+      {
+        "value": "Named technician Rufa is repeatedly praised for skill and care",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_synthesis"
+      },
+      {
+        "value": "Cleanliness, sterilization/autoclave use and careful removal support a strong trust story",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_synthesis"
+      },
+      {
+        "value": "Hospitality details include water, snacks and slippers",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_synthesis"
+      },
+      {
+        "value": "TikTok and online reviews influence discovery among visitors and local customers",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_synthesis"
+      }
+    ]
+  },
+  "brand_signals": {
+    "positioning": [
+      {
+        "value": "Approachable Makati studio specializing in nails, lashes and custom nail art",
+        "source_id": "instagram-profile",
+        "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "analyst_synthesis"
+      },
+      {
+        "value": "Self-care and confidence are recurring emotional promises",
+        "source_id": "facebook-profile",
+        "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "analyst_synthesis"
+      },
+      {
+        "value": "The nail/lash studio plus matcha café combination is the clearest differentiating concept",
+        "source_id": "instagram-profile",
+        "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "analyst_synthesis"
+      },
+      {
+        "value": "Precision, retention, hygiene and design matching are practical proof points",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_synthesis"
+      }
+    ],
+    "tone": [
+      "warm",
+      "feminine",
+      "playful",
+      "encouraging",
+      "informal",
+      "service-oriented",
+      "locally grounded"
+    ],
+    "voice_patterns": [
+      "Short invitation-led captions with frequent calls to book, message or walk in.",
+      "Heavy use of flower, sparkle, heart and nail emoji.",
+      "Repeated location, hours and phone details in captions.",
+      "Simple English with occasional Filipino cultural references and informal phrasing.",
+      "Themes of pampering, confidence, care, creativity, value and welcome."
+    ],
+    "recurring_terms": [
+      "book now",
+      "walk-in",
+      "self-care",
+      "confidence",
+      "beautiful customers",
+      "trust the process",
+      "nail art",
+      "BIAB",
+      "lash extensions",
+      "Makati",
+      "Knightsbridge"
+    ],
+    "content_pillars": [
+      "finished nail art",
+      "nail process and retention",
+      "lash transformations",
+      "hygiene",
+      "studio experience",
+      "promotions",
+      "seasonal inspiration",
+      "location and availability",
+      "loyalty"
+    ],
+    "visual_style": {
+      "summary": "A pink-led, feminine identity combines glossy close-up service photography, playful custom nail art, lace-edged fashion moodboards and delicate ribbon/script promotional graphics.",
+      "dominant_palette": [
+        {
+          "hex": "#F1E5E2",
+          "role": "warm blush background",
+          "derivation": "clustered from official promotional graphics"
+        },
+        {
+          "hex": "#D899AB",
+          "role": "soft rose accent",
+          "derivation": "clustered from official promotional graphics"
+        },
+        {
+          "hex": "#C95B7C",
+          "role": "strong rose CTA/accent",
+          "derivation": "clustered from official promotional graphics"
+        },
+        {
+          "hex": "#B45D7A",
+          "role": "deep dusty rose",
+          "derivation": "clustered from official promotional graphics"
+        },
+        {
+          "hex": "#0B0A0A",
+          "role": "high-contrast text",
+          "derivation": "clustered from official promotional graphics"
+        },
+        {
+          "hex": "#F1E5E6",
+          "role": "pale editorial pink",
+          "derivation": "clustered from official moodboards"
+        },
+        {
+          "hex": "#576D8C",
+          "role": "occasional slate-blue seasonal accent",
+          "derivation": "clustered from official moodboards"
+        }
+      ],
+      "typography_cues": [
+        "High-contrast italic or calligraphic script for romantic campaign headlines.",
+        "Small uppercase serif or minimalist display type for editorial labels.",
+        "Plain sans serif for hours, address and practical information.",
+        "Exact typefaces were not identifiable and must not be treated as an existing licensed font system."
+      ],
+      "photography_cues": [
+        "Tight hand and lash close-ups.",
+        "Black manicure pads create contrast behind nail sets.",
+        "Vertical video frames and collages dominate social content.",
+        "Studio and storefront imagery establishes real-place credibility.",
+        "Current source quality is mixed; some Facebook downloads are thumbnails or video covers."
+      ]
+    },
+    "inferred_audiences": [
+      {
+        "value": "Makati and Knightsbridge residents/workers seeking convenient beauty services",
+        "source_id": "facebook-profile",
+        "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_inference"
+      },
+      {
+        "value": "Custom-art and BIAB clients who arrive with inspiration images",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_inference"
+      },
+      {
+        "value": "Visitors and travelers staying around Makati",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_inference"
+      },
+      {
+        "value": "Bridal and special-occasion clients",
+        "source_id": "reddit-june-2026",
+        "source_url": "https://www.reddit.com/r/makati/comments/1u8wqws/any_recos_for_nail_tech/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "low",
+        "classification": "analyst_inference"
+      },
+      {
+        "value": "Lash clients looking for natural-to-cat-eye enhancements",
+        "source_id": "google-maps",
+        "source_url": "https://www.google.com/maps/search/?api=1&query=Beauty%20Nail%20Studio%20by%20CJ%20Knightsbridge%20Makati",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_inference"
+      }
+    ]
+  },
+  "booking_signals": {
+    "verified": [
+      {
+        "value": "WhatsApp/phone booking at +63 961 740 0664",
+        "source_id": "facebook-profile",
+        "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "verified_fact"
+      },
+      {
+        "value": "Facebook Message and WhatsApp actions are exposed on the profile",
+        "source_id": "facebook-profile",
+        "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "verified_fact"
+      },
+      {
+        "value": "Instagram Message is exposed and official captions invite messages",
+        "source_id": "instagram-profile",
+        "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "verified_fact"
+      },
+      {
+        "value": "Walk-ins are accepted",
+        "source_id": "instagram-profile",
+        "source_url": "https://www.instagram.com/beautynailstudiobycj/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "verified_fact"
+      },
+      {
+        "value": "Daily service window is 12:00 noon–9:00 PM",
+        "source_id": "facebook-profile",
+        "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "high",
+        "classification": "verified_fact"
+      },
+      {
+        "value": "No first-party website booking engine was found in the reviewed official profiles",
+        "source_id": "facebook-profile",
+        "source_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "medium",
+        "classification": "analyst_observation"
+      }
+    ],
+    "third_party_claims": [
+      {
+        "value": "A customer reports booking through Instagram",
+        "source_id": "reddit-june-2026",
+        "source_url": "https://www.reddit.com/r/makati/comments/1u8wqws/any_recos_for_nail_tech/",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "low",
+        "classification": "customer_report"
+      },
+      {
+        "value": "Corner says cash and GCash are accepted and cards are not",
+        "source_id": "corner-listing",
+        "source_url": "https://www.corner.inc/place/p11cPMoZwy2T",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "low",
+        "classification": "third_party_claim",
+        "notes": "Must be confirmed by the owner before website publication or payment design."
+      },
+      {
+        "value": "Corner advises booking ahead",
+        "source_id": "corner-listing",
+        "source_url": "https://www.corner.inc/place/p11cPMoZwy2T",
+        "captured_at": "2026-08-17T03:09:11+02:00",
+        "publication_date": null,
+        "confidence": "low",
+        "classification": "third_party_claim"
+      }
+    ],
+    "unresolved_requirements": [
+      "Authoritative service catalog, descriptions, durations, prices and add-ons.",
+      "Staff roster, specialties, schedules, concurrent capacity and staff-selection policy.",
+      "Lead time, buffers, rescheduling, cancellation, late-arrival and no-show policies.",
+      "Deposit requirements, payment methods, refunds and reconciliation workflow.",
+      "How nail-art complexity, removals, repairs and inspiration images affect booking duration.",
+      "Whether walk-ins and online bookings draw from the same live capacity.",
+      "WhatsApp, SMS and email notification preferences.",
+      "Owner access and migration requirements for Google Business Profile and social channels."
+    ]
+  },
+  "competitors": {
+    "local": [
+      {
+        "name": "Tulua Nail Spa & Cafe — Somerset/Salcedo",
+        "source_id": "tulua",
+        "relationship": "Closest concept comparator because it combines nail services and a café in Makati.",
+        "public_signals": [
+          "Dedicated website",
+          "Makati branch contact and hours",
+          "beauty-plus-café positioning",
+          "multi-branch operation"
+        ],
+        "opportunity_for_subject": "Own the more intimate custom-art studio angle and explain the matcha experience more clearly."
+      },
+      {
+        "name": "Dear Alice Nail Lounge — Salcedo",
+        "source_id": "dear-alice",
+        "relationship": "Established Makati wellness/pampering competitor.",
+        "public_signals": [
+          "Detailed service and price tables",
+          "named packages",
+          "story-led positioning",
+          "group packages",
+          "testimonials and contact information"
+        ],
+        "opportunity_for_subject": "Compete with clearer service education while staying visually lighter and more art-forward."
+      },
+      {
+        "name": "Nail Tropics — Greenbelt 5 and Century City Mall",
+        "source_id": "nail-tropics",
+        "relationship": "Large multi-location Makati competitor with strong convenience and trust infrastructure.",
+        "public_signals": [
+          "Acuity reservation link",
+          "locations architecture",
+          "FAQs",
+          "customer-service guarantee",
+          "consistent branch pages"
+        ],
+        "opportunity_for_subject": "Use studio personality, technician craft and custom-art proof as differentiation while matching its booking clarity."
+      },
+      {
+        "name": "Fresha Makati marketplace",
+        "source_id": "fresha-makati",
+        "relationship": "Category-level booking benchmark rather than a single competitor.",
+        "public_signals": [
+          "Instant booking",
+          "same-day availability",
+          "service prices",
+          "durations",
+          "large comparison inventory"
+        ],
+        "opportunity_for_subject": "The website must answer service, price and availability questions as quickly as a marketplace while retaining direct customer ownership."
+      }
+    ],
+    "aspirational": [
+      {
+        "name": "Nails Theory Beauty",
+        "source_id": "nails-theory",
+        "reusable_patterns": [
+          "Result-led service chooser",
+          "first-visit guide",
+          "transparent starting prices",
+          "gallery-to-service pathways",
+          "persistent booking CTAs",
+          "booking through an external engine"
+        ]
+      },
+      {
+        "name": "Saturn Beauty Bar",
+        "source_id": "saturn-beauty",
+        "reusable_patterns": [
+          "Distinctive quiet-luxury voice",
+          "compact service/location architecture",
+          "natural/clean/ritual positioning",
+          "clear booking differences by location"
+        ]
+      },
+      {
+        "name": "The Nail Bar & Beautique",
+        "source_id": "nail-bar-beautique",
+        "reusable_patterns": [
+          "Service-specific hero slides",
+          "strong booking CTAs",
+          "work gallery",
+          "external Phorest booking",
+          "cross-category nail/lash/brow merchandising"
+        ]
+      }
+    ]
+  },
+  "media_assets": [
+    {
+      "id": "media-001",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-470211740_122116753220617748_34934517396199245_n.jpg",
+      "original_filename": "470211740_122116753220617748_34934517396199245_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t39.30808-6/470211740_122116753220617748_34934517396199245_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1362&ctp=s960x960&_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=Tq1e06h4KZ8Q7kNvwGsKmrM&_nc_oc=Adpof3qTlotne_oMAXLLgq9Hr80ELM2MBXv_BvVAFoGp5HYi1lTKqfJ6da22rtX48_M&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=LQ8vi3tuOS7XPARXbT7cKw&_nc_ss=7b2a8&oh=00_AQF3FR1_xGnH3SOdcw993qVOybIJ8sOhMG2JeG94eDLhKA&oe=6A881CAF",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 960,
+        "height": 638
+      },
+      "bytes": 65142,
+      "sha256": "066592947fcaa6eb00e93bde31a09cfaebf85e9a4c4dbab9f2f29634ebdb1d1e",
+      "exact_duplicate": false,
+      "description": "Storefront exterior with pink-and-yellow balloon installation",
+      "intended_use": "location, contact and opening imagery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-002",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-657913348_122188596614617748_9072129696272647125_n.jpg",
+      "original_filename": "657913348_122188596614617748_9072129696272647125_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t39.30808-6/657913348_122188596614617748_9072129696272647125_n.jpg?stp=dst-jpg_tt6&cstp=mx1077x1350&ctp=s851x315&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=i_r66SIcuVgQ7kNvwEGjAuY&_nc_oc=AdrGKSQEg_fll7_hmSqIJbMQDqtOrzIMYAVUPhpdn5YKlX41rRBSh1kV0GpFtc4HUaw&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=LQ8vi3tuOS7XPARXbT7cKw&_nc_ss=7b2a8&oh=00_AQE40ZhMEokWYkC02zy-T8HFSJ_ag-9c7tEsB7P_-30iIA&oe=6A883B96",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 251,
+        "height": 315
+      },
+      "bytes": 14762,
+      "sha256": "1d76c4f345de51a6deab245a9cea2e65459839c20bb044e6c8c92a770d9f02ce",
+      "exact_duplicate": false,
+      "description": "Pink polka-dot fashion and nail moodboard",
+      "intended_use": "brand mood and editorial styling reference",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-003",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-658104059_122188596698617748_1185676525842787396_n.jpg",
+      "original_filename": "658104059_122188596698617748_1185676525842787396_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/658104059_122188596698617748_1185676525842787396_n.jpg?stp=dst-jpg_tt6&cstp=mx1077x1350&ctp=s851x315&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=rT2HhOH61tAQ7kNvwHfwQX0&_nc_oc=Adr4lh9-uZSAbEdJTkWVF7c7-BXLm6nVSfu6nQTooM7uHFr_HzUJr7KzzKEUEx0C8sA&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=LQ8vi3tuOS7XPARXbT7cKw&_nc_ss=7b2a8&oh=00_AQGqZKB4ioOjD5E-RfaHhoTyKJz_z6PtcS67cc1PunL40Q&oe=6A884990",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 251,
+        "height": 315
+      },
+      "bytes": 16143,
+      "sha256": "e3623133dfdf92de3373f7ab655014d22ba9b2bed38dabc997d964fb4031ed35",
+      "exact_duplicate": false,
+      "description": "Navy, red and yellow fashion/nail moodboard",
+      "intended_use": "seasonal campaign reference",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-004",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-658841657_122188596752617748_3860518014838084914_n.jpg",
+      "original_filename": "658841657_122188596752617748_3860518014838084914_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t39.30808-6/658841657_122188596752617748_3860518014838084914_n.jpg?stp=dst-jpg_tt6&cstp=mx1077x1350&ctp=s851x315&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=FmLqBoW9wt4Q7kNvwHPMmQL&_nc_oc=AdrwWPYpstgn4laiyt44vk_n0A2VOT2jRdG-2PokywYn7FlrezJQS4E0cIaofXAQGSY&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=LQ8vi3tuOS7XPARXbT7cKw&_nc_ss=7b2a8&oh=00_AQEdB4b2i6KIVpjHA7fd8A_gotceEP_GI0XQ2a4nd6nXAA&oe=6A882460",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 251,
+        "height": 315
+      },
+      "bytes": 13978,
+      "sha256": "3f7ef5ee9f25fa7a7c63e3e5313ae288c0df0d2002a01dff0721e01c89f5cab9",
+      "exact_duplicate": false,
+      "description": "Blue-grey fashion and nail moodboard",
+      "intended_use": "seasonal campaign reference",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-005",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-659058834_122188596590617748_2872006599814127577_n.jpg",
+      "original_filename": "659058834_122188596590617748_2872006599814127577_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/659058834_122188596590617748_2872006599814127577_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1046x1307&ctp=s851x315&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Aeakl_Pu5nIQ7kNvwF1BvCM&_nc_oc=Adr-MNmGiEhPzo3fh0CsO7kA4GHxoTUdosbfUIWh7b35HX7oZM7QaE3LzV8GWqkOVjU&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=LQ8vi3tuOS7XPARXbT7cKw&_nc_ss=7b2a8&oh=00_AQGySRePnCn7TvQDnh8oSHc3Br80qcj4ZIOcW5hsvhXEmw&oe=6A883E52",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 252,
+        "height": 315
+      },
+      "bytes": 13104,
+      "sha256": "2764c51e7d3ac1b0ed8e88b041c50dc09b4072a0d9a97718dfae70882875b6e2",
+      "exact_duplicate": false,
+      "description": "Chic, minimal and trendy March promotional graphic",
+      "intended_use": "typography and campaign reference",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-006",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-661470506_122188596692617748_5546711002392346931_n.jpg",
+      "original_filename": "661470506_122188596692617748_5546711002392346931_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/661470506_122188596692617748_5546711002392346931_n.jpg?stp=dst-jpg_tt6&cstp=mx1077x1350&ctp=s851x315&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=M2MMo2SQpJQQ7kNvwFU3spx&_nc_oc=AdpuoZeyhmZy_0I5TmSrIthy2NFljf5gWphMQCLvd3wDC6ro-6U3VBPGswbU0Ar7YOg&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=LQ8vi3tuOS7XPARXbT7cKw&_nc_ss=7b2a8&oh=00_AQGlLqX4Yb59pfDeRKzRgcylE6oPfrM1D8U1YaoyF-llUw&oe=6A882493",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 251,
+        "height": 315
+      },
+      "bytes": 11871,
+      "sha256": "69d15b1bb50d0dd1aca0d70382d5a28cbcb6f9435e2a006e2ee82f2986bfd15b",
+      "exact_duplicate": false,
+      "description": "Pink-and-white fashion and nail moodboard",
+      "intended_use": "brand mood and editorial styling reference",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-007",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-746761600_1340118877648997_7042163293515822740_n.jpg",
+      "original_filename": "746761600_1340118877648997_7042163293515822740_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t51.71878-10/746761600_1340118877648997_7042163293515822740_n.jpg?stp=dst-jpg_tt6&cstp=mx640x1136&ctp=s640x1136&_nc_cat=108&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=kJXOTce8kL4Q7kNvwHjq76D&_nc_oc=AdqEuLPQwWvoSYYY995r1qQQSMJtnUk-PxDbBuReFeQ6R68Mks36pa6jNbN9Uu6xVZ8&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=5_5neM0Zt0Fb749zFyt4qQ&_nc_ss=7b2a8&oh=00_AQF0MtAh6EMrxGbhkQBcDuyS1ylt57sHs2G7h8sWLbhRqA&oe=6A882DDD",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 640,
+        "height": 1136
+      },
+      "bytes": 61958,
+      "sha256": "5d4c87d9eb70530fea9ff3cd96947b51c9d23b5fe3710eed71dd2ca90cba506e",
+      "exact_duplicate": false,
+      "description": "Technician working on a client's nails",
+      "intended_use": "process and craftsmanship",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-008",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-747888840_1018233927790200_6383495495614166618_n.jpg",
+      "original_filename": "747888840_1018233927790200_6383495495614166618_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t51.71878-10/747888840_1018233927790200_6383495495614166618_n.jpg?stp=dst-jpg_tt6&cstp=mx640x1136&ctp=s640x1136&_nc_cat=101&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=NxXU6NWDfAkQ7kNvwEcsYn2&_nc_oc=Adq_V2lexSQF7C7quNfsI2KXEAS0oKHje35uricTCjV1dTM6-3i9PIKq2TZCHMN3GP4&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=5_5neM0Zt0Fb749zFyt4qQ&_nc_ss=7b2a8&oh=00_AQF6D6iY0gRoG5CyG0GHNC_M6cK87pyiBH3kss-lZWyPug&oe=6A881E09",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 640,
+        "height": 1136
+      },
+      "bytes": 42052,
+      "sha256": "2e76e0c52b1cd760b2daa745a9e251cad9c78ea308dce98ae4f981dfb4bc8bef",
+      "exact_duplicate": false,
+      "description": "Gloved technician handling a nail detail",
+      "intended_use": "precision/process imagery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-009",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-750893447_122203805168617748_3769672813395803804_n.jpg",
+      "original_filename": "750893447_122203805168617748_3769672813395803804_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/750893447_122203805168617748_3769672813395803804_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=9M_8yBHDzMgQ7kNvwEGXrSF&_nc_oc=AdqhKii2J5TdXHvpF5DMpaV3h8np7oGk2L5V_LqsbugZO_nZxdYudEjm20PZjVYLMuY&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=1Ba9Hd7kQG0htrAdsRwVqQ&_nc_ss=7b2a8&oh=00_AQGSfLiPIi-J0Y6-ZZbF-EWWmiaC4XC0A9XbXNEGKwzzrw&oe=6A88296D",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 443,
+        "height": 590
+      },
+      "bytes": 27678,
+      "sha256": "cd585d2aa756dd02a48b28246a43ea42c539959bfd822ff51353d8e625c1e7a7",
+      "exact_duplicate": false,
+      "description": "Detailed mixed nail-art set on a black studio pad",
+      "intended_use": "gallery hero candidate",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-010",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-753282311_122203804814617748_8923048631272117739_n.jpg",
+      "original_filename": "753282311_122203804814617748_8923048631272117739_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t39.30808-6/753282311_122203804814617748_8923048631272117739_n.jpg?stp=c0.167.1542.1542a_dst-jpg_tt6&cstp=mx1542x1542&ctp=s160x160&_nc_cat=107&ccb=1-7&_nc_sid=8a6525&_nc_ohc=28cU0TLER4cQ7kNvwGYZ_RV&_nc_oc=Ado2zZqMtiyM1ZxGfqxD6cIlpyq_hG8sjEoQ3YSkxEwOFOikT_C3bQuBYLITq6VBK7A&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=gkLeHTjOfyLtij-mgW6roQ&_nc_ss=7b2a8&oh=00_AQH3MECjN1nQX4XFvlyq_toyFu4J_4SjoRZCSehNNXqq8w&oe=6A881D87",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 160,
+        "height": 160
+      },
+      "bytes": 4710,
+      "sha256": "9663b335f59c49fd89956c56eb2257350e2a885c33819958dfb41f1547f54b53",
+      "exact_duplicate": false,
+      "description": "Soft French-style manicure detail",
+      "intended_use": "gallery thumbnail",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-011",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-753337110_122203804802617748_5205277878938660099_n.jpg",
+      "original_filename": "753337110_122203804802617748_5205277878938660099_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t39.30808-6/753337110_122203804802617748_5205277878938660099_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=9T2ocLlAnAoQ7kNvwGmptVj&_nc_oc=Adpgmp4VJlm-XSSnNIEm41D1zcj3auVShRme_niHamIb0ikvq9rwIFmesUsqeW0BByc&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=1Ba9Hd7kQG0htrAdsRwVqQ&_nc_ss=7b2a8&oh=00_AQFr4KWXIVigjQqYGOa7c4rrN3cj8aT6J_aRs-PfmSyJ0A&oe=6A88198A",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 443,
+        "height": 590
+      },
+      "bytes": 27481,
+      "sha256": "ab1bf37a09206c25a1d5f8271cb2f95bec901b600a9b459a254337e192510aff",
+      "exact_duplicate": false,
+      "description": "Long embellished nail set",
+      "intended_use": "gallery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-012",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-753857355_122203805228617748_2940752691087863986_n.jpg",
+      "original_filename": "753857355_122203805228617748_2940752691087863986_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t39.30808-6/753857355_122203805228617748_2940752691087863986_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1808&ctp=s590x590&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WqABkaZ5IToQ7kNvwExTFUF&_nc_oc=AdqLWvAiVrTmtcGRipeK5yrVZ3fzj_jyO1m6C32_FTWN6GqDPbH-VzZOfhFQamxZPss&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=1Ba9Hd7kQG0htrAdsRwVqQ&_nc_ss=7b2a8&oh=00_AQHBJDZdo0UvA5_udW9CON3szi_p1iHdjBOynM2LfEliPw&oe=6A882C5D",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 590,
+        "height": 521
+      },
+      "bytes": 39561,
+      "sha256": "61f4b55b7f58519b9914862cb02fbd8ec20aea0afa1d579563ef87253f0e2994",
+      "exact_duplicate": false,
+      "description": "Bright turquoise nail set",
+      "intended_use": "gallery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-013",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-753893538_122203804736617748_8953948145840640775_n.jpg",
+      "original_filename": "753893538_122203804736617748_8953948145840640775_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/753893538_122203804736617748_8953948145840640775_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=TVrnJKELp7UQ7kNvwH85zaB&_nc_oc=AdphViiHna0TtEp2b_QWJihFOEK-fjnwS48w2KbTbURwSKULLF7pnGl2wJOWmS1dYHc&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=1Ba9Hd7kQG0htrAdsRwVqQ&_nc_ss=7b2a8&oh=00_AQEekm-Bfq-DUrOvqKgIWn9ThXoUpFL1q6u-C08szdswOQ&oe=6A883FB4",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 443,
+        "height": 590
+      },
+      "bytes": 31015,
+      "sha256": "681cb2b61230113c304fff17b163aa6688ecbcee27df597d6320ff736b6f5c55",
+      "exact_duplicate": false,
+      "description": "Graphic monochrome custom nail art",
+      "intended_use": "gallery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-014",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-755386380_1741862573673054_4607741728039939249_n.jpg",
+      "original_filename": "755386380_1741862573673054_4607741728039939249_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t51.71878-10/755386380_1741862573673054_4607741728039939249_n.jpg?stp=dst-jpg_tt6&cstp=mx640x1136&ctp=s640x1136&_nc_cat=103&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=0b5q6vXnmeIQ7kNvwFfZTXf&_nc_oc=AdqX0e4G3TNadjaNkvxZW0HHChk5s3kXJoYj7YRJFND83u9cCZanfUYpAwJU61Az2ls&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=5_5neM0Zt0Fb749zFyt4qQ&_nc_ss=7b2a8&oh=00_AQGsQyPSceE0KywlKhnZVsEGa1UfVysUq20AyNdp0EqHrg&oe=6A882D1C",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 640,
+        "height": 1136
+      },
+      "bytes": 43166,
+      "sha256": "7f1c50d9d46753ac43551ddadc13be7be427d76b1c3f43c6329806d1d9d55996",
+      "exact_duplicate": false,
+      "description": "Gloved hand cleaning tools at a sink",
+      "intended_use": "hygiene and trust section",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-015",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-755872157_122203804718617748_1066400643958791999_n.jpg",
+      "original_filename": "755872157_122203804718617748_1066400643958791999_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t39.30808-6/755872157_122203804718617748_1066400643958791999_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=r5i8vdrz0RUQ7kNvwFdiJLz&_nc_oc=Adqkm5yN75Ro29lH6THNxgH9q2mFcjCVw7XDTg0hItPcJ0di439L1FuVIoBsFL0K2i0&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=1Ba9Hd7kQG0htrAdsRwVqQ&_nc_ss=7b2a8&oh=00_AQGjYlG2INeYfL2qwtyO4YdGc2ISDJsMfc-XkzPz1QFybw&oe=6A8848D5",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 443,
+        "height": 590
+      },
+      "bytes": 27864,
+      "sha256": "e5c1bd184139f303adf57ae410bd7d7e506ccd7a6e979f63eff09d3833c730f7",
+      "exact_duplicate": false,
+      "description": "Pink manicure with delicate accents",
+      "intended_use": "gallery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-016",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-756620219_914499011001028_6191189487077588729_n.jpg",
+      "original_filename": "756620219_914499011001028_6191189487077588729_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t51.71878-10/756620219_914499011001028_6191189487077588729_n.jpg?stp=dst-jpg_tt6&cstp=mx640x1136&ctp=s640x1136&_nc_cat=104&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=TtdjCCeaDwUQ7kNvwGjwPOz&_nc_oc=Adrai839DdQ5OGsn1NU6QcrhApMochIkF9s4DMpkSPbVT3YCiBuF49Vt7kh9tq3_oe0&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=1Ba9Hd7kQG0htrAdsRwVqQ&_nc_ss=7b2a8&oh=00_AQGCBVkJML2Mw47EXiwF40wPlpE2DXOe4F_xLtHGQg2lVg&oe=6A8824E2",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 640,
+        "height": 1136
+      },
+      "bytes": 67681,
+      "sha256": "926151c7b1741b95a0f883163141cb2a67f7e6793cc5569fcf9a7d54fa63e788",
+      "exact_duplicate": false,
+      "description": "Salon interior and clients in Makati",
+      "intended_use": "studio experience and location",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-017",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-761084795_1024629683820536_7358502167044860221_n.jpg",
+      "original_filename": "761084795_1024629683820536_7358502167044860221_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-1.xx.fbcdn.net/v/t15.5256-10/761084795_1024629683820536_7358502167044860221_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1920&ctp=p960x960&_nc_cat=100&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=6-p_joAm5zMQ7kNvwEi93HV&_nc_oc=AdpV7sSLT_t7f3vVn9TMV_A3HIroRnHajCd9yEXGNNfR4dM8VT17ZJ5ER5Fav70fckQ&_nc_zt=23&_nc_ht=scontent-sof1-1.xx&_nc_gid=1Ba9Hd7kQG0htrAdsRwVqQ&_nc_ss=7b2a8&oh=00_AQG-XrIrC3nZ07KJm83rBrQE3McNaP1jU0UMcbbRbNiSMA&oe=6A8811B2",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 960,
+        "height": 1707
+      },
+      "bytes": 103862,
+      "sha256": "8ade61a5b83c0853e14000fd4e4a68a55aa257bbc1e14e20d7fae3261fc7cb86",
+      "exact_duplicate": false,
+      "description": "Two-month retention versus fresh-set comparison",
+      "intended_use": "results and value proof",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-018",
+      "platform": "facebook",
+      "local_path": "beauty-nail-studio-by-cj-media/facebook-770427207_1037756325527688_2536581778316361106_n.jpg",
+      "original_filename": "770427207_1037756325527688_2536581778316361106_n.jpg",
+      "source_page_url": "https://www.facebook.com/p/Beauty-Nail-Studio-by-Cj-61568532466562/",
+      "source_asset_url": "https://scontent-sof1-2.xx.fbcdn.net/v/t51.71878-10/770427207_1037756325527688_2536581778316361106_n.jpg?stp=dst-jpg_tt6&cstp=mx640x1136&ctp=s640x1136&_nc_cat=108&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=-dL9TQCChewQ7kNvwGnxkt7&_nc_oc=Ado0VNszQ_g8wBTw6kMO99zHCD2Udg8WR-xCbKwZFB6sQm2zTO6Iyy3nvvtvEL8N3vI&_nc_zt=23&_nc_ht=scontent-sof1-2.xx&_nc_gid=-hizXZppOUbGgkiKBHh3DA&_nc_ss=7b2a8&oh=00_AQG3v6HZ4tyLciEu2_rn-twK8cIrAJA0Pw0VI_SugPiCvA&oe=6A882DFE",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 640,
+        "height": 1136
+      },
+      "bytes": 98272,
+      "sha256": "236376109c197ac083b517e9576480d2ef9cb4bbbeed4a350c66b169535c1332",
+      "exact_duplicate": false,
+      "description": "Spider-Man themed nail collage",
+      "intended_use": "custom-art gallery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-019",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-648508764_122185930748617748_8080111069671459080_n.jpg",
+      "original_filename": "648508764_122185930748617748_8080111069671459080_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-1.cdninstagram.com/v/t39.30808-6/648508764_122185930748617748_8080111069671459080_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ig_cache_key=Mzg0NzQ5MjY0MzU0NzMzODA3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=QmS-__8WwnEQ7kNvwG0ZYbk&_nc_oc=AdrwuFDyloqm_zqbJgBu9mHZIctQ4D9Oqd-zXEJNr9C6Yt8p0gfu29ZLwYENW0Ep4YY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQF54EtbrNM6l5r2CNXMbKV86SM4_gEbrpju02u9Fx7iAA&oe=6A8839E4",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "bytes": 87440,
+      "sha256": "4dfba17ca401a23074df0b2cb2900d2c1343ed2f83055e7495d13a73f5cd625c",
+      "exact_duplicate": false,
+      "description": "Pink branded open-daily appointment graphic",
+      "intended_use": "brand color and CTA reference",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-020",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-650250109_17905860414364029_4818625126090465705_n.jpg",
+      "original_filename": "650250109_17905860414364029_4818625126090465705_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-2.cdninstagram.com/v/t51.82787-15/650250109_17905860414364029_4818625126090465705_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ig_cache_key=Mzg1MDQ1MzY2ODg4NTc4MTAwMw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=cMzUxQ02Bl4Q7kNvwHGiR3j&_nc_oc=AdoG4_0lfCxdiuX-cju-FtKfPUE9GgkOFVbv5kU6leMdDBK9wJducbf2vAjyfRyyEBA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-2.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQF9PRNKRAatRUemOdAdXLxRiGSJXRJqIO-GDqrIxdvCRQ&oe=6A88426D",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "bytes": 168103,
+      "sha256": "2bcafe768292acf3be1e6ada0b24e034e2437749d5ea30c8a590f02d35c6923b",
+      "exact_duplicate": false,
+      "description": "Pink collect-and-stamp loyalty graphic",
+      "intended_use": "loyalty and typography reference",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-021",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-729050279_17924592087364029_5654937342315440455_n.jpg",
+      "original_filename": "729050279_17924592087364029_5654937342315440455_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-1.cdninstagram.com/v/t51.82787-15/729050279_17924592087364029_5654937342315440455_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=MzkzMzIxNzk1Njk3NDM1NTA5OTE3OTI0NTkyMDg0MzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=CCmGZ97PxsAQ7kNvwGU-B_o&_nc_oc=AdoqLzpbR5ky56SSYqyyhJYBPsCda5xiBByZazLoMrCdgrL8DZCDgXw_8D-9EfdS6wA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQFxdnhANlJikelqWXsd8_liaw4otZztVuEOTfToQCmcSw&oe=6A882909",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "bytes": 93687,
+      "sha256": "47773d5828640ca5d4fdd7f4e43997d69728abcd62e5b68f62a273f1e045a01b",
+      "exact_duplicate": false,
+      "description": "Lash-extension client portrait",
+      "intended_use": "lash service proof; confirm model release before publication",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-022",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-729692082_17923266537364029_1439279447624710532_n.jpg",
+      "original_filename": "729692082_17923266537364029_1439279447624710532_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-1.cdninstagram.com/v/t51.82787-15/729692082_17923266537364029_1439279447624710532_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=MzkyNzkyMTQzODQ0NDk4MTExNTE3OTIzMjY2NTM0MzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=K6wIbp5mWUMQ7kNvwGDStII&_nc_oc=AdovVikBm5t8d-NIvBm3YRdni3dWFI8sTY81AogPQfS1gNcMSVuQj8D8T89giJPUUg8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQFPXB87aMCiorDAOZ_bxYykavmt6yezgwQ_0243T7t0RQ&oe=6A882E92",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "bytes": 163477,
+      "sha256": "dc51d1c2e6af0147a5f820f089947428d423247808e17e7345c3ce4435cf2fed",
+      "exact_duplicate": false,
+      "description": "Salon exterior/interior collage",
+      "intended_use": "location and studio experience",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-023",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-730182410_17922981060364029_8385503295398058276_n.jpg",
+      "original_filename": "730182410_17922981060364029_8385503295398058276_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-1.cdninstagram.com/v/t51.82787-15/730182410_17922981060364029_8385503295398058276_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=MzkyNjY2ODI1Mjk2NDkxOTgzNzE3OTIyOTgxMDU3MzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=ongUvZl6aVkQ7kNvwGjQm3y&_nc_oc=AdrTsauy-OiujQg89m3u8RXMjug57xiWEH6cubcIyuz7YQxCNCM2x1Xe5qoqjpl91vo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQEyDJfBpV0Mir9-DpefnbvsHxOWLNnnciwnmSwU0becsw&oe=6A88281A",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "bytes": 159451,
+      "sha256": "bb8fa6311a1c9d8a316d8ed3bc224c686a469598721fa9336f943055a8d640b6",
+      "exact_duplicate": false,
+      "description": "Lash-extension client close-up",
+      "intended_use": "lash service proof; confirm model release before publication",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-024",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-730354085_17924901636364029_5283121417445054378_n.jpg",
+      "original_filename": "730354085_17924901636364029_5283121417445054378_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-1.cdninstagram.com/v/t51.82787-15/730354085_17924901636364029_5283121417445054378_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=100&ig_cache_key=MzkzNDYyNjYyODYxOTIzNzA4NTE3OTI0OTAxNjMwMzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=is5YrHSdhJgQ7kNvwHQmYFY&_nc_oc=AdpewEJmfITPNaEowju_wehDq1W4Ah4ngdo4bWNvJM47LokjKdgvPcS6YQn2HwXwZ2E&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQFByJf_iP8L3NHoUsd77LIUmRBQXt-x0KI9rXQ4aRHbkg&oe=6A884C1A",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "bytes": 171213,
+      "sha256": "70e6766e52a6b1f5d63a52950c0ea674613d6ae5cf3802243cafae68116b40cf",
+      "exact_duplicate": false,
+      "description": "Clients receiving services in the studio",
+      "intended_use": "experience and capacity",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-025",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-745048593_17926189263364029_2762102092206019055_n.jpg",
+      "original_filename": "745048593_17926189263364029_2762102092206019055_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-2.cdninstagram.com/v/t51.82787-15/745048593_17926189263364029_2762102092206019055_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=111&ig_cache_key=Mzk0MDQwOTg2NDg1NTM0MTMwNzE3OTI2MTg5MjU3MzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=rhFLfJE9-pMQ7kNvwFbQedW&_nc_oc=AdrNXxWxQEBtkkTt_JmGKEVpliIxadtRLimj-OSRMvQkgOFQq9kOaTN4nfqeXCb-IPM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-2.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQGzac3rIClLvsIVwAUBoPTmC6E8DEMF3YPd5pRFcYs0ZQ&oe=6A884793",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "bytes": 177870,
+      "sha256": "73145fe67e37941769839b8a81157c5c886dbc0e099b5cc77c9d3fb9f79cb5f4",
+      "exact_duplicate": false,
+      "description": "Technician working on a manicure",
+      "intended_use": "craftsmanship and process",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-026",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-746041849_17926531122364029_6822020889351934529_n.jpg",
+      "original_filename": "746041849_17926531122364029_6822020889351934529_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-2.cdninstagram.com/v/t51.82787-15/746041849_17926531122364029_6822020889351934529_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=Mzk0MTkxMDAzNzQzOTc4ODA2NDE3OTI2NTMxMTE5MzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyMTUuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=M8apOetEfr4Q7kNvwH4zk1k&_nc_oc=AdqWAokEeEanIL_1CAhCGwocWrEouldEvKv3pnPdrO53urevWIFRxgBlBH3kGYLC89M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-2.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQHEUs3wGp4vezb_rN_UGTPA0wD7FVfm6cFwKeIwL8284w&oe=6A88349E",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 1215,
+        "height": 2160
+      },
+      "bytes": 199528,
+      "sha256": "de2b14353036ace4c217c7c5cf1b819150aecac20bbcab481a5674d69374d7a1",
+      "exact_duplicate": false,
+      "description": "Detailed manicure in progress",
+      "intended_use": "craftsmanship and process",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-027",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-746261097_17926043409364029_8686946033346359839_n.jpg",
+      "original_filename": "746261097_17926043409364029_8686946033346359839_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-1.cdninstagram.com/v/t51.82787-15/746261097_17926043409364029_8686946033346359839_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=104&ig_cache_key=MzkzOTcxNjY2ODE1NjQ5ODEyNzE3OTI2MDQzNDAzMzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=ZZwhcf9JTo0Q7kNvwGcPh9z&_nc_oc=Adrrhlnc4VwJ3KMIUIYcTzXI9tghnnRutBdstp8tzu6DqueSJKObPhziFh9aBrmq4so&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQGQ7spPX5w-Xt0_CBmzafCD34dQVCmPjtIomUpzJD3Idw&oe=6A884C3D",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "bytes": 167491,
+      "sha256": "6364ebd454f75c9a780c30ac3ef11c22e2e77ba9f8c04e34a23a62d4721ac6ce",
+      "exact_duplicate": false,
+      "description": "Lash-extension close-up",
+      "intended_use": "lash services; confirm model release before publication",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-028",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-753557374_17927851797364029_3872854985436042908_n.jpg",
+      "original_filename": "753557374_17927851797364029_3872854985436042908_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-2.cdninstagram.com/v/t51.82787-15/753557374_17927851797364029_3872854985436042908_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=Mzk0NzY4Mzc5OTQ2NDU0OTc1NjE3OTI3ODUxNzk0MzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=tIpjdKWBKL8Q7kNvwEzRd3C&_nc_oc=AdqYmpbIYhNaaZ04qDRdhgv6IStrfzSIpjn2VV3pRMHlkr0Bg38-APifMGUanXKzokU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-2.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQFrjKRNgM0cJ5w2h0EvVutbtoWE4LqMRkQxx8KZJhpM5Q&oe=6A8837DA",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 1290,
+        "height": 2294
+      },
+      "bytes": 394390,
+      "sha256": "011f27c380b736d00b46cd1f775d1d16363c33930f4cc84326a9758ceec9773a",
+      "exact_duplicate": false,
+      "description": "Sanitation/process video cover",
+      "intended_use": "hygiene and trust section",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-029",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-755264053_17928074889364029_8688883173660704107_n.jpg",
+      "original_filename": "755264053_17928074889364029_8688883173660704107_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-1.cdninstagram.com/v/t51.82787-15/755264053_17928074889364029_8688883173660704107_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=Mzk0ODcxNDU3MzY2Mzk0MDU5NTE3OTI4MDc0ODg2MzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyMTUuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=-iCcRSvLh3IQ7kNvwFPu1Ne&_nc_oc=AdpJ2UJVb6jUO2rfvW6UofZjvZlvjNS4lNiPy-sz8UAeJ5XyWciQyzbrh_c3crA3EGg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-1.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQHnxm016Kv2qr5Dn4pBnbxVUl4S8XMYXCH14-HVK_zqcg&oe=6A88315D",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 1215,
+        "height": 2160
+      },
+      "bytes": 186053,
+      "sha256": "5ef16602ca4911c491024d8f50dc0f2381264cc0259aedcae80a0227a3d2a5b4",
+      "exact_duplicate": false,
+      "description": "Client manicure detail",
+      "intended_use": "gallery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    },
+    {
+      "id": "media-030",
+      "platform": "instagram",
+      "local_path": "beauty-nail-studio-by-cj-media/instagram-772933572_17930811264364029_9123237983302790379_n.jpg",
+      "original_filename": "772933572_17930811264364029_9123237983302790379_n.jpg",
+      "source_page_url": "https://www.instagram.com/beautynailstudiobycj/",
+      "source_asset_url": "https://scontent-sof1-2.cdninstagram.com/v/t51.82787-15/772933572_17930811264364029_9123237983302790379_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzk2MDY3OTc4MzkyODcwODE2NDE3OTMwODExMjYxMzY0MDI5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjEyOTAuc2RyLnZpZGVvX2RlZmF1bHRfY292ZXJfZnJhbWUuQzMifQ%3D%3D&_nc_ohc=Bw7dWFtxGPUQ7kNvwEJcVp3&_nc_oc=AdqMLyKLw7UpnvjRlfV75osfY4Nv04-nZSk-wH0qIGeOz_Aa3WVnvhxi3VTV8Z5Jrvs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sof1-2.cdninstagram.com&_nc_gid=iSJAWbJOqCSumNu5F1x0hw&_nc_ss=7a22e&oh=00_AQHPy8PS0z6caLj_F6T-jGvlOqF2y1ALfYDal6Ou8M7Prw&oe=6A884B69",
+      "captured_at": "2026-08-17T03:09:11+02:00",
+      "publication_date": null,
+      "dimensions": {
+        "width": 1290,
+        "height": 2294
+      },
+      "bytes": 458759,
+      "sha256": "b0e19630b0ae7919c6064f37c2ecd6c200eb36c85f95545b5cb4e74701c3a1ba",
+      "exact_duplicate": false,
+      "description": "Spider-Man themed custom nail collage",
+      "intended_use": "custom-art gallery",
+      "ownership_basis": "Published on the business's official social profile",
+      "reuse_scope": "Retained for internal website planning. Confirm owner approval and any customer/model release before public website use.",
+      "confidence": "high",
+      "classification": "business_published_media"
+    }
+  ],
+  "website_implications": {
+    "highest_value_opportunities": [
+      "Make booking the dominant action on every mobile screen, while retaining WhatsApp and walk-in alternatives.",
+      "Turn the social portfolio into a filterable nail/lash gallery connected to bookable service categories.",
+      "Build trust with the 4.8 Google rating, selected review themes, hygiene process, autoclave claim and real studio imagery.",
+      "Explain the matcha-café concept with its own proof, menu/status and visit experience once verified.",
+      "Feature technicians and their specialties because reviews repeatedly name individual staff.",
+      "Create a first-visit/service chooser for clients who know the look they want but not the correct appointment.",
+      "Resolve old-location references and publish one canonical address/phone/location schema."
+    ],
+    "preliminary_sitemap": [
+      "Home",
+      "Services & Pricing",
+      "Nail Art Gallery",
+      "Lashes",
+      "Book",
+      "Studio & Team",
+      "Matcha Café",
+      "Reviews & Hygiene",
+      "FAQ & Policies",
+      "Contact & Directions",
+      "Privacy/Terms"
+    ],
+    "recommended_content_inventory": [
+      "Canonical business identity, address, phone, hours and map.",
+      "Service names, descriptions, starting prices, durations, add-ons and preparation/aftercare.",
+      "High-resolution portfolio tagged by style, shape, length, technique and technician.",
+      "Team biographies, specialties and availability rules.",
+      "Verified review excerpts with platform attribution.",
+      "Step-by-step hygiene and sterilization explanation.",
+      "First-visit guide and inspiration-photo guidance.",
+      "Matcha menu/availability and whether drinks require an appointment.",
+      "Booking, cancellation, deposit, late-arrival and refund policies.",
+      "Parking, building access, landmark, Grab/Waze and accessibility details."
+    ],
+    "candidate_integration_categories": [
+      {
+        "category": "booking",
+        "options_to_evaluate_later": [
+          "embedded specialist booking widget",
+          "branded hosted booking page",
+          "custom booking application"
+        ],
+        "decision_inputs": [
+          "service/staff complexity",
+          "local payment support",
+          "reminders",
+          "image upload",
+          "data portability",
+          "cost"
+        ]
+      },
+      {
+        "category": "calendar",
+        "options_to_evaluate_later": [
+          "booking-platform calendar",
+          "Google Calendar sync",
+          "custom availability engine"
+        ],
+        "decision_inputs": [
+          "staff schedules",
+          "walk-in capacity",
+          "double-booking prevention"
+        ]
+      },
+      {
+        "category": "notifications",
+        "options_to_evaluate_later": [
+          "WhatsApp",
+          "SMS",
+          "email"
+        ],
+        "decision_inputs": [
+          "customer preference",
+          "Philippines deliverability",
+          "consent",
+          "cost"
+        ]
+      },
+      {
+        "category": "payments",
+        "options_to_evaluate_later": [
+          "booking-platform deposits",
+          "payment links",
+          "custom checkout"
+        ],
+        "decision_inputs": [
+          "confirmed GCash/card support",
+          "deposit policy",
+          "refunds",
+          "fees",
+          "reconciliation"
+        ]
+      },
+      {
+        "category": "content_and_media",
+        "options_to_evaluate_later": [
+          "lightweight CMS",
+          "repository-managed content",
+          "social-feed integration"
+        ],
+        "decision_inputs": [
+          "owner editing frequency",
+          "gallery volume",
+          "performance",
+          "moderation"
+        ]
+      },
+      {
+        "category": "analytics",
+        "options_to_evaluate_later": [
+          "privacy-conscious web analytics",
+          "conversion analytics",
+          "booking-platform reporting"
+        ],
+        "decision_inputs": [
+          "booking funnel",
+          "campaign attribution",
+          "consent requirements"
+        ]
+      }
+    ]
+  },
+  "information_gaps": [
+    {
+      "priority": "P0",
+      "gap": "Complete official service menu, prices, durations and add-ons",
+      "why_it_matters": "Required to design the booking flow and avoid incorrect appointments."
+    },
+    {
+      "priority": "P0",
+      "gap": "Staff roster, specialties, working hours and capacity",
+      "why_it_matters": "Required for availability and staff selection."
+    },
+    {
+      "priority": "P0",
+      "gap": "Cancellation, rescheduling, late-arrival, no-show and deposit policies",
+      "why_it_matters": "Required before accepting automated bookings or payments."
+    },
+    {
+      "priority": "P0",
+      "gap": "Confirmed payment methods and deposit/refund workflow",
+      "why_it_matters": "Third-party cash/GCash claims are not authoritative."
+    },
+    {
+      "priority": "P0",
+      "gap": "Current matcha-café operating status, name, menu, hours and relationship to appointments",
+      "why_it_matters": "It is the strongest differentiator but currently under-documented."
+    },
+    {
+      "priority": "P1",
+      "gap": "Relationship among Knightsbridge, Beacon Tower 3, Medical Towers and 'Beauty Nail Studio by Cj 2'",
+      "why_it_matters": "Conflicting listings can confuse customers and harm local SEO."
+    },
+    {
+      "priority": "P1",
+      "gap": "Original logo files, brand fonts and formal color specifications",
+      "why_it_matters": "The extracted palette and typography are observations, not a licensed brand kit."
+    },
+    {
+      "priority": "P1",
+      "gap": "High-resolution originals and customer/model releases",
+      "why_it_matters": "Downloaded social assets are useful references but not all are publication-ready."
+    },
+    {
+      "priority": "P1",
+      "gap": "Official TikTok handle and content ownership",
+      "why_it_matters": "Reviews repeatedly mention TikTok discovery."
+    },
+    {
+      "priority": "P1",
+      "gap": "Google Business Profile ownership and canonical website field",
+      "why_it_matters": "The current listing links to Facebook; the future site should become the canonical destination."
+    },
+    {
+      "priority": "P2",
+      "gap": "Loyalty-card rules, gift cards, packages and memberships",
+      "why_it_matters": "A stamp-card visual exists, but terms were not visible."
+    },
+    {
+      "priority": "P2",
+      "gap": "Parking, building entry, accessibility and precise landmark instructions",
+      "why_it_matters": "Useful for residents, travelers and first-time visitors."
+    }
+  ],
+  "validation": {
+    "required_top_level_keys_present": true,
+    "media_file_count": 30,
+    "all_media_files_exist": true,
+    "exact_duplicate_hashes": [],
+    "exact_duplicate_count": 0,
+    "inaccessible_media_logged": {
+      "facebook": 5,
+      "instagram": 0
+    },
+    "unsupported_booking_assumptions_presented_as_fact": false,
+    "notes": "Semantic near-duplicates, such as repeated Spider-Man sets across platforms, are retained because crops and source contexts differ."
+  }
+}
