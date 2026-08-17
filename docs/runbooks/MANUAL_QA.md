@@ -40,7 +40,9 @@ Current published count is zero. Confirm the consent-safe fallback, Instagram pr
 
 ## Lighthouse (optional, operator machine)
 
-If Chrome Lighthouse is available, run it against the **production** `npm run build && npm run start` server, not `next dev`. Do not add `lighthouse` or `@netlify/plugin-lighthouse` to this repository for Milestone 6.
+If Chrome Lighthouse is available, run it against the **current preview host** (`*.netlify.app`) after Git is linked, or against `npm run build && npm run start` until that URL exists. Do not add `lighthouse` or `@netlify/plugin-lighthouse` to this repository.
+
+**Current preview host:** `https://6a82ad69563075bdcaf6fff3--cjnailstudio.netlify.app` (draft deploy of Netlify project `cjnailstudio`; GitHub is not connected for PR previews yet). Local CLI is linked; `.netlify/` stays gitignored. Do not write this host as `approvedProductionOrigin`. Do not run `netlify deploy --prod`. To enable PR deploy previews, connect this GitHub repo in the Netlify project without treating a main-branch publish as production go-live.
 
 Record, do not invent, scores. Expected intentional SEO warnings while ODR-024 is closed:
 

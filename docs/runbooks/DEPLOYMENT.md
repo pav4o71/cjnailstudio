@@ -43,7 +43,28 @@ Until ODR-024:
 - Treat Git branch deploys and draft-site URLs as previews.
 - Do not attach a custom domain or request search-engine indexing.
 
-If an operator later links Git to Netlify under ODR-024, use Git-based deploys so preview PRs stay separate from production. CLI `netlify deploy` without `--prod` is a preview only. `--prod` remains unauthorized here.
+Git-linked **preview** deploys are authorized for post-RC sharing (`*.netlify.app`). Draft and pull-request deploys are enough.
+
+Still forbidden until ODR-024 is written and approved:
+
+- `netlify deploy --prod`
+- custom domain / DNS
+- setting `approvedProductionOrigin`
+- clearing `noindex` (follow `INDEXATION.md` first)
+
+If an operator links Git to Netlify, use Git-based deploys so preview PRs stay separate from production. CLI `netlify deploy` without `--prod` is a preview only.
+
+Operator login (outside git secrets):
+
+```bash
+npx netlify login
+npx netlify sites:create
+npx netlify link
+```
+
+If a site already exists for this repo, skip `sites:create` and run `npx netlify link` only.
+
+After the first successful preview, record the hostname in `MANUAL_QA.md` as “current preview host”, never as a production origin. Do not commit `.netlify/` (gitignored) or a site ID.
 
 ## Rollback
 
