@@ -9,6 +9,7 @@ import {
   serviceCategoryHref,
 } from "@/src/content/pages";
 import { site } from "@/src/content/site";
+import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
   title: pageMetadata.services.title,
@@ -34,7 +35,7 @@ export default function ServicesPage() {
         ))}
       </ul>
       <div className="actions">
-        <Link className="button" href="/book">
+        <Link className="button" href={bookingHref({ entryPoint: "services" })}>
           Book or contact the studio
         </Link>
         <Link className="button-secondary" href="/gallery">

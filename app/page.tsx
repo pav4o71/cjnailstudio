@@ -13,7 +13,7 @@ import {
   serviceCategoryHref,
 } from "@/src/content/pages";
 import { mapsSearchUrl, site } from "@/src/content/site";
-import { createManualHandoffs } from "@/src/domain/booking";
+import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export default function HomePage() {
   const handoffs = createManualHandoffs(site.phone.e164);
@@ -27,7 +27,7 @@ export default function HomePage() {
           <h1>{pageMetadata.home.h1}</h1>
           <p className="lede">{pageCopy.homeLede.text}</p>
           <div className="actions">
-            <Link className="button" href="/book">
+            <Link className="button" href={bookingHref({ entryPoint: "home" })}>
               Book or contact the studio
             </Link>
             <a className="button-secondary" href={handoffs.whatsapp.href}>
@@ -153,7 +153,10 @@ export default function HomePage() {
             <Link className="button-secondary" href="/visit">
               Visit details
             </Link>
-            <Link className="button-secondary" href="/book">
+            <Link
+              className="button-secondary"
+              href={bookingHref({ entryPoint: "home" })}
+            >
               Book or contact the studio
             </Link>
           </div>

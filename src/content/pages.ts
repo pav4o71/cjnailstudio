@@ -8,6 +8,7 @@ import {
   verifiedFact,
 } from "@/src/content/evidence";
 import { site, type ServiceCategoryId } from "@/src/content/site";
+import { bookingHref } from "@/src/domain/booking";
 
 const pageMetaSchema = z.object({
   path: z.string().startsWith("/"),
@@ -130,6 +131,11 @@ const pageCopySchema = z.object({
   walkIn: copyBlockSchema,
   visitIntro: copyBlockSchema,
   bookIntro: copyBlockSchema,
+  bookIntent: copyBlockSchema,
+  bookLoading: copyBlockSchema,
+  bookUnavailable: copyBlockSchema,
+  bookError: copyBlockSchema,
+  bookReturn: copyBlockSchema,
   privacyIntro: copyBlockSchema,
   termsIntro: copyBlockSchema,
 });
@@ -189,6 +195,31 @@ export const pageCopy = pageCopySchema.parse({
     id: "book-intro",
     text: "Choose how you'd like to contact the studio. The website does not show live availability or confirm an appointment.",
     evidence: ownerConfirmation(["D-006"]),
+  },
+  bookIntent: {
+    id: "book-intent-note",
+    text: "Ask the studio to check what is available. Choosing a category here is not an appointment.",
+    evidence: ownerConfirmation(["D-006"]),
+  },
+  bookLoading: {
+    id: "book-loading",
+    text: "WhatsApp, phone and visit options stay available. A live booking service is not connected.",
+    evidence: ownerConfirmation(["D-006", "ODR-008"]),
+  },
+  bookUnavailable: {
+    id: "book-unavailable",
+    text: "Online scheduling is not available on this website. Use WhatsApp, phone or a walk-in visit instead.",
+    evidence: ownerConfirmation(["D-006", "D-012", "ODR-008", "ODR-025"]),
+  },
+  bookError: {
+    id: "book-error",
+    text: "The website could not complete an online booking step. WhatsApp, phone and walk-in options still work.",
+    evidence: ownerConfirmation(["D-006", "ODR-008"]),
+  },
+  bookReturn: {
+    id: "book-return",
+    text: "If you came back from another site, this page still cannot confirm an appointment. Contact the studio to check your request.",
+    evidence: ownerConfirmation(["D-006", "D-011"]),
   },
   privacyIntro: {
     id: "privacy-intro",
@@ -273,7 +304,7 @@ export const resultChooser = z.array(chooserOptionSchema).parse([
   {
     id: "chooser-unsure",
     label: "I'm not sure yet",
-    href: "/book",
+    href: bookingHref({ entryPoint: "home" }),
   },
 ]);
 
@@ -330,7 +361,10 @@ export function serviceCategoryHref(id: ServiceCategoryId): string {
     case "lashes":
       return "/services/lashes";
     default:
-      return "/book";
+      return bookingHref({
+        entryPoint: "services",
+        serviceCategoryId: id,
+      });
   }
 }
 

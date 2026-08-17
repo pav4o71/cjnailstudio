@@ -193,11 +193,11 @@ test.describe("milestone 3 public pages", () => {
     await page.goto("/services/custom-nail-art");
     await expect(
       page.getByRole("link", { name: "Book this kind of look" }),
-    ).toHaveAttribute("href", "/book");
+    ).toHaveAttribute("href", "/book?from=services&category=custom-nail-art");
     await page.goto("/services/lashes");
     await expect(
       page.getByRole("link", { name: "Ask or book lash services" }),
-    ).toHaveAttribute("href", "/book");
+    ).toHaveAttribute("href", "/book?from=services&category=lashes");
     const lashesText = await page.locator("#main").innerText();
     expect(lashesText).not.toMatch(/classic|volume|hybrid|mega|cat-eye/i);
   });

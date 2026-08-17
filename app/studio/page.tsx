@@ -5,6 +5,7 @@ import { SectionIntro } from "@/src/components/ui/section-intro";
 import { StatusCallout } from "@/src/components/ui/status-callout";
 import { pageCopy, pageMetadata, reviewThemes } from "@/src/content/pages";
 import { mapsSearchUrl, site } from "@/src/content/site";
+import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
   title: pageMetadata.studio.title,
@@ -20,7 +21,7 @@ export default function StudioPage() {
       <h1>{pageMetadata.studio.h1}</h1>
       <p className="lede">{pageCopy.studioIntro.text}</p>
       <div className="actions">
-        <Link className="button" href="/book">
+        <Link className="button" href={bookingHref({ entryPoint: "studio" })}>
           Book or contact the studio
         </Link>
         <a className="button-secondary" href={directions}>

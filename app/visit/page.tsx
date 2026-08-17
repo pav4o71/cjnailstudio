@@ -5,7 +5,7 @@ import { StatusCallout } from "@/src/components/ui/status-callout";
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { mapsSearchUrl, site } from "@/src/content/site";
-import { createManualHandoffs } from "@/src/domain/booking";
+import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
   title: pageMetadata.visit.title,
@@ -48,7 +48,10 @@ export default function VisitPage() {
           <a className="button" href={directions}>
             Search this address in Google Maps
           </a>
-          <Link className="button-secondary" href="/book">
+          <Link
+            className="button-secondary"
+            href={bookingHref({ entryPoint: "visit" })}
+          >
             Book or contact the studio
           </Link>
         </div>

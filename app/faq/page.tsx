@@ -4,7 +4,7 @@ import Link from "next/link";
 import { faqs } from "@/src/content/faq";
 import { pageMetadata } from "@/src/content/pages";
 import { site } from "@/src/content/site";
-import { createManualHandoffs } from "@/src/domain/booking";
+import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = {
   title: pageMetadata.faq.title,
@@ -34,7 +34,7 @@ export default function FaqPage() {
         ))}
       </div>
       <div className="actions">
-        <Link className="button" href="/book">
+        <Link className="button" href={bookingHref({ entryPoint: "faq" })}>
           Book or contact the studio
         </Link>
         <a className="button-secondary" href={handoffs.whatsapp.href}>
