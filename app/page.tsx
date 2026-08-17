@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { ServiceCard } from "@/src/components/ui/service-card";
@@ -12,8 +14,11 @@ import {
   serviceCategoryAction,
   serviceCategoryHref,
 } from "@/src/content/pages";
+import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
 import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
+
+export const metadata: Metadata = createRouteMetadata(pageMetadata.home);
 
 export default function HomePage() {
   const handoffs = createManualHandoffs(site.phone.e164);
@@ -21,6 +26,7 @@ export default function HomePage() {
 
   return (
     <div className="page">
+      <CanonicalLink path={pageMetadata.home.path} />
       <section className="hero">
         <div>
           <p className="eyebrow">Knightsbridge, Makati</p>

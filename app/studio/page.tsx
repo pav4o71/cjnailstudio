@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { StatusCallout } from "@/src/components/ui/status-callout";
 import { pageCopy, pageMetadata, reviewThemes } from "@/src/content/pages";
+import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
 import { bookingHref } from "@/src/domain/booking";
 
-export const metadata: Metadata = {
-  title: pageMetadata.studio.title,
-  description: pageMetadata.studio.description,
-};
+export const metadata: Metadata = createRouteMetadata(pageMetadata.studio);
 
 export default function StudioPage() {
   const directions = mapsSearchUrl(site.location.address);
 
   return (
     <div className="page">
+      <CanonicalLink path={pageMetadata.studio.path} />
       <p className="eyebrow">Studio</p>
       <h1>{pageMetadata.studio.h1}</h1>
       <p className="lede">{pageCopy.studioIntro.text}</p>

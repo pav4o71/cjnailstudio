@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { faqs } from "@/src/content/faq";
 import { pageMetadata } from "@/src/content/pages";
+import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
 import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
-export const metadata: Metadata = {
-  title: pageMetadata.faq.title,
-  description: pageMetadata.faq.description,
-};
+export const metadata: Metadata = createRouteMetadata(pageMetadata.faq);
 
 export default function FaqPage() {
   const handoffs = createManualHandoffs(site.phone.e164);
 
   return (
     <div className="page page-narrow">
+      <CanonicalLink path={pageMetadata.faq.path} />
       <p className="eyebrow">FAQ</p>
       <h1>{pageMetadata.faq.h1}</h1>
       <p className="lede">

@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 
+import { LocalBusinessJsonLd } from "@/src/components/seo/json-ld";
 import { MobileActionBar } from "@/src/components/shell/mobile-action-bar";
 import { SiteFooter } from "@/src/components/shell/site-footer";
 import { SiteHeader } from "@/src/components/shell/site-header";
 import { publicLocationLabel } from "@/src/content/navigation";
 import { layoutMetadata } from "@/src/content/pages";
+import { robotsPolicy } from "@/src/content/seo";
 import { site } from "@/src/content/site";
 import { createManualHandoffs } from "@/src/domain/booking";
 
@@ -18,6 +20,15 @@ export const metadata: Metadata = {
     template: layoutMetadata.title.template,
   },
   description: layoutMetadata.description,
+  robots: {
+    index: robotsPolicy.index,
+    follow: robotsPolicy.follow,
+  },
+  openGraph: {
+    type: "website",
+    siteName: site.business.name,
+    locale: "en",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -38,6 +49,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: `document.documentElement.classList.remove("no-js");`,
           }}
         />
+        <LocalBusinessJsonLd />
         <a className="skip-link" href="#main">
           Skip to main content
         </a>

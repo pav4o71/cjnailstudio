@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { StatusCallout } from "@/src/components/ui/status-callout";
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
+import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
 import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
-export const metadata: Metadata = {
-  title: pageMetadata.visit.title,
-  description: pageMetadata.visit.description,
-};
+export const metadata: Metadata = createRouteMetadata(pageMetadata.visit);
 
 export default function VisitPage() {
   const directions = mapsSearchUrl(site.location.address);
@@ -19,6 +18,7 @@ export default function VisitPage() {
 
   return (
     <div className="page">
+      <CanonicalLink path={pageMetadata.visit.path} />
       <p className="eyebrow">Visit</p>
       <h1>{pageMetadata.visit.h1}</h1>
       <p className="lede">{pageCopy.visitIntro.text}</p>

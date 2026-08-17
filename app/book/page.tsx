@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 
 import { BookingPage } from "@/src/components/booking/booking-page";
+import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { pageMetadata } from "@/src/content/pages";
+import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
 import { createManualHandoffs, resolveBookingView } from "@/src/domain/booking";
 import { createProductionAdapter } from "@/src/domain/booking-config";
 import { parseBookingQuery } from "@/src/domain/booking-query";
 
-export const metadata: Metadata = {
-  title: pageMetadata.book.title,
-  description: pageMetadata.book.description,
-};
+export const metadata: Metadata = createRouteMetadata(pageMetadata.book);
 
 export default async function BookPage({
   searchParams,
@@ -32,11 +31,14 @@ export default async function BookPage({
   )?.label;
 
   return (
-    <BookingPage
-      categoryLabel={categoryLabel}
-      handoffs={createManualHandoffs(site.phone.e164)}
-      intent={query.intent}
-      view={resolution.view}
-    />
+    <>
+      <CanonicalLink path={pageMetadata.book.path} />
+      <BookingPage
+        categoryLabel={categoryLabel}
+        handoffs={createManualHandoffs(site.phone.e164)}
+        intent={query.intent}
+        view={resolution.view}
+      />
+    </>
   );
 }
