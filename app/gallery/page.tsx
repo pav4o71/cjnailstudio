@@ -2,30 +2,47 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { MediaFallback } from "@/src/components/ui/media-fallback";
+import { galleryItems, publishedGalleryItems } from "@/src/content/gallery";
+import { instagramProfileUrl } from "@/src/content/navigation";
+import { pageCopy, pageMetadata } from "@/src/content/pages";
+import { site } from "@/src/content/site";
 
 export const metadata: Metadata = {
-  title: "Nail Art Gallery",
-  description:
-    "Gallery information and a consent-safe contact path for Beauty Nail Studio by Cj.",
+  title: pageMetadata.gallery.title,
+  description: pageMetadata.gallery.description,
 };
 
 export default function GalleryPage() {
+  const published = publishedGalleryItems(galleryItems);
+  const instagramHref = instagramProfileUrl(site.business.instagramHandle);
+
   return (
     <div className="page">
       <p className="eyebrow">Gallery</p>
-      <h1>Nail art by Beauty Nail Studio by Cj</h1>
-      <div className="section">
-        <MediaFallback
-          eyebrow="Consent-safe gallery"
-          title="Website gallery in preparation"
-          description="Portfolio images are being reviewed for website-use rights and customer consent. No social image is published here by default. You can still discuss the look you have in mind with the studio."
-          action={
-            <Link className="button" href="/book">
-              Book or contact the studio
-            </Link>
-          }
-        />
-      </div>
+      <h1>{pageMetadata.gallery.h1}</h1>
+      <p className="lede" aria-live="polite">
+        {published.length} look{published.length === 1 ? "" : "s"} published on
+        this website.
+      </p>
+      {published.length === 0 ? (
+        <div className="section">
+          <MediaFallback
+            eyebrow="Consent-safe gallery"
+            title="Website gallery in preparation"
+            description={pageCopy.galleryFallback.text}
+            action={
+              <div className="actions">
+                <Link className="button" href="/book">
+                  Book or contact the studio
+                </Link>
+                <a className="button-secondary" href={instagramHref}>
+                  Instagram {site.business.instagramHandle}
+                </a>
+              </div>
+            }
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
