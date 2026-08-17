@@ -72,6 +72,8 @@ function digits(e164: string): string {
   return e164.replace(/\D/g, "");
 }
 
+export const MANUAL_VISIT_ORIGIN = "https://local.invalid";
+
 export function createManualHandoffs(
   e164: string,
   visitPath = "/visit",
@@ -83,7 +85,7 @@ export function createManualHandoffs(
   return {
     whatsapp: new URL(`https://wa.me/${digits(e164)}`),
     phone: new URL(`tel:${e164}`),
-    visit: new URL(visitPath, "https://local.invalid"),
+    visit: new URL(visitPath, MANUAL_VISIT_ORIGIN),
   };
 }
 
@@ -153,6 +155,17 @@ export function isSafeHandoffUrl(
   return allowlist.httpsHosts.includes(url.host);
 }
 
+function isSafeWalkInUrl(url: URL): boolean {
+  return (
+    isSafeHandoffUrl(url, {
+      httpsHosts: [new URL(MANUAL_VISIT_ORIGIN).host],
+    }) &&
+    url.origin === MANUAL_VISIT_ORIGIN &&
+    url.pathname.startsWith("/") &&
+    !url.pathname.startsWith("//")
+  );
+}
+
 export function sanitizeHandoff(
   handoff: BookingHandoff,
   allowlist: Readonly<{
@@ -180,8 +193,7 @@ export function sanitizeHandoff(
   }
 
   if (handoff.channel === "walk-in") {
-    return handoff.href.pathname.startsWith("/") &&
-      !handoff.href.protocol.startsWith("javascript")
+    return isSafeWalkInUrl(handoff.href)
       ? handoff
       : { kind: "unavailable", reason: "misconfigured" };
   }

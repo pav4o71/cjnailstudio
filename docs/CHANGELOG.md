@@ -35,7 +35,7 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 ### Validated
 
 - Formatting, lint, strict type checking and production build pass.
-- 40 unit and component tests pass.
+- 41 unit and component tests pass.
 - 126 Playwright checks pass across mobile, tablet and desktop; 6 intentional skips are the hamburger/no-JS tests on desktop and the 64rem breakpoint probe on mobile/tablet. The suite includes serious/critical axe checks on 11 launch routes × 3 viewports, plus the open mobile/tablet menu.
 - GitHub Actions CI run #3 passes on merged PR #1; Milestone 2 PR #2 `validate` and `e2e` checks passed. Milestone 3 is on draft PR #3 stacked on M2 and is not merged. Milestone 4 is implemented on `codex/milestone-4-booking` and is not merged.
 
@@ -44,3 +44,4 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 - No credentials, customer data or production integrations added.
 - Retained social media remains planning evidence only and is not approved for publication.
 - Production booking mode fails closed to `manual-handoff`; hosted-redirect, payments and notifications stay off. Untrusted return query values cannot confirm an appointment or open-redirect.
+- Walk-in handoff URLs must use the dummy `https://local.invalid` origin; external HTTPS walk-in hrefs fail closed. Milestone 4 is not merged.

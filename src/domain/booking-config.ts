@@ -21,6 +21,5 @@ export function readProductionBookingMode(
 export function createProductionAdapter(
   phoneE164: string,
 ): ManualHandoffAdapter {
-  void readProductionBookingMode();
   return new ManualHandoffAdapter(createManualHandoffs(phoneE164));
 }

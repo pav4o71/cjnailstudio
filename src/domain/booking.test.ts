@@ -7,6 +7,7 @@ import {
   bookingHref,
   createManualHandoffs,
   isSafeHandoffUrl,
+  MANUAL_VISIT_ORIGIN,
   ManualHandoffAdapter,
   resolveBookingView,
   sanitizeHandoff,
@@ -36,6 +37,7 @@ describe("manual booking handoff", () => {
   it("generates controlled contact destinations", () => {
     expect(handoffs.whatsapp.href).toBe("https://wa.me/639617400664");
     expect(handoffs.phone.href).toBe("tel:+639617400664");
+    expect(handoffs.visit.origin).toBe(MANUAL_VISIT_ORIGIN);
     expect(handoffs.visit.pathname).toBe("/visit");
   });
 
@@ -146,6 +148,41 @@ describe("controlled booking intents and URL security", () => {
       }),
     ).toBe(true);
   });
+
+  it("rejects external HTTPS walk-in hrefs and keeps the local visit path", () => {
+    const allowlist = { httpsHosts: [] as const };
+    const evil = sanitizeHandoff(
+      {
+        kind: "navigate",
+        channel: "walk-in",
+        href: new URL("https://evil.example/visit"),
+        external: false,
+      },
+      allowlist,
+    );
+    expect(evil).toEqual({
+      kind: "unavailable",
+      reason: "misconfigured",
+    });
+
+    const visit = sanitizeHandoff(
+      {
+        kind: "navigate",
+        channel: "walk-in",
+        href: createManualHandoffs("+639617400664").visit,
+        external: false,
+      },
+      allowlist,
+    );
+    expect(visit).toMatchObject({
+      kind: "navigate",
+      channel: "walk-in",
+    });
+    if (visit.kind === "navigate") {
+      expect(visit.href.origin).toBe(MANUAL_VISIT_ORIGIN);
+      expect(visit.href.pathname).toBe("/visit");
+    }
+  });
 });
 
 describe("production booking config", () => {
@@ -177,9 +214,11 @@ describe("production booking config", () => {
   it("keeps fake hosted code out of production routes and UI", () => {
     const productionFiles = [
       ...listSourceFiles(join(process.cwd(), "app")),
-      ...listSourceFiles(join(process.cwd(), "src/components")),
-      join(process.cwd(), "src/domain/booking-config.ts"),
-    ].filter((file) => !file.includes(".test."));
+      ...listSourceFiles(join(process.cwd(), "src")),
+    ].filter(
+      (file) =>
+        !file.includes(".test.") && !file.endsWith("fake-hosted-adapter.ts"),
+    );
 
     for (const file of productionFiles) {
       const source = readFileSync(file, "utf8");
