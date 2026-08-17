@@ -1,6 +1,44 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
+test("shell exposes current navigation and minimum-size interactive targets", async ({
+  page,
+}) => {
+  await page.goto("/services");
+  const currentLinks = page.locator('a[aria-current="page"]');
+  await expect(currentLinks).toHaveCount(2);
+  await expect(currentLinks).toHaveText(["Services", "Services"]);
+
+  const targets = page.locator("a, button");
+  const count = await targets.count();
+  for (let index = 0; index < count; index += 1) {
+    const target = targets.nth(index);
+    if (!(await target.isVisible())) continue;
+    const box = await target.boundingBox();
+    expect(box?.height ?? 0).toBeGreaterThanOrEqual(44);
+  }
+});
+
+test("mobile modal navigation closes with Escape and restores focus", async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "Mobile shell behavior");
+  await page.goto("/");
+
+  const trigger = page.getByRole("button", { name: /Menu/ });
+  await trigger.focus();
+  await trigger.press("Enter");
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Close menu" })).toBeFocused();
+
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await expect(
+    page.getByRole("navigation", { name: "Quick booking actions" }),
+  ).toBeVisible();
+});
+
 test("primary pages and manual booking handoff are reachable", async ({
   page,
 }) => {

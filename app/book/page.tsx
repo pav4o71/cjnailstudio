@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { StatusCallout } from "@/src/components/ui/status-callout";
 import { site } from "@/src/content/site";
 import { createManualHandoffs } from "@/src/domain/booking";
 
@@ -36,12 +37,13 @@ export default function BookPage() {
           Visit and walk-in information
         </Link>
       </div>
-      <div className="callout section">
-        <h2>Walk-ins accepted</h2>
-        <p>
-          Visit information is available below. Contact the studio if you want
-          to ask about the current service options before arriving.
-        </p>
+      <div className="section">
+        <StatusCallout title="Walk-ins accepted" tone="success">
+          <p>
+            Visit information is available below. Contact the studio if you want
+            to ask about the current service options before arriving.
+          </p>
+        </StatusCallout>
       </div>
     </div>
   );
