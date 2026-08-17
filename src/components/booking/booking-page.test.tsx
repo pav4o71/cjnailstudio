@@ -47,6 +47,8 @@ describe("booking page states", () => {
     ).toHaveAttribute("href", "/visit");
     expect(document.body.textContent).not.toMatch(confirmationPattern);
     expect(document.body.textContent).not.toContain("booking.test.invalid");
+    expect(screen.getByText("Contact the studio")).toBeVisible();
+    expect(document.body.textContent).not.toContain("Manual booking handoff");
   });
 
   it("shows loading, unavailable, error and return copy without a confirmation", () => {
