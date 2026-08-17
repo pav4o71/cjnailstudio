@@ -10,7 +10,7 @@ Local Milestone 1 evidence is green: formatting, lint, strict TypeScript, 6 unit
 
 Milestone 2 is on draft PR [#2](https://github.com/pav4o71/cjnailstudio/pull/2) (`codex/milestone-2-design-system`, HEAD `f76ac28`). Review verdict was ready to merge when CI is green; GitHub Actions checks `validate` and `e2e` passed on that PR.
 
-Milestone 3 page content is implemented on `codex/milestone-3-pages-content` (not merged). Launch routes from `docs/SITEMAP.md` now have evidence-backed pages. Gallery is a consent-safe empty state. `/book` remains manual-handoff. Deferred routes (`/matcha`, `/team`, extra locations, pricing) stay absent. Do not treat Milestone 3 as complete until review and CI on its own PR are green.
+Milestone 3 page content is implemented on `codex/milestone-3-pages-content` (not merged). Launch routes from `docs/SITEMAP.md` now have evidence-backed pages. Gallery is a consent-safe empty state. `/book` remains manual-handoff. Deferred routes (`/matcha`, `/team`, extra locations, pricing) stay absent. Claim/media tests were hardened on this branch to catch leftover ratings, durations, policy and payment wording, including JSX-only strings in rendered `#main`. Do not treat Milestone 3 as complete until review and CI on its own PR are green.
 
 GitHub issue creation is currently blocked: the connected GitHub app returns HTTP 403 for Issues, and the local `gh` session is invalid. Git pushes work, and PRs can be managed through the signed-in browser fallback. Issue links remain pending until GitHub authorization is repaired; this does not relax the required review gates.
 
@@ -20,7 +20,7 @@ GitHub issue creation is currently blocked: the connected GitHub app returns HTT
 | --- | --- | --- | --- | --- |
 | 1 — Research, architecture, foundation and CI | Blocked by GitHub Issues permission | `codex/milestone-1-foundation` | [#1](https://github.com/pav4o71/cjnailstudio/pull/1) | Merged; CI green |
 | 2 — Design system, shell and components | Blocked by GitHub Issues permission | `codex/milestone-2-design-system` | [#2](https://github.com/pav4o71/cjnailstudio/pull/2) (draft) | Review passed; CI green |
-| 3 — Evidence-backed pages and content | Blocked by GitHub Issues permission | `codex/milestone-3-pages-content` | Pending | Implemented on branch; not merged |
+| 3 — Evidence-backed pages and content | Blocked by GitHub Issues permission | `codex/milestone-3-pages-content` | Pending | Implemented on branch with test-hardening; not merged |
 | 4 — Booking-first UX and adapter | Blocked by GitHub Issues permission | `codex/milestone-4-booking` | Pending | Not started |
 | 5 — SEO, analytics, accessibility, privacy and security | Blocked by GitHub Issues permission | `codex/milestone-5-quality` | Pending | Not started |
 | 6 — QA, performance and deployment readiness | Blocked by GitHub Issues permission | `codex/milestone-6-release` | Pending | Not started |

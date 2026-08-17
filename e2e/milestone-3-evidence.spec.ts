@@ -20,8 +20,12 @@ test("capture milestone 3 page evidence", async ({ page }, testInfo) => {
     ["custom-nail-art.png", "/services/custom-nail-art"],
     ["lashes.png", "/services/lashes"],
     ["studio.png", "/studio"],
+    ["gallery.png", "/gallery"],
+    ["visit.png", "/visit"],
+    ["book.png", "/book"],
     ["faq.png", "/faq"],
     ["privacy.png", "/privacy"],
+    ["terms.png", "/terms"],
   ] as const;
 
   for (const [name, path] of shots) {

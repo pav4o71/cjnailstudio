@@ -357,8 +357,13 @@ p {
   align-items: center;
   cursor: pointer;
   display: flex;
+  gap: var(--space-4);
   list-style: none;
   min-height: 3rem;
+}
+
+.faq-list summary::marker {
+  content: "";
 }
 
 .faq-list summary::-webkit-details-marker {
@@ -366,9 +371,23 @@ p {
 }
 
 .faq-list summary h2 {
+  flex: 1;
   font-size: 1.125rem;
   line-height: 1.4;
   margin: 0;
+}
+
+.faq-list summary::after {
+  color: var(--color-brand-strong);
+  content: "+";
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.faq-list details[open] summary::after {
+  content: "−";
 }
 
 .faq-list details p {
