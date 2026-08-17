@@ -45,5 +45,6 @@ describe("design-system components", () => {
       screen.getByText("Images are being reviewed for consent."),
     ).toBeVisible();
     expect(container.querySelector("img")).toBeNull();
+    expect(container.querySelector("svg")).not.toBeNull();
   });
 });

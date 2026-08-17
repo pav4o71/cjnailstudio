@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { StudioArt } from "./studio-art";
 import styles from "./ui.module.css";
 
 type MediaFallbackProps = Readonly<{
@@ -18,9 +19,7 @@ export function MediaFallback({
   return (
     <figure className={styles.mediaFallback}>
       <div className={styles.fallbackArtwork} aria-hidden="true">
-        <span />
-        <span />
-        <span />
+        <StudioArt variant="fallback" />
       </div>
       <figcaption>
         <p className="eyebrow">{eyebrow}</p>

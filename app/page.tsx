@@ -6,6 +6,7 @@ import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { ServiceCard } from "@/src/components/ui/service-card";
 import { StatusCallout } from "@/src/components/ui/status-callout";
+import { StudioArt } from "@/src/components/ui/studio-art";
 import {
   pageCopy,
   pageMetadata,
@@ -16,39 +17,31 @@ import {
 } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
-import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
+import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.home);
 
 export default function HomePage() {
-  const handoffs = createManualHandoffs(site.phone.e164);
   const directions = mapsSearchUrl(site.location.address);
 
   return (
     <div className="page">
       <CanonicalLink path={pageMetadata.home.path} />
       <section className="hero">
-        <div>
-          <p className="eyebrow">Knightsbridge, Makati</p>
-          <h1>{pageMetadata.home.h1}</h1>
-          <p className="lede">{pageCopy.homeLede.text}</p>
-          <div className="actions">
-            <Link className="button" href={bookingHref({ entryPoint: "home" })}>
-              Book or contact the studio
-            </Link>
-            <a className="button-secondary" href={handoffs.whatsapp.href}>
-              WhatsApp the studio
-            </a>
-            <Link className="button-secondary" href="/services">
-              View services
-            </Link>
-          </div>
+        <p className="eyebrow">Knightsbridge, Makati</p>
+        <h1>{pageMetadata.home.h1}</h1>
+        <p className="visually-hidden">
+          Decorative studio artwork; no customer image is used.
+        </p>
+        <div className="hero-cta actions">
+          <Link className="button" href={bookingHref({ entryPoint: "home" })}>
+            Book or contact the studio
+          </Link>
         </div>
-        <div
-          className="hero-art"
-          role="img"
-          aria-label="Abstract blush artwork; no customer image is used"
-        />
+        <div className="hero-art-slot">
+          <StudioArt variant="hero" />
+        </div>
+        <p className="lede">{pageCopy.homeLede.text}</p>
       </section>
 
       <section className="section" aria-labelledby="choose-heading">
