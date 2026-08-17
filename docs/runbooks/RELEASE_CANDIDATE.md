@@ -2,26 +2,24 @@
 
 `IMPLEMENTATION_PLAN.md` Milestone 6 exit includes tagging `release-candidate` on smoke-tested `main` after required PR/CI/review gates are green.
 
-**Do not create that tag now.** Milestones 2–5 are not merged to `main`. Tagging `main` at `8f06d44` (Milestone 1 only) would mislabel the release.
+**Status:** annotated tag `release-candidate` exists on `8647cea9581e59ab6914a496d5aacf825a685117` (merge of PR [#6](https://github.com/pav4o71/cjnailstudio/pull/6)). Production deploy remains a **separate** ODR-024 authorization. The tag is not a go-live.
 
-## Current stack (not on main)
+## Merged stack on main
 
-| Milestone | Branch | PR | Merge status |
+| Milestone | Branch | PR | Merge commit |
 | --- | --- | --- | --- |
-| 2 | `codex/milestone-2-design-system` | [#2](https://github.com/pav4o71/cjnailstudio/pull/2) | Draft; not merged |
-| 3 | `codex/milestone-3-pages-content` | [#3](https://github.com/pav4o71/cjnailstudio/pull/3) | Draft; stacked on #2 |
-| 4 | `codex/milestone-4-booking` | [#4](https://github.com/pav4o71/cjnailstudio/pull/4) | Draft; stacked on #3 |
-| 5 | `codex/milestone-5-quality` | [#5](https://github.com/pav4o71/cjnailstudio/pull/5) | Draft; stacked on #4 |
-| 6 | `codex/milestone-6-release` | None until parent review | Branch only |
+| 2 | `codex/milestone-2-design-system` | [#2](https://github.com/pav4o71/cjnailstudio/pull/2) | `edb5efc69d16d08f07c49a3f8ba1375bd551d760` |
+| 3 | `codex/milestone-3-pages-content` | [#3](https://github.com/pav4o71/cjnailstudio/pull/3) | `b7bc8d31151f8ae7cb63d8c85e89f208bc7154b5` |
+| 4 | `codex/milestone-4-booking` | [#4](https://github.com/pav4o71/cjnailstudio/pull/4) | `b76d4e220c7c3af32fd7209914499171ec8e7f85` |
+| 5 | `codex/milestone-5-quality` | [#5](https://github.com/pav4o71/cjnailstudio/pull/5) | `f188ae5db99ce9643d4160c854eba44a7bb2b55b` |
+| 6 | `codex/milestone-6-release` | [#6](https://github.com/pav4o71/cjnailstudio/pull/6) | `8647cea9581e59ab6914a496d5aacf825a685117` |
 
-## When a later operator may tag
+## Completed operator steps
 
-1. Merge the stacked PRs in order (#2, then #3, then #4, then #5) after their reviews and CI are green.
-2. Review Milestone 6 against Milestone 5 HEAD `6505fdd96ff302b3b95650f91c87093ea96e069d`, then merge M6 to the updated `main`.
-3. Smoke-test `main`: Home, Services, Gallery fallback, Book manual-handoff, Visit, WhatsApp, phone.
-4. Confirm fail-closed indexation and no-op analytics unless ODR-024 / ODR-019 have flipped.
-5. Create annotated tag `release-candidate` on that `main` commit only.
-6. Production deploy remains a **separate** ODR-024 authorization. The tag is not a go-live.
+1. Merged stacked PRs in order (#2, then #3, then #4, then #5, then #6) after CI was green.
+2. Smoke-tested tagged `main`: format, lint, typecheck, unit, production build, Playwright (Home, Services, Gallery fallback, Book manual-handoff, Visit, WhatsApp, phone).
+3. Confirmed fail-closed indexation and no-op analytics (ODR-024 / ODR-019 unchanged).
+4. Created annotated tag `release-candidate` on `8647cea9581e59ab6914a496d5aacf825a685117`.
 
 ## Out of scope for the tag
 
@@ -30,3 +28,4 @@
 - Search indexation flip (`INDEXATION.md`)
 - Analytics destination (ODR-019)
 - Consent-uncleared media (D-010)
+- Netlify production publish

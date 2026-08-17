@@ -4,6 +4,12 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 
 ## Unreleased
 
+No further product changes after the `release-candidate` tag. A docs-only follow-up on `main` records that tag; it is not a production publish.
+
+## release-candidate — 2026-08-17
+
+Annotated tag `release-candidate` points at `8647cea9581e59ab6914a496d5aacf825a685117` after merge commits for PRs #2–#6. **Not a production release.** No Netlify live deploy, DNS, domain, live booking, payments, analytics destination, or indexation flip.
+
 ### Added
 
 - Minimal GitHub `main` bootstrap.
@@ -42,16 +48,14 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 
 ### Validated
 
-- Formatting, lint, strict type checking and production build pass after `npm ci`.
-- 54 unit and component tests pass.
-- 165 Playwright checks pass across mobile, tablet and desktop; 6 intentional skips are the hamburger/no-JS tests on desktop and the 64rem breakpoint probe on mobile/tablet. The suite includes serious/critical axe checks on 11 launch routes × 3 viewports, plus the open mobile/tablet menu, metadata/OG/canonical/noindex, an explicit `/visit` noindex assertion, robots/sitemap, verified JSON-LD, privacy/terms-as-implemented, conversion journeys, and a booking path with no third-party analytics requests.
-- GitHub Actions CI run #3 passes on merged PR #1; Milestone 2 PR #2 `validate` and `e2e` checks passed. Milestone 3 is on draft PR #3 stacked on M2. Milestone 4 is on draft PR #4 stacked on M3. Milestone 5 is on draft PR #5 stacked on M4. Milestone 6 is implemented on `codex/milestone-6-release` and is not merged. `main` is not tagged `release-candidate`.
+- Formatting, lint, typecheck, production build, 54 unit tests, and 165 Playwright checks (6 intentional skips) pass on tagged `main` `8647cea`. Skips are the hamburger/no-JS tests on desktop and the 64rem breakpoint probe on mobile/tablet. The suite includes serious/critical axe checks on 11 launch routes × 3 viewports, plus the open mobile/tablet menu, metadata/OG/canonical/noindex, an explicit `/visit` noindex assertion, robots/sitemap, verified JSON-LD, privacy/terms-as-implemented, conversion journeys, and a booking path with no third-party analytics requests.
+- GitHub Actions `validate` and `e2e` succeeded on PRs #2–#6 and on the `main` push runs for those merge commits. PR #1 CI run #3 remains green.
 
 ### Security
 
 - No credentials, customer data or production integrations added.
 - Retained social media remains planning evidence only and is not approved for publication.
 - Production booking mode fails closed to `manual-handoff`; hosted-redirect, payments and notifications stay off. Untrusted return query values cannot confirm an appointment or open-redirect.
-- Walk-in handoff URLs must use the dummy `https://local.invalid` origin; external HTTPS walk-in hrefs fail closed. Milestone 4 is not merged.
-- Production headers include HSTS, `X-Robots-Tag: noindex, nofollow`, CSP `connect-src 'self'`, and anti-framing. Analytics destination remains off (D-011 / ODR-019). Structured data omits ratings, prices, extra locations and Matcha hours. Milestone 5 is not merged.
-- No production deploy, live booking provider or `release-candidate` tag on `main`. Indexation stays fail-closed until ODR-024. Milestone 6 is not merged.
+- Walk-in handoff URLs must use the dummy `https://local.invalid` origin; external HTTPS walk-in hrefs fail closed.
+- Production headers include HSTS, `X-Robots-Tag: noindex, nofollow`, CSP `connect-src 'self'`, and anti-framing. Analytics destination remains off (D-011 / ODR-019). Structured data omits ratings, prices, extra locations and Matcha hours.
+- No production deploy or live booking provider. Indexation stays fail-closed until ODR-024. `release-candidate` is a tag on smoke-tested `main`, not a go-live.
