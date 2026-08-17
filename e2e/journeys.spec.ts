@@ -23,6 +23,26 @@ async function expectManualHandoff(page: Page) {
 
 test("home primary CTA reaches WhatsApp and call handoff", async ({ page }) => {
   await page.goto("/");
+  const visitHeading = page.getByRole("heading", {
+    name: "Knightsbridge studio",
+  });
+  const galleryPreview = page.getByRole("heading", {
+    name: "See the work when it is cleared to publish",
+  });
+  await expect(visitHeading).toBeVisible();
+  await expect(galleryPreview).toBeVisible();
+  const galleryFollowsVisit = await visitHeading.evaluate(
+    (visit, gallery) => {
+      return Boolean(
+        gallery &&
+        (visit.compareDocumentPosition(gallery) &
+          Node.DOCUMENT_POSITION_FOLLOWING) ===
+          Node.DOCUMENT_POSITION_FOLLOWING,
+      );
+    },
+    await galleryPreview.elementHandle(),
+  );
+  expect(galleryFollowsVisit).toBe(true);
   await page
     .getByRole("link", { name: "Book or contact the studio" })
     .first()

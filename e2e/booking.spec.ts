@@ -33,6 +33,7 @@ test("manual handoff stays the production booking path", async ({ page }) => {
   expect(main).not.toMatch(confirmationPattern);
   expect(main).not.toContain("booking.test.invalid");
   expect(main).not.toContain(FAKE_HOSTED_ORIGIN);
+  await expect(page.locator("#main .eyebrow")).toHaveText("Contact the studio");
 });
 
 test("controlled intents are acknowledged without forwarding raw query text", async ({

@@ -79,36 +79,31 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section className="section" aria-labelledby="gallery-preview-heading">
+      <section className="section" aria-labelledby="visit-heading">
         <SectionIntro
-          eyebrow="Gallery"
-          heading="See the work when it is cleared to publish"
-          headingId="gallery-preview-heading"
+          eyebrow="Visit"
+          heading="Knightsbridge studio"
+          headingId="visit-heading"
         />
-        <MediaFallback
-          eyebrow="Consent-safe gallery"
-          title="Website gallery in preparation"
-          description={pageCopy.galleryFallback.text}
-          action={
-            <Link className="button" href="/gallery">
-              Open the gallery page
+        <div className="card">
+          <address>{site.location.address}</address>
+          <p>{site.location.hours}</p>
+          <p>{pageCopy.walkIn.text}</p>
+          <div className="actions">
+            <a className="button" href={directions}>
+              Search this address in Google Maps
+            </a>
+            <Link className="button-secondary" href="/visit">
+              Visit details
             </Link>
-          }
-        />
-      </section>
-
-      <section className="section">
-        <StatusCallout
-          title="Care between appointments"
-          tone="info"
-          action={
-            <Link className="button-secondary" href="/studio">
-              Read studio notes
+            <Link
+              className="button-secondary"
+              href={bookingHref({ entryPoint: "home" })}
+            >
+              Book or contact the studio
             </Link>
-          }
-        >
-          <p>{pageCopy.hygiene.text}</p>
-        </StatusCallout>
+          </div>
+        </div>
       </section>
 
       <section className="section" aria-labelledby="proof-heading">
@@ -135,31 +130,36 @@ export default function HomePage() {
         </ul>
       </section>
 
-      <section className="section" aria-labelledby="visit-heading">
+      <section className="section">
+        <StatusCallout
+          title="Care between appointments"
+          tone="info"
+          action={
+            <Link className="button-secondary" href="/studio">
+              Read studio notes
+            </Link>
+          }
+        >
+          <p>{pageCopy.hygiene.text}</p>
+        </StatusCallout>
+      </section>
+
+      <section className="section" aria-labelledby="gallery-preview-heading">
         <SectionIntro
-          eyebrow="Visit"
-          heading="Knightsbridge studio"
-          headingId="visit-heading"
+          eyebrow="Gallery"
+          heading="See the work when it is cleared to publish"
+          headingId="gallery-preview-heading"
         />
-        <div className="card">
-          <address>{site.location.address}</address>
-          <p>{site.location.hours}</p>
-          <p>{pageCopy.walkIn.text}</p>
-          <div className="actions">
-            <a className="button" href={directions}>
-              Search this address in Google Maps
-            </a>
-            <Link className="button-secondary" href="/visit">
-              Visit details
+        <MediaFallback
+          eyebrow="Consent-safe gallery"
+          title="Website gallery in preparation"
+          description={pageCopy.galleryFallback.text}
+          action={
+            <Link className="button" href="/gallery">
+              Open the gallery page
             </Link>
-            <Link
-              className="button-secondary"
-              href={bookingHref({ entryPoint: "home" })}
-            >
-              Book or contact the studio
-            </Link>
-          </div>
-        </div>
+          }
+        />
       </section>
     </div>
   );

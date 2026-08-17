@@ -61,7 +61,7 @@ export function BookingPage({
 
   return (
     <div className="page">
-      <p className="eyebrow">Manual booking handoff</p>
+      <p className="eyebrow">Contact the studio</p>
       <h1>{pageMetadata.book.h1}</h1>
       <p className="lede">{pageCopy.bookIntro.text}</p>
       {showIntent ? (
