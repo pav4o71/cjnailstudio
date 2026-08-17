@@ -4,16 +4,29 @@ Date: 2026-08-17
 
 Branch: `codex/milestone-2-design-system`
 
+PR: [#2](https://github.com/pav4o71/cjnailstudio/pull/2) (draft)
+
 Base: merged Milestone 1 commit `8f06d44acbff79d2418200e4e64afa98c22e73ec`
 
 ## Scope
 
 - Approved design tokens and typography fallbacks.
-- Responsive header, primary navigation, native-dialog menu, footer and mobile booking actions.
+- Responsive header, primary navigation, native-dialog menu, footer and booking actions.
 - Reusable section intro, service card, status callout and consent-safe media fallback states.
 - Keyboard, target-size, route, contact-handoff, responsive and automated accessibility coverage.
 
-No provider, payment, upload, analytics or customer-media capability is activated.
+No provider, payment, upload, analytics or customer-media capability is activated. Milestone 3 page content was not started.
+
+## Review fixes
+
+- Site chrome consumes a single sitemap module (`src/content/navigation.ts`) so header, menu, footer and tests cannot drift from `docs/SITEMAP.md` (decision D-013). Unbuilt Milestone 3 routes may 404 honestly.
+- Persistent Book/WhatsApp action bar now uses the same `max-width: 64rem` range as the hamburger.
+- `html.no-js` keeps server-rendered primary nav and contact links available when JavaScript is disabled.
+- Menu trigger focus is restored only after dismiss (Escape/Close). Choosing a destination moves focus to `#main`.
+- `main` has a visible focus treatment for skip-to-content and post-navigation focus.
+- `/book` no longer uses a success “Walk-ins accepted” callout; copy follows ODR-003 and points to `/visit`.
+- Playwright menu Escape/focus, open-dialog axe and no-JS checks run on mobile and tablet. Target-size checks require width and height ≥ 44px. CI runs the full Playwright project set (mobile, tablet, desktop). Evidence screenshots write under `docs/screenshots/` locally and to the Playwright output directory in CI so the default tree stays clean.
+- Action-bar/header contact names state purpose (`WhatsApp the studio`). Media fallback eyebrow is a prop. Instagram URL is derived from `site.business.instagramHandle`. Location label is derived from the canonical Knightsbridge record (D-001). Narrow action stacking uses the approved `36rem` breakpoint instead of `22rem`.
 
 ## Validation
 
@@ -22,13 +35,15 @@ No provider, payment, upload, analytics or customer-media capability is activate
 | Prettier | Pass |
 | ESLint | Pass |
 | Strict TypeScript | Pass |
-| Vitest | 11 passed |
-| Next.js production build | Pass; 6 static application routes plus not-found generated |
-| Playwright | 25 passed, 2 intentional non-mobile skips |
-| axe serious/critical scan | No findings across 5 routes × 3 viewports |
-| Diff whitespace check | Pass |
+| Vitest | 14 passed |
+| Next.js production build | Pass (Playwright webServer) |
+| Playwright | 36 passed, 6 intentional skips |
+| axe serious/critical scan | No findings on 5 routes × 3 viewports, plus the open menu dialog on mobile and tablet |
+| GitHub Actions | Pending push to PR #2 |
 
-Playwright builds and runs the production server before exercising the site. The test suite verifies current-route semantics, minimum 44 px visible interactive targets, mobile dialog Escape behavior and focus return, primary navigation, manual booking contact paths, and the absence of serious or critical automated accessibility findings.
+Playwright builds and runs the production server before exercising the site. The suite verifies current-route semantics, 44×44 px visible interactive targets, mobile and tablet dialog Escape/focus behavior, post-navigation focus on `#main`, no-JS primary nav on small viewports, footer sitemap chrome, manual booking contact paths, and the absence of serious or critical automated accessibility findings.
+
+The 6 skips are: hamburger Escape, menu-to-main focus, open-dialog axe and no-JS nav on desktop (hamburger hidden), plus the 1024 px breakpoint probe on mobile and tablet.
 
 The project uses Next 16.3's documented compiler-API checker with TypeScript 5.9. This avoids an observed intermittent JSON-capture failure in the default experimental CLI checker without skipping or relaxing type checking.
 
@@ -37,9 +52,17 @@ The project uses Next 16.3's documented compiler-API checker with TypeScript 5.9
 - [Mobile home shell](../screenshots/milestone-2/mobile-home.png)
 - [Tablet home shell](../screenshots/milestone-2/tablet-home.png)
 - [Desktop home shell](../screenshots/milestone-2/desktop-home.png)
+- [Mobile open menu](../screenshots/milestone-2/mobile-menu.png)
+- [Tablet open menu](../screenshots/milestone-2/tablet-menu.png)
+- [Mobile book](../screenshots/milestone-2/mobile-book.png)
+- [Tablet book](../screenshots/milestone-2/tablet-book.png)
+- [Desktop book](../screenshots/milestone-2/desktop-book.png)
+- [Mobile gallery](../screenshots/milestone-2/mobile-gallery.png)
+- [Tablet gallery](../screenshots/milestone-2/tablet-gallery.png)
+- [Desktop gallery](../screenshots/milestone-2/desktop-gallery.png)
 
-The three production-rendered captures were visually inspected for hierarchy, wrapping, clipping, overflow, persistent-action placement and breakpoint behavior. No blocking visual defect was found.
+Local evidence screenshots are regenerated by `e2e/evidence.spec.ts`. In CI the same test writes to Playwright's output directory so the git tree stays clean.
 
 ## Review disposition
 
-Local review against merged Milestone 1 found no actionable defect. GitHub CI and external-review disposition must be appended after the milestone PR is opened.
+Important review findings from the first Milestone 2 pass are addressed on this branch. Remaining work for the parent: dispatch requesting-code-review on the new HEAD versus `origin/main`. Do not merge until that review and CI are green.

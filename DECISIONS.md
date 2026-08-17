@@ -16,5 +16,6 @@ Status: ACTIVE
 | D-010 | Approved media safety | Publish no retained social asset by default | Manifest permits planning use only; consent not documented | Gallery, hero, Studio, Lashes |
 | D-011 | Approved privacy | Phase 0 collects no first-party booking PII; analytics is no-op | Data minimization and missing provider/legal authority | Forms, storage, telemetry |
 | D-012 | Approved integration boundary | Payments, notifications and uploads remain separate disabled capabilities | Owner inputs, credentials and security/legal gates are missing | Future ports/adapters |
+| D-013 | Approved IA | Site chrome (header, mobile menu, footer and action bar) follows the approved compact sitemap in `docs/SITEMAP.md`, including links to Milestone 3 destinations that may still be honest 404s | Prevents navigation drift; Milestone 2 owns chrome, Milestone 3 owns page content | Header, menu, footer, tests |
 
 Pending decisions are never represented as final configuration. Any change to a shared decision requires a new row, rationale and affected acceptance-test update.
