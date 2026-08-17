@@ -42,7 +42,7 @@ Current published count is zero. Confirm the consent-safe fallback, Instagram pr
 
 If Chrome Lighthouse is available, run it against the **current preview host** (`*.netlify.app`) after Git is linked, or against `npm run build && npm run start` until that URL exists. Do not add `lighthouse` or `@netlify/plugin-lighthouse` to this repository.
 
-**Current preview host:** not linked yet. Operator is already authenticated on Netlify CLI as `pavelkrustev199@gmail.com`. Run `npx netlify sites:create` (or pick an existing unused site) then `npx netlify link` from this repo, enable Git deploy previews, and replace this line with the `*.netlify.app` hostname only. Do not write it as `approvedProductionOrigin`. Do not run `netlify deploy --prod`.
+**Current preview host:** not linked yet. After Netlify login, run `npx netlify sites:create` (or pick an existing unused site) then `npx netlify link` from this repo, enable Git deploy previews, and replace this line with the `*.netlify.app` hostname only. Do not write it as `approvedProductionOrigin`. Do not run `netlify deploy --prod`.
 
 Record, do not invent, scores. Expected intentional SEO warnings while ODR-024 is closed:
 

@@ -58,8 +58,11 @@ Operator login (outside git secrets):
 
 ```bash
 npx netlify login
+npx netlify sites:create
 npx netlify link
 ```
+
+If a site already exists for this repo, skip `sites:create` and run `npx netlify link` only.
 
 After the first successful preview, record the hostname in `MANUAL_QA.md` as “current preview host”, never as a production origin. Do not commit `.netlify/` (gitignored) or a site ID.
 
