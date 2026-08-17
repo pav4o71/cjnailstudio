@@ -14,7 +14,9 @@ Milestone 3 page content is implemented on `codex/milestone-3-pages-content` (no
 
 Milestone 4 booking-first UX is implemented on `codex/milestone-4-booking` (not merged). Draft PR [#4](https://github.com/pav4o71/cjnailstudio/pull/4) is stacked on Milestone 3 (`codex/milestone-3-pages-content`), not `main`. `/book` keeps `manual-handoff` as the only production-eligible mode. Controlled intents, loading/unavailable/error/return states, no-JS contact links and URL security are covered. The fake hosted adapter exists for tests only and cannot be selected by production config, including `BOOKING_MODE=hosted-redirect`. No live scheduler, payments, notifications or false appointment confirmation were added.
 
-Milestone 5 SEO, no-op analytics and security hardening is implemented on `codex/milestone-5-quality` (not merged, no PR yet). Launch routes have unique titles, descriptions, Open Graph tags and relative canonicals. Robots/sitemap stay non-indexable until ODR-024 approves a production origin. JSON-LD is a verified NailSalon record only. Analytics remains a no-op with a fixed event allowlist and no destination. Security headers now include HSTS and `X-Robots-Tag: noindex, nofollow`. Do not treat Milestone 5 as complete until review; do not merge it while PRs #4/#3/#2 remain the stacked vehicles.
+Milestone 5 SEO, no-op analytics and security hardening is implemented on `codex/milestone-5-quality` (not merged). Draft PR [#5](https://github.com/pav4o71/cjnailstudio/pull/5) is stacked on Milestone 4 (`codex/milestone-4-booking`), not `main`. Launch routes have unique titles, descriptions, Open Graph tags and relative canonicals. Robots/sitemap stay non-indexable until ODR-024 approves a production origin. JSON-LD is a verified NailSalon record only. Analytics remains a no-op with a fixed event allowlist and no destination. Security headers now include HSTS and `X-Robots-Tag: noindex, nofollow`. Do not merge it while PRs #4/#3/#2 remain the stacked vehicles.
+
+Milestone 6 release readiness is implemented on `codex/milestone-6-release` (not merged, no PR until parent review). Clean-install validation, Playwright journeys, mobile/tablet/desktop evidence screenshots, and portable setup/deploy/rollback/maintenance/indexation runbooks are on the branch. `main` is not tagged `release-candidate` because Milestones 2–5 are not merged. Production deployment remains separately authorized. Do not treat Milestone 6 as a production launch.
 
 GitHub issue creation is currently blocked: the connected GitHub app returns HTTP 403 for Issues. Git pushes and draft PRs work through `gh`. Issue links remain pending until GitHub Issues authorization is repaired; this does not relax the required review gates.
 
@@ -26,8 +28,8 @@ GitHub issue creation is currently blocked: the connected GitHub app returns HTT
 | 2 — Design system, shell and components | Blocked by GitHub Issues permission | `codex/milestone-2-design-system` | [#2](https://github.com/pav4o71/cjnailstudio/pull/2) (draft) | Review passed; CI green |
 | 3 — Evidence-backed pages and content | Blocked by GitHub Issues permission | `codex/milestone-3-pages-content` | [#3](https://github.com/pav4o71/cjnailstudio/pull/3) (draft, stacked on M2) | Implemented; not merged |
 | 4 — Booking-first UX and adapter | Blocked by GitHub Issues permission | `codex/milestone-4-booking` | [#4](https://github.com/pav4o71/cjnailstudio/pull/4) (draft, stacked on M3) | Implemented; not merged |
-| 5 — SEO, analytics, accessibility, privacy and security | Blocked by GitHub Issues permission | `codex/milestone-5-quality` | Pending | Implemented on branch; not merged |
-| 6 — QA, performance and deployment readiness | Blocked by GitHub Issues permission | `codex/milestone-6-release` | Pending | Not started |
+| 5 — SEO, analytics, accessibility, privacy and security | Blocked by GitHub Issues permission | `codex/milestone-5-quality` | [#5](https://github.com/pav4o71/cjnailstudio/pull/5) (draft, stacked on M4) | Implemented; not merged |
+| 6 — QA, performance and deployment readiness | Blocked by GitHub Issues permission | `codex/milestone-6-release` | Pending parent review | Implemented on branch; not merged; no production launch |
 
 ## External blockers
 

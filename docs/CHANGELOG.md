@@ -27,6 +27,9 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 - Verified NailSalon JSON-LD from the canonical name, address, phone, email, hours and official Facebook/Instagram links.
 - Fixed no-op analytics taxonomy (`book_cta_click`, `whatsapp_click`, `phone_click`, `directions_click`, `service_view`, `gallery_filter`, `gallery_to_book`, `booking_handoff_started`, `booking_handoff_failed`) with strict property allowlisting.
 - Repository scans for secrets and third-party pixels, plus privacy/terms checks against implemented no-form/no-op behavior.
+- Playwright journeys for Home, Services, Custom Nail Art, Lashes, Gallery fallback and Visit through to WhatsApp/call, plus Visit directions.
+- Regenerable mobile, tablet and desktop Milestone 6 screenshots for home, gallery fallback and `/book` manual/unavailable/error/return states.
+- Portable setup, deployment, rollback, maintenance, ODR-024 indexation-flip, manual QA and release-candidate-tag runbooks. No production credentials are stored.
 
 ### Changed
 
@@ -39,10 +42,10 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 
 ### Validated
 
-- Formatting, lint, strict type checking and production build pass.
-- 53 unit and component tests pass.
-- 141 Playwright checks pass across mobile, tablet and desktop; 6 intentional skips are the hamburger/no-JS tests on desktop and the 64rem breakpoint probe on mobile/tablet. The suite includes serious/critical axe checks on 11 launch routes × 3 viewports, plus the open mobile/tablet menu, metadata/OG/canonical/noindex, robots/sitemap, verified JSON-LD, privacy/terms-as-implemented, and a booking journey with no third-party analytics requests.
-- GitHub Actions CI run #3 passes on merged PR #1; Milestone 2 PR #2 `validate` and `e2e` checks passed. Milestone 3 is on draft PR #3 stacked on M2. Milestone 4 is on draft PR #4 stacked on M3. Milestone 5 is implemented on `codex/milestone-5-quality` and is not merged.
+- Formatting, lint, strict type checking and production build pass after `npm ci`.
+- 54 unit and component tests pass.
+- 165 Playwright checks pass across mobile, tablet and desktop; 6 intentional skips are the hamburger/no-JS tests on desktop and the 64rem breakpoint probe on mobile/tablet. The suite includes serious/critical axe checks on 11 launch routes × 3 viewports, plus the open mobile/tablet menu, metadata/OG/canonical/noindex, an explicit `/visit` noindex assertion, robots/sitemap, verified JSON-LD, privacy/terms-as-implemented, conversion journeys, and a booking path with no third-party analytics requests.
+- GitHub Actions CI run #3 passes on merged PR #1; Milestone 2 PR #2 `validate` and `e2e` checks passed. Milestone 3 is on draft PR #3 stacked on M2. Milestone 4 is on draft PR #4 stacked on M3. Milestone 5 is on draft PR #5 stacked on M4. Milestone 6 is implemented on `codex/milestone-6-release` and is not merged. `main` is not tagged `release-candidate`.
 
 ### Security
 
@@ -51,3 +54,4 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 - Production booking mode fails closed to `manual-handoff`; hosted-redirect, payments and notifications stay off. Untrusted return query values cannot confirm an appointment or open-redirect.
 - Walk-in handoff URLs must use the dummy `https://local.invalid` origin; external HTTPS walk-in hrefs fail closed. Milestone 4 is not merged.
 - Production headers include HSTS, `X-Robots-Tag: noindex, nofollow`, CSP `connect-src 'self'`, and anti-framing. Analytics destination remains off (D-011 / ODR-019). Structured data omits ratings, prices, extra locations and Matcha hours. Milestone 5 is not merged.
+- No production deploy, live booking provider or `release-candidate` tag on `main`. Indexation stays fail-closed until ODR-024. Milestone 6 is not merged.

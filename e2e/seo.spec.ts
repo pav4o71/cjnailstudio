@@ -48,6 +48,18 @@ test("launch routes expose unique Open Graph tags, relative canonicals and noind
   expect(new Set(ogTitles).size).toBe(publicPageList.length);
 });
 
+test("visit stays noindex until ODR-024 approves a production origin", async ({
+  page,
+}) => {
+  const response = await page.goto("/visit");
+  expect(response?.ok()).toBeTruthy();
+  expect(response?.headers()["x-robots-tag"]).toMatch(/noindex/i);
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    "content",
+    /noindex/,
+  );
+});
+
 test("robots and sitemap stay non-indexable without an approved origin", async ({
   request,
 }) => {
