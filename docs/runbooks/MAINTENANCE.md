@@ -15,7 +15,7 @@ Ongoing work after Milestone 6 release readiness. This is not a production-launc
 | --- | --- |
 | Live scheduling / payments / notifications / production secrets | ODR-025 |
 | Analytics destination | ODR-019 |
-| Indexation and production domain | ODR-024 |
+| Custom domain (not `*.netlify.app`) | still unapproved; production origin is D-017 |
 | Hosted booking adapter in production config | ODR-008 and ODR-025 |
 
 `AnalyticsPort` stays no-op with the fixed event allowlist. Navigation must not depend on telemetry.

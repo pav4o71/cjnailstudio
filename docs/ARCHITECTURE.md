@@ -73,7 +73,7 @@ Build validation checks source IDs, owner decisions, expiry and publishability. 
 
 ## Deployment shape
 
-Phase 0 requires only a managed Node-compatible runtime or a portable container/static-capable target supported by the selected Next.js output. The repository contains no production host selection, DNS mutation or credentials. Environment parsing permits only non-secret public configuration in the browser; future secrets remain server-only.
+Phase 0 deploys to the approved Netlify origin `https://cjnailstudio.netlify.app` (D-017). The repository still contains no custom-domain DNS mutation or credentials. Environment parsing permits only non-secret public configuration in the browser; future secrets remain server-only.
 
 ## Security boundaries
 

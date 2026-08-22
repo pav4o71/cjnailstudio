@@ -1,10 +1,10 @@
 # Deployment runbook
 
-Portable artifacts only. This file does not authorize a production deploy, DNS change, or credential.
+Production origin is `https://cjnailstudio.netlify.app` (D-017 / ODR-024). DNS for that hostname is Netlify-managed. The accountable operator deploys with the Netlify CLI. Do not invent `cjnailstudio.com` or mutate a custom domain.
 
-ODR-024 still owns production host, domain, DNS, credentials, deployment approval, and the accountable operator. D-016 authorizes the Pavells embed only. First-party payments, notifications, and production secrets stay off.
+D-016 authorizes the Pavells embed only. First-party payments, notifications, analytics destinations, and production secrets stay off.
 
-Do not run `netlify deploy --prod`, mutate DNS, or store tokens in the repository.
+Do not store tokens in the repository. Do not commit `.netlify/`.
 
 ## Artifact
 
@@ -12,7 +12,9 @@ The production artifact is the Next.js App Router build:
 
 ```bash
 npm ci
-npm run build
+npm run validate
+npm run test:e2e
+npx netlify deploy --prod --build
 ```
 
 `netlify.toml` records the portable Netlify mapping:
@@ -23,7 +25,7 @@ npm run build
   publish = ".next"
 ```
 
-Netlify detects Next.js and supplies the runtime. Do not add a production site ID, account token, or custom domain in this repository.
+Netlify detects Next.js and supplies the runtime. Preview and branch deploys stay `noindex`. See `INDEXATION.md`.
 
 ## Environment (non-secret)
 
@@ -37,43 +39,33 @@ Do not set payment keys, analytics destinations, or webhook secrets. Invalid or 
 
 ## Preview versus production
 
-Until ODR-024:
+Production:
 
-- Keep every deploy non-indexable (`X-Robots-Tag`, meta robots, `robots.txt` disallow `/`, empty sitemap). See `INDEXATION.md`.
-- Treat Git branch deploys and draft-site URLs as previews.
-- Do not attach a custom domain or request search-engine indexing.
+- Host: `https://cjnailstudio.netlify.app`
+- Command: `npx netlify deploy --prod`
+- Launch routes are indexable; deferred paths stay disallowed
 
-Git-linked **preview** deploys are authorized for post-RC sharing (`*.netlify.app`). Draft and pull-request deploys are enough.
+Preview / branch / draft URLs (`*--*.netlify.app`):
 
-Still forbidden until ODR-024 is written and approved:
+- Keep `X-Robots-Tag: noindex, nofollow` via `netlify.toml` context headers
+- Do not write a draft hostname as `approvedProductionOrigin`
 
-- `netlify deploy --prod`
-- custom domain / DNS
-- setting `approvedProductionOrigin`
-- clearing `noindex` (follow `INDEXATION.md` first)
+Still forbidden:
 
-If an operator links Git to Netlify, use Git-based deploys so preview PRs stay separate from production. CLI `netlify deploy` without `--prod` is a preview only.
+- inventing `cjnailstudio.com` or attaching an unapproved custom domain
+- DNS mutation outside Netlify's `*.netlify.app` zone
+- analytics pixels (ODR-019)
+- first-party payments or notifications
 
 Operator login (outside git secrets):
 
 ```bash
 npx netlify login
-npx netlify sites:create
 npx netlify link
 ```
 
-If a site already exists for this repo, skip `sites:create` and run `npx netlify link` only.
-
-After the first successful preview, record the hostname in `MANUAL_QA.md` as “current preview host”, never as a production origin. Do not commit `.netlify/` (gitignored) or a site ID.
-
 ## Rollback
 
-See `ROLLBACK.md`. Restore the last known-good immutable deploy and smoke-test Home, Services, Book, Visit, and contact paths. Website rollback never deletes off-site WhatsApp or phone conversations.
+See `ROLLBACK.md`. Restore the last known-good immutable deploy and smoke-test Home, Services, Book, Visit, and contact paths. Website rollback never deletes off-site WhatsApp, phone, or Pavells conversations.
 
-## After a future authorized production attach
-
-1. Confirm ODR-024 (host/domain/DNS/operator) in writing.
-2. Confirm first-party payments and notifications remain off unless separately approved.
-3. Follow `INDEXATION.md` before allowing indexation.
-4. Keep `BOOKING_MODE=embedded-widget` unless rolling back to `manual-handoff`.
-5. Store credentials in the host's secret store, never in git.
+Indexation rollback is `INDEXATION.md`.

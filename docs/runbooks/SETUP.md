@@ -72,4 +72,4 @@ Use `npm run start` only after `npm run build`. Do not point a public hostname a
 
 ## Release validation note
 
-Milestone 6 records a clean-install run of the commands above on `codex/milestone-6-release`. Production deployment remains separately authorized (ODR-024). First-party payments stay off.
+Milestone 6 records a clean-install run of the commands above on `codex/milestone-6-release`. Production on `https://cjnailstudio.netlify.app` is D-017. First-party payments stay off.

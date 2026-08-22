@@ -1,3 +1,9 @@
+import { approvedProductionOrigin } from "@/src/content/seo";
+
 export function CanonicalLink({ path }: { path: string }) {
-  return <link rel="canonical" href={path} />;
+  const href = approvedProductionOrigin
+    ? new URL(path, `${approvedProductionOrigin}/`).href
+    : path;
+
+  return <link rel="canonical" href={href} />;
 }

@@ -15,28 +15,33 @@ import {
 } from "./seo";
 import { site } from "./site";
 
-describe("indexation until an approved production origin exists", () => {
-  it("does not invent a production domain", () => {
-    expect(approvedProductionOrigin).toBeNull();
-    expect(robotsPolicy.index).toBe(false);
-    expect(robotsPolicy.follow).toBe(false);
-    expect(sitemapEntries()).toEqual([]);
-    expect(siteMetadataBase()).toBeUndefined();
+describe("indexation after the approved production origin", () => {
+  it("uses the existing Netlify production host and does not invent a custom domain", () => {
+    expect(approvedProductionOrigin).toBe("https://cjnailstudio.netlify.app");
+    expect(approvedProductionOrigin).not.toMatch(/cjnailstudio\.com/i);
+    expect(robotsPolicy.index).toBe(true);
+    expect(robotsPolicy.follow).toBe(true);
+    expect(siteMetadataBase()?.origin).toBe("https://cjnailstudio.netlify.app");
+    expect(sitemapEntries()).toEqual(
+      launchSitemapPaths.map((path) => ({
+        url: new URL(path, "https://cjnailstudio.netlify.app/").href,
+      })),
+    );
+    expect(sitemapEntries().map((entry) => entry.url)).toContain(
+      "https://cjnailstudio.netlify.app/visit",
+    );
   });
 
-  it("may use a Netlify preview host and never a custom production domain", () => {
+  it("keeps metadataBase on the approved origin even if a preview env is injected", () => {
     vi.stubEnv("DEPLOY_PRIME_URL", "https://draft--cjnailstudio.netlify.app");
-    expect(siteMetadataBase()?.origin).toBe(
-      "https://draft--cjnailstudio.netlify.app",
-    );
+    expect(siteMetadataBase()?.origin).toBe("https://cjnailstudio.netlify.app");
 
     vi.stubEnv("DEPLOY_PRIME_URL", "https://cjnailstudio.com");
-    expect(siteMetadataBase()).toBeUndefined();
+    expect(siteMetadataBase()?.origin).toBe("https://cjnailstudio.netlify.app");
     vi.unstubAllEnvs();
-    expect(siteMetadataBase()).toBeUndefined();
   });
 
-  it("lists only compact-sitemap launch paths for a future origin-backed sitemap", () => {
+  it("lists only compact-sitemap launch paths and keeps deferred routes out", () => {
     expect(launchSitemapPaths).toEqual(publicPageList.map((page) => page.path));
     expect(deferredPaths).toEqual([
       "/matcha",
@@ -48,11 +53,16 @@ describe("indexation until an approved production origin exists", () => {
     expect(launchSitemapPaths).not.toEqual(
       expect.arrayContaining([...deferredPaths]),
     );
+    expect(
+      sitemapEntries()
+        .map((entry) => entry.url)
+        .join(" "),
+    ).not.toMatch(/matcha|\/team|\/reviews|\/pricing|beacon-tower/i);
   });
 });
 
 describe("route metadata", () => {
-  it("gives every launch route unique Open Graph copy and a noindex robots policy", () => {
+  it("gives every launch route unique Open Graph copy and an indexable robots policy", () => {
     const routes = publicPageList.map((page) => createRouteMetadata(page));
     const ogTitles = routes.map((route) => route.openGraph?.title);
     const ogDescriptions = routes.map((route) => route.openGraph?.description);
@@ -62,7 +72,7 @@ describe("route metadata", () => {
 
     for (const route of routes) {
       expect(route.description).toBeTruthy();
-      expect(route.robots).toMatchObject({ index: false, follow: false });
+      expect(route.robots).toMatchObject({ index: true, follow: true });
       expect(route.openGraph).toMatchObject({
         type: "website",
         siteName: site.business.name,
@@ -99,6 +109,7 @@ describe("verified structured data", () => {
     expect(jsonLd.name).toBe(site.business.name);
     expect(jsonLd.telephone).toBe(site.phone.e164);
     expect(jsonLd.email).toBe(site.business.email);
+    expect(jsonLd.url).toBe(approvedProductionOrigin);
     expect(jsonLd.address).toEqual({
       "@type": "PostalAddress",
       streetAddress: site.location.address,
@@ -117,9 +128,10 @@ describe("verified structured data", () => {
     const serialized = JSON.stringify(localBusinessJsonLd(site));
 
     expect(serialized).not.toMatch(
-      /aggregateRating|priceRange|paymentAccepted|geo|hasMap|menu|Matcha|Beacon|Medical Towers|starRating|image|logo|"url"/i,
+      /aggregateRating|priceRange|paymentAccepted|geo|hasMap|menu|Matcha|Beacon|Medical Towers|starRating|image|logo/i,
     );
     expect(serialized).not.toContain("4.8");
+    expect(serialized).not.toMatch(/cjnailstudio\.com/i);
   });
 
   it("maps only the verified daily hours literal", () => {

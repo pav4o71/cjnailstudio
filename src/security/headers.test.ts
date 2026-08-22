@@ -3,10 +3,17 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { securityHeaders } from "./headers";
+import {
+  buildSecurityHeaders,
+  securityHeaders,
+  shouldSendNoindexRobotsTag,
+} from "./headers";
 
-function header(name: string): string | undefined {
-  return securityHeaders.find((item) => item.key === name)?.value;
+function header(
+  name: string,
+  headers: Array<{ key: string; value: string }> = securityHeaders,
+): string | undefined {
+  return headers.find((item) => item.key === name)?.value;
 }
 
 describe("production security headers", () => {
@@ -20,7 +27,7 @@ describe("production security headers", () => {
     expect(header("Permissions-Policy")).toBe(
       'camera=(), microphone=(), geolocation=(), payment=("https://booking.pavells.com"), clipboard-write=("https://booking.pavells.com")',
     );
-    expect(header("X-Robots-Tag")).toBe("noindex, nofollow");
+    expect(header("X-Robots-Tag")).toBeUndefined();
   });
 
   it("allows the Pavells booking origin and still blocks analytics pixels", () => {
@@ -37,10 +44,36 @@ describe("production security headers", () => {
     expect(csp).not.toMatch(/googletagmanager|google-analytics|facebook\.net/i);
   });
 
-  it("keeps Netlify CDN responses noindex until ODR-024", () => {
-    const netlify = readFileSync(join(process.cwd(), "netlify.toml"), "utf8");
+  it("keeps Netlify preview and branch deploys noindex after D-017", () => {
+    expect(shouldSendNoindexRobotsTag({ CONTEXT: "deploy-preview" })).toBe(
+      true,
+    );
+    expect(shouldSendNoindexRobotsTag({ CONTEXT: "branch-deploy" })).toBe(true);
+    expect(
+      shouldSendNoindexRobotsTag({
+        DEPLOY_PRIME_URL: "https://abc123--cjnailstudio.netlify.app",
+      }),
+    ).toBe(true);
+    expect(
+      shouldSendNoindexRobotsTag({
+        CONTEXT: "production",
+        DEPLOY_PRIME_URL: "https://cjnailstudio.netlify.app",
+      }),
+    ).toBe(false);
 
+    expect(
+      header(
+        "X-Robots-Tag",
+        buildSecurityHeaders({ CONTEXT: "deploy-preview" }),
+      ),
+    ).toBe("noindex, nofollow");
+
+    const netlify = readFileSync(join(process.cwd(), "netlify.toml"), "utf8");
+    expect(netlify).toMatch(/context\.deploy-preview\.headers/);
+    expect(netlify).toMatch(/context\.branch-deploy\.headers/);
     expect(netlify).toMatch(/X-Robots-Tag\s*=\s*"noindex, nofollow"/);
-    expect(netlify).not.toMatch(/X-Robots-Tag\s*=\s*"index/i);
+    expect(netlify).not.toMatch(
+      /\[\[headers\]\][\s\S]*X-Robots-Tag\s*=\s*"noindex, nofollow"/,
+    );
   });
 });

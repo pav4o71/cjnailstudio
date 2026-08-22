@@ -35,7 +35,7 @@ Restore the last known-good immutable host artifact (previous successful deploy 
 
 If an indexation flip is in doubt, restore fail-closed noindex:
 
-- `src/content/seo.ts` `approvedProductionOrigin = null` and `robotsPolicy.index = false`
+- `src/content/production-origin.ts` `approvedProductionOrigin = null` and `src/content/seo.ts` `robotsPolicy.index = false`
 - `app/robots.ts` `disallow: "/"`
 - empty `sitemapEntries()`
 - `X-Robots-Tag: noindex, nofollow` in `src/security/headers.ts` and `netlify.toml`

@@ -39,6 +39,6 @@ Footer: FAQ · WhatsApp · Call · Email · Instagram · Privacy · Terms · can
 ## URL and indexation rules
 
 - Use lowercase, stable, descriptive paths.
-- Canonical URLs point to the production origin only after the deployment domain is approved.
+- Canonical URLs point to `https://cjnailstudio.netlify.app` (D-017).
 - Preview/staging environments must be non-indexable.
 - Do not create empty pages for blocked content.

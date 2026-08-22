@@ -2,8 +2,14 @@
   command = "npm run build"
   publish = ".next"
 
-# Preview, branch, and unset-domain deploys stay non-indexable until ODR-024.
-[[headers]]
+# Preview and branch hosts stay hidden from search. Production uses the
+# approved origin in src/content/seo.ts (D-017 / ODR-024).
+[[context.deploy-preview.headers]]
   for = "/*"
-  [headers.values]
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[context.branch-deploy.headers]]
+  for = "/*"
+  [context.branch-deploy.headers.values]
     X-Robots-Tag = "noindex, nofollow"

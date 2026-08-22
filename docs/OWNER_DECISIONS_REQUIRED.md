@@ -41,7 +41,7 @@ This register keeps owner-dependent business rules out of production configurati
 | ODR-021 | Provider data ownership/export, subprocessors/transfers, support/SLA, termination and retention | Keep the adapter provider-neutral; do not procure a provider |
 | ODR-022 | Loyalty, gift-card, package and membership terms | Omit; treat `media-020` as reference only |
 | ODR-023 | GitHub Issues/PR authorization and valid CLI/app access | Continue local branch work; do not invent links or bypass review/merge gates |
-| ODR-024 | Production host/domain/DNS, credentials, deployment approval and accountable operator | Produce portable artifacts/runbooks only; keep fail-closed noindex. Flip checklist: `docs/runbooks/INDEXATION.md` |
+| ODR-024 | Production host/domain/DNS, credentials, deployment approval and accountable operator | Approved for `https://cjnailstudio.netlify.app` only (D-017): Netlify-managed DNS, operator via Netlify CLI, `netlify deploy --prod` authorized, launch routes indexable. Custom domain still not invented. Analytics and first-party payments stay off. Rollback: `docs/runbooks/INDEXATION.md` |
 | ODR-025 | Explicit authorization for live scheduling, payments, notifications and production secrets | Pavells embed scheduling is authorized by D-016. First-party payments, notifications and production secrets stay off |
 
 ## Confirmed decisions already safe to implement
@@ -50,5 +50,6 @@ This register keeps owner-dependent business rules out of production configurati
 - D-002: Booking is the primary website conversion.
 - D-003: WhatsApp and walk-in paths remain visible.
 - D-016: Pavells Booking embed on `/book` for Knightsbridge.
+- D-017: Production origin `https://cjnailstudio.netlify.app`; launch routes indexable; no invented custom domain.
 - Verified contact: +63 961 740 0664 and thenailstudiobycj@gmail.com.
 - Verified hours: open daily, 12:00 noon–9:00 PM.
