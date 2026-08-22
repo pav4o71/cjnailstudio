@@ -45,6 +45,9 @@ describe("owner-cleared studio photos", () => {
     expect(publishedPhotoById("studio-photo-hero")?.src).toBe(
       "/media/hero-branded-set.jpg",
     );
+    expect(publishedPhotoById("studio-photo-hero")?.portrait?.src).toBe(
+      "/media/hero-branded-set-4x5.jpg",
+    );
     expect(publishedPhotoById("media-023")).toBeUndefined();
   });
 
@@ -66,5 +69,29 @@ describe("owner-cleared studio photos", () => {
     for (const photo of [...pageStudioPhotos, ...galleryStudioPhotos]) {
       expect(mediaFileExists(photo.src)).toBe(true);
     }
+  });
+
+  it("stores owner-returned portrait crops for the six page photographs", () => {
+    const portraitPhotos = pageStudioPhotos.filter(
+      (photo) => photo.id !== "studio-photo-custom-nail-art",
+    );
+
+    expect(portraitPhotos).toHaveLength(6);
+
+    for (const photo of portraitPhotos) {
+      expect(photo.portrait).toBeDefined();
+      expect(photo.portrait?.src).toMatch(/-4x5\.jpg$/);
+      expect(photo.portrait?.width).toBe(764);
+      expect(photo.portrait?.height).toBe(1024);
+      expect(mediaFileExists(photo.portrait?.src ?? "")).toBe(true);
+    }
+  });
+
+  it("stores the home visit banner beside the visit storefront photograph", () => {
+    const banner = publishedPhotoById("studio-photo-visit-banner");
+
+    expect(banner?.src).toBe("/media/visit-storefront-banner.jpg");
+    expect(banner?.portrait?.src).toBe("/media/visit-storefront-4x5.jpg");
+    expect(mediaFileExists(banner?.src ?? "")).toBe(true);
   });
 });

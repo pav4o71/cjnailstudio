@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 
 import {
   publishedPhotoById,
@@ -27,6 +27,37 @@ export function StudioPhoto({
   priority = false,
   sizes,
 }: StudioPhotoProps) {
+  if (photo.portrait) {
+    const common = {
+      alt: photo.alt,
+      sizes,
+      ...(priority ? { fetchPriority: "high" as const } : {}),
+    };
+    const {
+      props: { srcSet: landscapeSrcSet },
+    } = getImageProps({
+      ...common,
+      height: photo.height,
+      src: photo.src,
+      width: photo.width,
+    });
+    const { props: rest } = getImageProps({
+      ...common,
+      height: photo.portrait.height,
+      src: photo.portrait.src,
+      width: photo.portrait.width,
+    });
+
+    return (
+      <figure className={styles.studioPhoto}>
+        <picture>
+          <source media="(min-width: 48rem)" srcSet={landscapeSrcSet} />
+          <img {...rest} alt={photo.alt} />
+        </picture>
+      </figure>
+    );
+  }
+
   return (
     <figure className={styles.studioPhoto}>
       <Image

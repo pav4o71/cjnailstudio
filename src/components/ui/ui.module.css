@@ -203,6 +203,7 @@
   max-width: var(--content);
 }
 
+.studioPhoto picture,
 .studioPhoto img {
   display: block;
   height: auto;
