@@ -2,12 +2,21 @@ import { z } from "zod";
 
 export const ownerMediaCapturedAt = "2026-08-22T18:14:00+02:00";
 
+const mediaSrcSchema = z.string().regex(/^\/media\/[a-z0-9-]+\.jpg$/);
+
+export const studioPhotoCropSchema = z.object({
+  src: mediaSrcSchema,
+  width: z.literal(764),
+  height: z.literal(1024),
+});
+
 export const studioPhotoSchema = z.object({
   id: z.string().regex(/^studio-photo-[a-z0-9-]+$/),
-  src: z.string().regex(/^\/media\/[a-z0-9-]+\.jpg$/),
+  src: mediaSrcSchema,
   alt: z.string().min(1),
   width: z.literal(1024),
   height: z.literal(571),
+  portrait: studioPhotoCropSchema.optional(),
   status: z.enum(["published", "blocked"]).default("published"),
 });
 
@@ -17,6 +26,13 @@ export type StudioPhotoInput = z.input<typeof studioPhotoSchema>;
 const photo = (record: StudioPhotoInput): StudioPhotoRecord =>
   studioPhotoSchema.parse(record);
 
+const portraitCrop = (src: string) =>
+  studioPhotoCropSchema.parse({
+    src,
+    width: 764,
+    height: 1024,
+  });
+
 export const studioPhotos = {
   hero: photo({
     id: "studio-photo-hero",
@@ -24,6 +40,7 @@ export const studioPhotos = {
     width: 1024,
     height: 571,
     alt: "Almond-shaped manicure with a nude base, tortoiseshell tips, black-and-white dotted tips, and gold bead and pearl accents on a Beauty Nail Studio by Cj display.",
+    portrait: portraitCrop("/media/hero-branded-set-4x5.jpg"),
   }),
   visitStorefront: photo({
     id: "studio-photo-visit-storefront",
@@ -31,6 +48,7 @@ export const studioPhotos = {
     width: 1024,
     height: 571,
     alt: "Night-time storefront of Beauty Nail Studio by Cj, with the studio name on the sign and the interior visible through glass doors.",
+    portrait: portraitCrop("/media/visit-storefront-4x5.jpg"),
   }),
   studioInterior: photo({
     id: "studio-photo-interior",
@@ -38,6 +56,7 @@ export const studioPhotos = {
     width: 1024,
     height: 571,
     alt: "Interior of Beauty Nail Studio by Cj with manicure tables, pink arched polish shelves, and butterfly pendant lights.",
+    portrait: portraitCrop("/media/studio-interior-4x5.jpg"),
   }),
   studioSign: photo({
     id: "studio-photo-sign",
@@ -45,6 +64,7 @@ export const studioPhotos = {
     width: 1024,
     height: 571,
     alt: "Interior wall sign reading Beauty Nail Studio by Cj on a pink wall, with nail color displays in front.",
+    portrait: portraitCrop("/media/studio-sign-4x5.jpg"),
   }),
   studioHygiene: photo({
     id: "studio-photo-hygiene",
@@ -52,6 +72,7 @@ export const studioPhotos = {
     width: 1024,
     height: 571,
     alt: "Open sterilizer tray holding stainless steel manicure tools, with a gloved hand nearby.",
+    portrait: portraitCrop("/media/studio-hygiene-4x5.jpg"),
   }),
   lashes: photo({
     id: "studio-photo-lashes",
@@ -59,6 +80,7 @@ export const studioPhotos = {
     width: 1024,
     height: 571,
     alt: "Close-up of finished eyelashes and eyebrows after a studio visit.",
+    portrait: portraitCrop("/media/lashes-classic-4x5.jpg"),
   }),
   customNailArt: photo({
     id: "studio-photo-custom-nail-art",

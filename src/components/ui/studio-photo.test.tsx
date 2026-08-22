@@ -13,10 +13,34 @@ vi.mock("next/image", () => ({
     // eslint-disable-next-line @next/next/no-img-element
     <img alt={alt} src={src} />
   ),
+  getImageProps: ({
+    alt,
+    src,
+    sizes,
+  }: {
+    alt: string;
+    src: string;
+    sizes: string;
+  }) => ({
+    props: { alt, src, srcSet: src, sizes },
+  }),
 }));
 
 describe("StudioPhoto", () => {
   it("renders the owner-cleared photograph with its alt text", () => {
+    render(
+      <StudioPhoto
+        photo={studioPhotos.customNailArt}
+        sizes="(max-width: 48rem) 100vw, 48rem"
+      />,
+    );
+
+    expect(
+      screen.getByRole("img", { name: studioPhotos.customNailArt.alt }),
+    ).toHaveAttribute("src", studioPhotos.customNailArt.src);
+  });
+
+  it("uses a portrait source for phone art direction", () => {
     render(
       <StudioPhoto
         photo={studioPhotos.hero}
@@ -24,9 +48,16 @@ describe("StudioPhoto", () => {
       />,
     );
 
-    expect(
-      screen.getByRole("img", { name: studioPhotos.hero.alt }),
-    ).toHaveAttribute("src", studioPhotos.hero.src);
+    const image = screen.getByRole("img", { name: studioPhotos.hero.alt });
+    expect(image).toHaveAttribute("src", "/media/hero-branded-set-4x5.jpg");
+    expect(image.closest("picture")?.querySelector("source")).toHaveAttribute(
+      "media",
+      "(min-width: 48rem)",
+    );
+    expect(image.closest("picture")?.querySelector("source")).toHaveAttribute(
+      "srcset",
+      "/media/hero-branded-set.jpg",
+    );
   });
 
   it("renders the designed fallback when a page photo is withdrawn", () => {
