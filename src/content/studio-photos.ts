@@ -50,6 +50,14 @@ export const studioPhotos = {
     alt: "Night-time storefront of Beauty Nail Studio by Cj, with the studio name on the sign and the interior visible through glass doors.",
     portrait: portraitCrop("/media/visit-storefront-4x5.jpg"),
   }),
+  visitStorefrontBanner: photo({
+    id: "studio-photo-visit-banner",
+    src: "/media/visit-storefront-banner.jpg",
+    width: 1024,
+    height: 571,
+    alt: "Night-time storefront of Beauty Nail Studio by Cj, with the studio name on the sign and the interior visible through glass doors.",
+    portrait: portraitCrop("/media/visit-storefront-4x5.jpg"),
+  }),
   studioInterior: photo({
     id: "studio-photo-interior",
     src: "/media/studio-interior.jpg",

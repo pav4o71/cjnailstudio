@@ -96,23 +96,36 @@ export default function HomePage() {
           heading="Knightsbridge studio"
           headingId="visit-heading"
         />
-        <div className="card">
-          <address>{site.location.address}</address>
-          <p>{site.location.hours}</p>
-          <p>{pageCopy.walkIn.text}</p>
-          <div className="actions">
-            <a className="button" href={directions}>
-              Search this address in Google Maps
-            </a>
-            <Link className="button-secondary" href="/visit">
-              Visit details
-            </Link>
-            <Link
-              className="button-secondary"
-              href={bookingHref({ entryPoint: "home" })}
-            >
-              Book or contact the studio
-            </Link>
+        <div className="media-stack">
+          <PageStudioPhoto
+            fallback={
+              <MediaFallback
+                eyebrow="Consent-safe gallery"
+                title="Website gallery in preparation"
+                description={pageCopy.galleryFallback.text}
+              />
+            }
+            photoId={studioPhotos.visitStorefrontBanner.id}
+            sizes="(max-width: 48rem) 100vw, 52rem"
+          />
+          <div className="card">
+            <address>{site.location.address}</address>
+            <p>{site.location.hours}</p>
+            <p>{pageCopy.walkIn.text}</p>
+            <div className="actions">
+              <a className="button" href={directions}>
+                Search this address in Google Maps
+              </a>
+              <Link className="button-secondary" href="/visit">
+                Visit details
+              </Link>
+              <Link
+                className="button-secondary"
+                href={bookingHref({ entryPoint: "home" })}
+              >
+                Book or contact the studio
+              </Link>
+            </div>
           </div>
         </div>
       </section>

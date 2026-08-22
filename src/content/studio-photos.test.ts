@@ -86,4 +86,12 @@ describe("owner-cleared studio photos", () => {
       expect(mediaFileExists(photo.portrait?.src ?? "")).toBe(true);
     }
   });
+
+  it("stores the home visit banner beside the visit storefront photograph", () => {
+    const banner = publishedPhotoById("studio-photo-visit-banner");
+
+    expect(banner?.src).toBe("/media/visit-storefront-banner.jpg");
+    expect(banner?.portrait?.src).toBe("/media/visit-storefront-4x5.jpg");
+    expect(mediaFileExists(banner?.src ?? "")).toBe(true);
+  });
 });
