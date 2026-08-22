@@ -1,6 +1,3 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
-
 import { z } from "zod";
 
 export const ownerMediaCapturedAt = "2026-08-22T18:14:00+02:00";
@@ -11,11 +8,13 @@ export const studioPhotoSchema = z.object({
   alt: z.string().min(1),
   width: z.literal(1024),
   height: z.literal(571),
+  status: z.enum(["published", "blocked"]).default("published"),
 });
 
 export type StudioPhotoRecord = z.infer<typeof studioPhotoSchema>;
+export type StudioPhotoInput = z.input<typeof studioPhotoSchema>;
 
-const photo = (record: StudioPhotoRecord): StudioPhotoRecord =>
+const photo = (record: StudioPhotoInput): StudioPhotoRecord =>
   studioPhotoSchema.parse(record);
 
 export const studioPhotos = {
@@ -122,30 +121,11 @@ export const pageStudioPhotos = [
   studioPhotos.customNailArt,
 ] as const;
 
-export const galleryStudioPhotos = [
-  studioPhotos.rose,
-  studioPhotos.laceBow,
-  studioPhotos.goldLeaf,
-  studioPhotos.redChrome,
-  studioPhotos.pink,
-  studioPhotos.rhinestone,
-  studioPhotos.customNailArt,
-  studioPhotos.lashes,
-] as const;
-
-export function publicMediaPath(src: string): string {
-  return join(process.cwd(), "public", src.replace(/^\//, ""));
-}
-
-export function studioPhotoFileExists(src: string): boolean {
-  return existsSync(publicMediaPath(src));
-}
-
-export function photoById(id: string): StudioPhotoRecord {
+export function publishedPhotoById(id: string): StudioPhotoRecord | undefined {
   const photo = Object.values(studioPhotos).find((item) => item.id === id);
 
-  if (!photo) {
-    throw new Error(`Unknown studio photo id: ${id}`);
+  if (!photo || photo.status !== "published") {
+    return undefined;
   }
 
   return photo;

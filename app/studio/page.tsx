@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
+import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { StatusCallout } from "@/src/components/ui/status-callout";
-import { StudioPhoto } from "@/src/components/ui/studio-photo";
+import { PageStudioPhoto } from "@/src/components/ui/studio-photo";
 import { pageCopy, pageMetadata, reviewThemes } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
@@ -35,12 +36,26 @@ export default function StudioPage() {
       </div>
 
       <section className="section media-stack">
-        <StudioPhoto
-          photo={studioPhotos.studioInterior}
+        <PageStudioPhoto
+          fallback={
+            <MediaFallback
+              eyebrow="Consent-safe gallery"
+              title="Website gallery in preparation"
+              description={pageCopy.galleryFallback.text}
+            />
+          }
+          photoId={studioPhotos.studioInterior.id}
           sizes="(max-width: 48rem) 100vw, 52rem"
         />
-        <StudioPhoto
-          photo={studioPhotos.studioSign}
+        <PageStudioPhoto
+          fallback={
+            <MediaFallback
+              eyebrow="Consent-safe gallery"
+              title="Website gallery in preparation"
+              description={pageCopy.galleryFallback.text}
+            />
+          }
+          photoId={studioPhotos.studioSign.id}
           sizes="(max-width: 48rem) 100vw, 52rem"
         />
       </section>
@@ -54,8 +69,15 @@ export default function StudioPage() {
           </p>
         </StatusCallout>
         <div className="section">
-          <StudioPhoto
-            photo={studioPhotos.studioHygiene}
+          <PageStudioPhoto
+            fallback={
+              <MediaFallback
+                eyebrow="Consent-safe gallery"
+                title="Website gallery in preparation"
+                description={pageCopy.galleryFallback.text}
+              />
+            }
+            photoId={studioPhotos.studioHygiene.id}
             sizes="(max-width: 48rem) 100vw, 52rem"
           />
         </div>

@@ -97,8 +97,19 @@ test.describe("milestone 3 public pages", () => {
       const mainText = await page.locator("#main").innerText();
       expect(mainText).not.toMatch(blockedClaimPattern);
       expect(mainText).not.toMatch(/tbd|lorem ipsum/i);
+      const photoRoutes = new Set([
+        "/",
+        "/gallery",
+        "/studio",
+        "/visit",
+        "/services/lashes",
+        "/services/custom-nail-art",
+      ]);
       const images = page.locator("#main img");
       const imageCount = await images.count();
+      if (photoRoutes.has(route.path)) {
+        expect(imageCount).toBeGreaterThan(0);
+      }
       for (let index = 0; index < imageCount; index += 1) {
         const src = (await images.nth(index).getAttribute("src")) ?? "";
         expect(src).toMatch(/\/media\/|\/_next\/image/);
@@ -138,8 +149,9 @@ test.describe("milestone 3 public pages", () => {
         page.getByRole("heading", { name: "Website gallery in preparation" }),
       ).toBeVisible();
     } else {
+      expect(await page.locator("#main img").count()).toBeGreaterThan(0);
       expect(
-        await page.locator("#main img, #main [data-gallery-item]").count(),
+        await page.locator("#main [data-gallery-item]").count(),
       ).toBeGreaterThan(0);
     }
 

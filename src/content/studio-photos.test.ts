@@ -3,12 +3,16 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { galleryItems, publishedGalleryItems } from "./gallery";
 import {
+  galleryItems,
   galleryStudioPhotos,
-  pageStudioPhotos,
-  studioPhotoFileExists,
-} from "./studio-photos";
+  publishedGalleryItems,
+} from "./gallery";
+import { pageStudioPhotos, publishedPhotoById } from "./studio-photos";
+
+function mediaFileExists(src: string): boolean {
+  return existsSync(join(process.cwd(), "public", src.replace(/^\//, "")));
+}
 
 describe("owner-cleared studio photos", () => {
   it("keeps published looks on local /media files with new ids", () => {
@@ -23,9 +27,25 @@ describe("owner-cleared studio photos", () => {
           item.mediaId.startsWith("studio-photo-") &&
           !/media-0(0[1-9]|[12][0-9]|30)/.test(item.src) &&
           !/media-0(0[1-9]|[12][0-9]|30)/.test(item.mediaId) &&
-          studioPhotoFileExists(item.src),
+          mediaFileExists(item.src),
       ),
     ).toBe(true);
+  });
+
+  it("binds the lash look by named photo, not array order", () => {
+    const lashLooks = publishedGalleryItems().filter(
+      (item) => item.serviceCategoryId === "lashes",
+    );
+
+    expect(lashLooks.map((item) => item.id)).toEqual(["look-lashes"]);
+    expect(lashLooks[0]?.mediaId).toBe("studio-photo-lashes");
+  });
+
+  it("withdraws a page photograph by id instead of throwing", () => {
+    expect(publishedPhotoById("studio-photo-hero")?.src).toBe(
+      "/media/hero-branded-set.jpg",
+    );
+    expect(publishedPhotoById("media-023")).toBeUndefined();
   });
 
   it("leaves retained social-manifest candidates unpublished", () => {
@@ -44,10 +64,7 @@ describe("owner-cleared studio photos", () => {
 
   it("stores page photographs beside the gallery set", () => {
     for (const photo of [...pageStudioPhotos, ...galleryStudioPhotos]) {
-      expect(studioPhotoFileExists(photo.src)).toBe(true);
-      expect(
-        existsSync(join(process.cwd(), "public", photo.src.slice(1))),
-      ).toBe(true);
+      expect(mediaFileExists(photo.src)).toBe(true);
     }
   });
 });

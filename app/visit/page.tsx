@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
+import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { StatusCallout } from "@/src/components/ui/status-callout";
-import { StudioPhoto } from "@/src/components/ui/studio-photo";
+import { PageStudioPhoto } from "@/src/components/ui/studio-photo";
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
@@ -25,8 +26,15 @@ export default function VisitPage() {
       <h1>{pageMetadata.visit.h1}</h1>
       <p className="lede">{pageCopy.visitIntro.text}</p>
       <div className="section">
-        <StudioPhoto
-          photo={studioPhotos.visitStorefront}
+        <PageStudioPhoto
+          fallback={
+            <MediaFallback
+              eyebrow="Consent-safe gallery"
+              title="Website gallery in preparation"
+              description={pageCopy.galleryFallback.text}
+            />
+          }
+          photoId={studioPhotos.visitStorefront.id}
           sizes="(max-width: 48rem) 100vw, 52rem"
         />
       </div>

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
-import { StudioPhoto } from "@/src/components/ui/studio-photo";
+import { MediaFallback } from "@/src/components/ui/media-fallback";
+import { PageStudioPhoto } from "@/src/components/ui/studio-photo";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
@@ -40,8 +41,15 @@ export default function CustomNailArtPage() {
         </Link>
       </div>
       <div className="section">
-        <StudioPhoto
-          photo={studioPhotos.customNailArt}
+        <PageStudioPhoto
+          fallback={
+            <MediaFallback
+              eyebrow="Consent-safe gallery"
+              title="Website gallery in preparation"
+              description={pageCopy.galleryFallback.text}
+            />
+          }
+          photoId={studioPhotos.customNailArt.id}
           sizes="(max-width: 48rem) 100vw, 48rem"
         />
       </div>

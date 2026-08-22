@@ -88,9 +88,7 @@ test("gallery publishes cleared looks and books through to manual contact", asyn
   await expect(
     page.getByText(/^[1-9]\d* looks published on this website\.$/),
   ).toBeVisible();
-  await expect(
-    page.locator("#main img, #main [data-gallery-item]").first(),
-  ).toBeVisible();
+  await expect(page.locator("#main img").first()).toBeVisible();
   await page
     .locator("#main")
     .getByRole("link", { name: "Book or contact the studio" })

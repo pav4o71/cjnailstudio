@@ -3,8 +3,8 @@ import { z } from "zod";
 import { capturedAt } from "@/src/content/evidence";
 import type { ServiceCategoryId } from "@/src/content/site";
 import {
-  galleryStudioPhotos,
   ownerMediaCapturedAt,
+  studioPhotos,
   type StudioPhotoRecord,
 } from "@/src/content/studio-photos";
 
@@ -44,6 +44,13 @@ const galleryItemSchema = z
       ctx.addIssue({
         code: "custom",
         message: "Published gallery items need a local image source and size.",
+      });
+    }
+
+    if (!item.mediaId.startsWith("studio-photo-")) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Published gallery items must use studio-photo ids.",
       });
     }
   });
@@ -86,17 +93,30 @@ const publishedLook = (
     publishability: "publishable",
   });
 
+const publishedLooks: ReadonlyArray<{
+  photo: StudioPhotoRecord;
+  serviceCategoryId: ServiceCategoryId;
+}> = [
+  { photo: studioPhotos.rose, serviceCategoryId: "custom-nail-art" },
+  { photo: studioPhotos.laceBow, serviceCategoryId: "custom-nail-art" },
+  { photo: studioPhotos.goldLeaf, serviceCategoryId: "custom-nail-art" },
+  { photo: studioPhotos.redChrome, serviceCategoryId: "custom-nail-art" },
+  { photo: studioPhotos.pink, serviceCategoryId: "custom-nail-art" },
+  { photo: studioPhotos.rhinestone, serviceCategoryId: "custom-nail-art" },
+  { photo: studioPhotos.customNailArt, serviceCategoryId: "custom-nail-art" },
+  { photo: studioPhotos.lashes, serviceCategoryId: "lashes" },
+];
+
+export const galleryStudioPhotos = publishedLooks
+  .filter((look) => look.photo.status === "published")
+  .map((look) => look.photo);
+
 export const galleryItems = z
   .array(galleryItemSchema)
   .parse([
-    publishedLook(galleryStudioPhotos[0], "custom-nail-art"),
-    publishedLook(galleryStudioPhotos[1], "custom-nail-art"),
-    publishedLook(galleryStudioPhotos[2], "custom-nail-art"),
-    publishedLook(galleryStudioPhotos[3], "custom-nail-art"),
-    publishedLook(galleryStudioPhotos[4], "custom-nail-art"),
-    publishedLook(galleryStudioPhotos[5], "custom-nail-art"),
-    publishedLook(galleryStudioPhotos[6], "custom-nail-art"),
-    publishedLook(galleryStudioPhotos[7], "lashes"),
+    ...publishedLooks
+      .filter((look) => look.photo.status === "published")
+      .map((look) => publishedLook(look.photo, look.serviceCategoryId)),
     planningItem("gallery-media-011", "media-011", "custom-nail-art"),
     planningItem("gallery-media-012", "media-012", "custom-nail-art"),
     planningItem("gallery-media-013", "media-013", "custom-nail-art"),

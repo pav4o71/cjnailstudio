@@ -1,9 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { studioPhotos } from "@/src/content/studio-photos";
 
-import { StudioPhoto } from "./studio-photo";
+import { PageStudioPhoto, StudioPhoto } from "./studio-photo";
+
+afterEach(cleanup);
 
 vi.mock("next/image", () => ({
   default: ({ alt, src }: { alt: string; src: string }) => (
@@ -25,5 +27,18 @@ describe("StudioPhoto", () => {
     expect(
       screen.getByRole("img", { name: studioPhotos.hero.alt }),
     ).toHaveAttribute("src", studioPhotos.hero.src);
+  });
+
+  it("renders the designed fallback when a page photo is withdrawn", () => {
+    render(
+      <PageStudioPhoto
+        fallback={<p>Photograph withdrawn</p>}
+        photoId="media-023"
+        sizes="100vw"
+      />,
+    );
+
+    expect(screen.getByText("Photograph withdrawn")).toBeVisible();
+    expect(screen.queryByRole("img")).toBeNull();
   });
 });

@@ -9,7 +9,7 @@ import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
-import { photoById } from "@/src/content/studio-photos";
+import { publishedPhotoById } from "@/src/content/studio-photos";
 import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.gallery);
@@ -52,14 +52,18 @@ export default function GalleryPage() {
         <div className="section">
           <p>{pageCopy.galleryPublished.text}</p>
           <ul className="gallery-grid">
-            {published.map((item) => (
-              <li data-gallery-item={item.id} key={item.id}>
-                <StudioPhoto
-                  photo={photoById(item.mediaId)}
-                  sizes="(max-width: 48rem) 100vw, 36rem"
-                />
-              </li>
-            ))}
+            {published.map((item) => {
+              const photo = publishedPhotoById(item.mediaId);
+
+              return photo ? (
+                <li data-gallery-item={item.id} key={item.id}>
+                  <StudioPhoto
+                    photo={photo}
+                    sizes="(max-width: 48rem) 100vw, 36rem"
+                  />
+                </li>
+              ) : null;
+            })}
           </ul>
           <div className="actions">
             <Link
