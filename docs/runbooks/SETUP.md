@@ -9,13 +9,19 @@ Portable local path for Beauty Nail Studio by Cj. This does not select a product
 - Git
 - Chromium for Playwright (`npx playwright install --with-deps chromium`)
 
-Phase 0 does not need production credentials. Copy `.env.example` only if you want a local reminder that booking stays `manual-handoff`. Missing or invalid booking configuration must remain manual-handoff.
+Phase 0 does not need production credentials. Copy `.env.example` only if you want a local reminder of the default Pavells embed. Missing or invalid booking configuration must remain manual-handoff.
+
+```
+BOOKING_MODE=embedded-widget
+```
+
+Rollback:
 
 ```
 BOOKING_MODE=manual-handoff
 ```
 
-Do not add live scheduler, payment, analytics-destination, or notification variables.
+Do not add payment, analytics-destination, or notification variables.
 
 ## Clean install
 
@@ -66,4 +72,4 @@ Use `npm run start` only after `npm run build`. Do not point a public hostname a
 
 ## Release validation note
 
-Milestone 6 records a clean-install run of the commands above on `codex/milestone-6-release`. Production deployment remains separately authorized (ODR-024). Live scheduling and payments remain off (ODR-025).
+Milestone 6 records a clean-install run of the commands above on `codex/milestone-6-release`. Production on `https://cjnailstudio.netlify.app` is D-017. First-party payments stay off.

@@ -4,7 +4,7 @@ Status: APPROVED FOR PHASE-0 IMPLEMENTATION
 
 ## System shape
 
-The site is a static-first Next.js App Router application using strict TypeScript. Public pages are pre-rendered from schema-validated repository content. Client JavaScript is limited to interactions such as the mobile menu and gallery filtering. There is no phase-0 database, first-party booking form, upload, payment or notification system.
+The site is a static-first Next.js App Router application using strict TypeScript. Public pages are pre-rendered from schema-validated repository content. Client JavaScript is limited to interactions such as the mobile menu, gallery filtering, and the `/book` Pavells widget script. There is no first-party booking form, upload, payment or notification system.
 
 ```mermaid
 flowchart LR
@@ -12,19 +12,20 @@ flowchart LR
   V --> P["Pre-rendered public pages"]
   P --> UI["Accessible first-party UI"]
   UI --> BG["BookingGateway"]
-  BG --> MAN["ManualHandoffAdapter (default)"]
-  BG -. "future approval" .-> HOST["HostedBookingAdapter"]
-  BG -. "future approval" .-> EMBED["EmbeddedBookingAdapter"]
+  BG --> EMBED["PavellsWidgetAdapter (default)"]
+  BG --> MAN["ManualHandoffAdapter (fail-closed)"]
+  BG -. "unauthorized" .-> HOST["HostedBookingAdapter"]
+  EMBED --> PAVELLS["Pavells Booking iframe"]
   MAN --> EXT["WhatsApp / phone / visit"]
-  HOST --> PROVIDER["Future booking provider"]
-  EMBED --> PROVIDER
+  EMBED --> EXT
+  HOST --> PROVIDER["Future hosted provider"]
   UI --> AP["AnalyticsPort (no-op default)"]
   PROVIDER -. "future authenticated events" .-> WH["Webhook boundary"]
   WH -. "separate approval" .-> PAY["PaymentGateway"]
   WH -. "separate approval" .-> NOTIFY["NotificationGateway"]
 ```
 
-Dashed paths are disabled until owner decisions, credentials, privacy/security review and explicit activation authority exist.
+Dashed paths stay disabled until owner decisions, credentials, privacy/security review and explicit activation authority exist. The Pavells embed is authorized by D-016.
 
 ## Layers
 
@@ -32,13 +33,13 @@ Dashed paths are disabled until owner decisions, credentials, privacy/security r
 2. **Domain:** booking intent, adapter contracts, analytics event schema and media publication gates.
 3. **Application:** route composition and first-party state orchestration.
 4. **UI:** semantic accessible components and consent-safe visual fallbacks.
-5. **Infrastructure adapters:** phase-0 manual contact only; future providers remain isolated.
+5. **Infrastructure adapters:** Pavells embed on `/book` with manual contact fallback; hosted-redirect remains isolated.
 
 UI components never import provider SDKs, provider URLs or environment variables directly.
 
 ## Phase-0 invariants
 
-- Booking mode defaults and fails closed to `manual-handoff`.
+- Booking mode defaults to the validated Pavells embed and fails closed to `manual-handoff`.
 - The site collects no first-party booking PII.
 - WhatsApp, phone and Visit links render as semantic HTML without JavaScript.
 - Handoff success never means appointment confirmation.
@@ -72,7 +73,7 @@ Build validation checks source IDs, owner decisions, expiry and publishability. 
 
 ## Deployment shape
 
-Phase 0 requires only a managed Node-compatible runtime or a portable container/static-capable target supported by the selected Next.js output. The repository contains no production host selection, DNS mutation or credentials. Environment parsing permits only non-secret public configuration in the browser; future secrets remain server-only.
+Phase 0 deploys to the approved Netlify origin `https://cjnailstudio.netlify.app` (D-017). The repository still contains no custom-domain DNS mutation or credentials. Environment parsing permits only non-secret public configuration in the browser; future secrets remain server-only.
 
 ## Security boundaries
 

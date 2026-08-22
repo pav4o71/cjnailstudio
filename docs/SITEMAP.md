@@ -2,7 +2,7 @@
 
 Status: APPROVED FOR PHASE-0 IMPLEMENTATION
 
-Milestone 3 implements the launch routes below as evidence-backed pages. Deferred routes remain absent (HTTP 404). `/gallery` is a consent-safe empty state. `/book` remains manual-handoff and does not activate a live scheduler.
+Milestone 3 implements the launch routes below as evidence-backed pages. Deferred routes remain absent (HTTP 404). `/book` mounts the Pavells Booking panel and keeps WhatsApp, phone and walk-in fallbacks.
 
 ## Launch routes
 
@@ -39,6 +39,6 @@ Footer: FAQ · WhatsApp · Call · Email · Instagram · Privacy · Terms · can
 ## URL and indexation rules
 
 - Use lowercase, stable, descriptive paths.
-- Canonical URLs point to the production origin only after the deployment domain is approved.
+- Canonical URLs point to `https://cjnailstudio.netlify.app` (D-017).
 - Preview/staging environments must be non-indexable.
 - Do not create empty pages for blocked content.

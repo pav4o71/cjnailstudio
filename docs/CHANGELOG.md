@@ -4,7 +4,8 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 
 ## Unreleased
 
-No further product changes after the `release-candidate` tag. A docs-only follow-up on `main` records that tag; it is not a production publish.
+- Owner-supplied Pavells Booking embed on `/book` (D-016), with WhatsApp, phone and walk-in fallbacks.
+- Production origin `https://cjnailstudio.netlify.app` (D-017 / ODR-024): launch routes indexable, `/visit` in the sitemap, preview/branch deploys stay noindex. Custom domain is not invented. First-party payments, notifications and analytics destinations stay off.
 
 ## release-candidate — 2026-08-17
 

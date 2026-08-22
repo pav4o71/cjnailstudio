@@ -221,6 +221,14 @@ p {
   margin-top: var(--space-6);
 }
 
+.booking-widget {
+  margin-top: var(--space-8);
+}
+
+#pavells-booking {
+  width: 100%;
+}
+
 .button,
 .button-secondary {
   align-items: center;

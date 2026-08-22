@@ -15,7 +15,7 @@ npm run validate
 npm run test:e2e
 ```
 
-Local development: `npm run dev`. Booking stays `manual-handoff`. The site stays non-indexable until ODR-024.
+Local development: `npm run dev`. Booking defaults to the Pavells embed on `/book` (`BOOKING_MODE=embedded-widget`) with WhatsApp, phone and walk-in fallbacks. Rollback is `BOOKING_MODE=manual-handoff`. Production origin is `https://cjnailstudio.netlify.app` (D-017).
 
 ## Operations
 
@@ -24,8 +24,8 @@ Local development: `npm run dev`. Booking stays `manual-handoff`. The site stays
 | Deployment (portable; no production credentials)                 | `docs/runbooks/DEPLOYMENT.md`        |
 | Rollback                                                         | `docs/runbooks/ROLLBACK.md`          |
 | Maintenance                                                      | `docs/runbooks/MAINTENANCE.md`       |
-| Indexation flip (ODR-024)                                        | `docs/runbooks/INDEXATION.md`        |
+| Indexation (D-017 / ODR-024)                                     | `docs/runbooks/INDEXATION.md`        |
 | Manual QA / Lighthouse                                           | `docs/runbooks/MANUAL_QA.md`         |
 | `release-candidate` tag (on `main`; not a production publish)    | `docs/runbooks/RELEASE_CANDIDATE.md` |
 
-Production deployment, custom domain, live scheduling, payments, and analytics destinations are owner-gated. This repository does not ship those capabilities.
+Production deployment on `https://cjnailstudio.netlify.app` is authorized (D-017). Custom domain, first-party payments, and analytics destinations remain owner-gated. This repository does not ship those remaining capabilities.

@@ -1,10 +1,21 @@
 import { expect, test } from "@playwright/test";
 
 import { publicPageList } from "../src/content/pages";
-import { localBusinessJsonLd } from "../src/content/seo";
+import {
+  approvedProductionOrigin,
+  deferredPaths,
+  localBusinessJsonLd,
+} from "../src/content/seo";
 import { site } from "../src/content/site";
 
-test("launch routes expose unique Open Graph tags, relative canonicals and noindex", async ({
+function productionOrigin(): string {
+  if (!approvedProductionOrigin) {
+    throw new Error("approvedProductionOrigin must be set for production e2e");
+  }
+  return approvedProductionOrigin;
+}
+
+test("launch routes expose unique Open Graph tags, absolute canonicals and indexable robots", async ({
   page,
 }) => {
   const ogTitles: string[] = [];
@@ -12,7 +23,7 @@ test("launch routes expose unique Open Graph tags, relative canonicals and noind
   for (const route of publicPageList) {
     const response = await page.goto(route.path);
     expect(response?.ok()).toBeTruthy();
-    expect(response?.headers()["x-robots-tag"]).toMatch(/noindex/i);
+    expect(response?.headers()["x-robots-tag"] ?? "").not.toMatch(/noindex/i);
     expect(response?.headers()["content-security-policy"]).toContain(
       "connect-src 'self'",
     );
@@ -21,7 +32,9 @@ test("launch routes expose unique Open Graph tags, relative canonicals and noind
     );
 
     const robots = page.locator('meta[name="robots"]');
-    await expect(robots).toHaveAttribute("content", /noindex/);
+    const robotsContent = await robots.getAttribute("content");
+    expect(robotsContent).toMatch(/\bindex\b/i);
+    expect(robotsContent).not.toMatch(/noindex/i);
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
       "content",
       route.title,
@@ -31,7 +44,7 @@ test("launch routes expose unique Open Graph tags, relative canonicals and noind
     ).toHaveAttribute("content", route.description);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",
-      new RegExp(`${route.path === "/" ? "/$" : `${route.path}$`}`),
+      new URL(route.path, `${productionOrigin()}/`).href,
     );
     const canonicalHref = await page
       .locator('link[rel="canonical"]')
@@ -64,33 +77,42 @@ test("launch routes expose unique Open Graph tags, relative canonicals and noind
   expect(new Set(ogTitles).size).toBe(publicPageList.length);
 });
 
-test("visit stays noindex until ODR-024 approves a production origin", async ({
+test("visit is indexable on the approved production origin", async ({
   page,
 }) => {
   const response = await page.goto("/visit");
   expect(response?.ok()).toBeTruthy();
-  expect(response?.headers()["x-robots-tag"]).toMatch(/noindex/i);
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
-    "content",
-    /noindex/,
-  );
+  expect(response?.headers()["x-robots-tag"] ?? "").not.toMatch(/noindex/i);
+  const robotsContent = await page
+    .locator('meta[name="robots"]')
+    .getAttribute("content");
+  expect(robotsContent).toMatch(/\bindex\b/i);
+  expect(robotsContent).not.toMatch(/noindex/i);
 });
 
-test("robots and sitemap stay non-indexable without an approved origin", async ({
+test("robots and sitemap index launch routes on the approved origin", async ({
   request,
 }) => {
   const robots = await request.get("/robots.txt");
   expect(robots.ok()).toBeTruthy();
   const robotsBody = await robots.text();
-  expect(robotsBody).toMatch(/Disallow:\s*\//i);
-  expect(robotsBody).not.toMatch(/Sitemap:\s*https?:\/\/(?!127\.0\.0\.1)/i);
+  expect(robotsBody).toMatch(/Allow:\s*\//i);
+  expect(robotsBody).toContain(`Sitemap: ${productionOrigin()}/sitemap.xml`);
+  for (const path of deferredPaths) {
+    expect(robotsBody).toMatch(new RegExp(`Disallow:\\s*${path}`, "i"));
+  }
 
   const sitemap = await request.get("/sitemap.xml");
   expect(sitemap.ok()).toBeTruthy();
   const sitemapBody = await sitemap.text();
-  expect(sitemapBody).not.toMatch(/<(?:loc|url)>/i);
+  expect(sitemapBody).toContain(`${productionOrigin()}/visit`);
+  expect(sitemapBody).toContain(`${productionOrigin()}/book`);
   expect(sitemapBody).not.toContain("/matcha");
-  expect(sitemapBody).not.toContain("/visit");
+  expect(sitemapBody).not.toContain("/team");
+  expect(sitemapBody).not.toContain("/reviews");
+  expect(sitemapBody).not.toContain("/pricing");
+  expect(sitemapBody).not.toContain("/beacon-tower");
+  expect(sitemapBody).not.toMatch(/cjnailstudio\.com/i);
 });
 
 test("structured data uses only verified LocalBusiness facts", async ({
@@ -107,7 +129,7 @@ test("structured data uses only verified LocalBusiness facts", async ({
   );
 });
 
-test("privacy and terms still describe no-op analytics and manual booking", async ({
+test("privacy and terms still describe no-op analytics and the Pavells panel", async ({
   page,
 }) => {
   await page.goto("/privacy");
@@ -115,11 +137,12 @@ test("privacy and terms still describe no-op analytics and manual booking", asyn
   await expect(page.locator("#main")).toContainText(
     /does not include a first-party booking or contact form/i,
   );
+  await expect(page.locator("#main")).toContainText(/Pavells Booking/i);
 
   await page.goto("/terms");
-  await expect(page.locator("#main")).toContainText(/manual handoff/i);
+  await expect(page.locator("#main")).toContainText(/Pavells Booking/i);
   await expect(page.locator("#main")).toContainText(
-    /does not show live availability or confirm bookings/i,
+    /does not confirm an appointment by itself/i,
   );
 });
 

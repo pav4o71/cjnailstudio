@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BookingWidget } from "@/src/components/booking/booking-widget";
 import { StatusCallout } from "@/src/components/ui/status-callout";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { site } from "@/src/content/site";
@@ -8,6 +9,7 @@ import {
   type BookingView,
   type ManualHandoffs,
 } from "@/src/domain/booking";
+import type { PavellsWidgetMount } from "@/src/domain/pavells-booking";
 
 type BookingPageProps = Readonly<{
   categoryLabel?: string;
@@ -15,6 +17,7 @@ type BookingPageProps = Readonly<{
   intent: BookingIntent;
   onRetry?: () => void;
   view: BookingView;
+  widget?: PavellsWidgetMount;
 }>;
 
 function statusForView(view: BookingView) {
@@ -54,10 +57,13 @@ export function BookingPage({
   intent,
   onRetry,
   view,
+  widget,
 }: BookingPageProps) {
   const status = statusForView(view);
   const showIntent =
     Boolean(categoryLabel) || Boolean(intent.galleryReferenceId);
+  const showWidget =
+    Boolean(widget) && (view === "widget" || view === "return");
 
   return (
     <div className="page">
@@ -92,6 +98,7 @@ export function BookingPage({
           </StatusCallout>
         </div>
       ) : null}
+      {showWidget && widget ? <BookingWidget widget={widget} /> : null}
       <div
         className="actions"
         role="group"

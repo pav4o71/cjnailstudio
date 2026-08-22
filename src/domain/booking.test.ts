@@ -9,6 +9,7 @@ import {
   isSafeHandoffUrl,
   MANUAL_VISIT_ORIGIN,
   ManualHandoffAdapter,
+  PavellsWidgetAdapter,
   resolveBookingView,
   sanitizeHandoff,
 } from "./booking";
@@ -18,6 +19,7 @@ import {
 } from "./booking-config";
 import { parseBookingQuery } from "./booking-query";
 import { FAKE_HOSTED_ORIGIN, FakeHostedAdapter } from "./fake-hosted-adapter";
+import { readPavellsBookingConfig } from "./pavells-booking";
 
 function listSourceFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -186,12 +188,15 @@ describe("controlled booking intents and URL security", () => {
 });
 
 describe("production booking config", () => {
-  it("fails closed to manual-handoff for every non-production mode", () => {
-    expect(readProductionBookingMode({})).toBe("manual-handoff");
-    expect(readProductionBookingMode({ BOOKING_MODE: "hosted-redirect" })).toBe(
+  it("defaults to the Pavells embedded widget and fails closed for other modes", () => {
+    expect(readProductionBookingMode({})).toBe("embedded-widget");
+    expect(readProductionBookingMode({ BOOKING_MODE: "embedded-widget" })).toBe(
+      "embedded-widget",
+    );
+    expect(readProductionBookingMode({ BOOKING_MODE: "manual-handoff" })).toBe(
       "manual-handoff",
     );
-    expect(readProductionBookingMode({ BOOKING_MODE: "embedded-widget" })).toBe(
+    expect(readProductionBookingMode({ BOOKING_MODE: "hosted-redirect" })).toBe(
       "manual-handoff",
     );
     expect(
@@ -202,8 +207,23 @@ describe("production booking config", () => {
     );
   });
 
-  it("constructs only the manual adapter", async () => {
-    const adapter = createProductionAdapter("+639617400664");
+  it("constructs the Pavells widget adapter by default", async () => {
+    const adapter = createProductionAdapter("+639617400664", {});
+    expect(adapter.mode).toBe("embedded-widget");
+    expect(adapter).toBeInstanceOf(PavellsWidgetAdapter);
+    await expect(
+      adapter.createHandoff({ entryPoint: "book" }),
+    ).resolves.toEqual({
+      kind: "embed",
+      channel: "embedded",
+      integrationKey: "pavells-booking",
+    });
+  });
+
+  it("rolls back to the manual adapter when BOOKING_MODE is manual-handoff", async () => {
+    const adapter = createProductionAdapter("+639617400664", {
+      BOOKING_MODE: "manual-handoff",
+    });
     expect(adapter.mode).toBe("manual-handoff");
     expect(adapter).toBeInstanceOf(ManualHandoffAdapter);
     await expect(
@@ -229,10 +249,74 @@ describe("production booking config", () => {
   });
 });
 
-describe("booking view resolution", () => {
-  const adapter = createProductionAdapter("+639617400664");
+describe("Pavells booking config", () => {
+  it("pins the owner-supplied public widget snippet", () => {
+    expect(readPavellsBookingConfig()).toEqual({
+      origin: "https://booking.pavells.com",
+      businessSlug: "beauty-nail-studio-by-cj2",
+      mountId: "pavells-booking",
+      scriptSrc: "https://booking.pavells.com/api/public/widget.js",
+      embedSrc:
+        "https://booking.pavells.com/b/beauty-nail-studio-by-cj2?embed=1",
+    });
+  });
 
-  it("keeps the production adapter on the manual view", async () => {
+  it("rejects unsafe origins and slugs", () => {
+    expect(
+      readPavellsBookingConfig({ origin: "http://booking.pavells.com" }),
+    ).toBeNull();
+    expect(
+      readPavellsBookingConfig({ origin: "https://evil.example" }),
+    ).toBeNull();
+    expect(
+      readPavellsBookingConfig({ businessSlug: "beauty nail studio" }),
+    ).toBeNull();
+    expect(readPavellsBookingConfig({ businessSlug: "../admin" })).toBeNull();
+  });
+});
+
+describe("Pavells widget adapter", () => {
+  const config = readPavellsBookingConfig();
+
+  it("exposes live availability in the iframe without first-party payments or uploads", () => {
+    expect(config).not.toBeNull();
+    if (!config) {
+      return;
+    }
+    const adapter = new PavellsWidgetAdapter(config);
+    expect(adapter.mode).toBe("embedded-widget");
+    expect(adapter.capabilities()).toEqual({
+      liveAvailability: true,
+      customerReschedule: false,
+      customerCancel: false,
+      inspirationUpload: false,
+      paymentOrchestration: false,
+    });
+  });
+
+  it("does not map unverified service categories into the embed handoff", async () => {
+    expect(config).not.toBeNull();
+    if (!config) {
+      return;
+    }
+    const adapter = new PavellsWidgetAdapter(config);
+    await expect(
+      adapter.createHandoff({
+        entryPoint: "services",
+        serviceCategoryId: "lashes",
+      }),
+    ).resolves.toEqual({
+      kind: "embed",
+      channel: "embedded",
+      integrationKey: "pavells-booking",
+    });
+  });
+});
+
+describe("booking view resolution", () => {
+  const adapter = createProductionAdapter("+639617400664", {});
+
+  it("resolves the production adapter to the widget view", async () => {
     await expect(
       resolveBookingView({
         adapter,
@@ -241,7 +325,36 @@ describe("booking view resolution", () => {
         telE164: "+639617400664",
         viewHint: "manual",
       }),
+    ).resolves.toEqual({ view: "widget" });
+  });
+
+  it("keeps the manual adapter on the manual view", async () => {
+    await expect(
+      resolveBookingView({
+        adapter: createProductionAdapter("+639617400664", {
+          BOOKING_MODE: "manual-handoff",
+        }),
+        hostedHosts: [],
+        intent: { entryPoint: "book" },
+        telE164: "+639617400664",
+        viewHint: "manual",
+      }),
     ).resolves.toEqual({ view: "manual" });
+  });
+
+  it("rejects an unknown embed integration key", () => {
+    const handoff = sanitizeHandoff(
+      {
+        kind: "embed",
+        channel: "embedded",
+        integrationKey: "unknown-provider",
+      },
+      { httpsHosts: [] },
+    );
+    expect(handoff).toEqual({
+      kind: "unavailable",
+      reason: "misconfigured",
+    });
   });
 
   it("does not surface a hosted URL when the allowlist is empty", async () => {

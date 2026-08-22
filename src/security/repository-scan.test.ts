@@ -65,13 +65,13 @@ describe("repository privacy and security scan", () => {
     );
     expect(privacy).toMatch(/analytics is a no-op/i);
     expect(privacy).toMatch(/no marketing destination is configured/i);
+    expect(privacy).toMatch(/Pavells Booking/i);
+    expect(privacy).toMatch(/booking\.pavells\.com/i);
     expect(privacy).not.toMatch(
       /we collect your email|cookie banner|payment card/i,
     );
     expect(terms).toMatch(/does not create an appointment/i);
-    expect(terms).toMatch(/manual handoff/i);
-    expect(terms).toMatch(
-      /does not show live availability or confirm bookings/i,
-    );
+    expect(terms).toMatch(/Pavells Booking/i);
+    expect(terms).toMatch(/does not confirm an appointment by itself/i);
   });
 });

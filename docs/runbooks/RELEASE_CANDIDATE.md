@@ -2,7 +2,7 @@
 
 `IMPLEMENTATION_PLAN.md` Milestone 6 exit includes tagging `release-candidate` on smoke-tested `main` after required PR/CI/review gates are green.
 
-**Status:** annotated tag `release-candidate` exists on `8647cea9581e59ab6914a496d5aacf825a685117` (merge of PR [#6](https://github.com/pav4o71/cjnailstudio/pull/6)). Production deploy remains a **separate** ODR-024 authorization. The tag is not a go-live.
+**Status:** annotated tag `release-candidate` exists on `8647cea9581e59ab6914a496d5aacf825a685117` (merge of PR [#6](https://github.com/pav4o71/cjnailstudio/pull/6)). That tag is not a go-live. Production on `https://cjnailstudio.netlify.app` is a later D-017 / ODR-024 attach.
 
 ## Merged stack on main
 

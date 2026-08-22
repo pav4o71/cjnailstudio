@@ -40,15 +40,11 @@ Current published count is zero. Confirm the consent-safe fallback, Instagram pr
 
 ## Lighthouse (optional, operator machine)
 
-If Chrome Lighthouse is available, run it against the **current preview host** (`*.netlify.app`) after Git is linked, or against `npm run build && npm run start` until that URL exists. Do not add `lighthouse` or `@netlify/plugin-lighthouse` to this repository.
+If Chrome Lighthouse is available, run it against the **production host** `https://cjnailstudio.netlify.app`, or against `npm run build && npm run start`. Do not add `lighthouse` or `@netlify/plugin-lighthouse` to this repository.
 
-**Current preview host:** `https://6a82ad69563075bdcaf6fff3--cjnailstudio.netlify.app` (draft deploy of Netlify project `cjnailstudio`; GitHub is not connected for PR previews yet). Local CLI is linked; `.netlify/` stays gitignored. Do not write this host as `approvedProductionOrigin`. Do not run `netlify deploy --prod`. To enable PR deploy previews, connect this GitHub repo in the Netlify project without treating a main-branch publish as production go-live.
+**Current production host:** `https://cjnailstudio.netlify.app` (D-017). Draft/preview URLs with `--` in the hostname stay noindex. Local CLI is linked; `.netlify/` stays gitignored. Do not invent `cjnailstudio.com`.
 
-Record, do not invent, scores. Expected intentional SEO warnings while ODR-024 is closed:
-
-- `noindex` / robots disallow
-- empty sitemap
-- no production canonical host
+Record, do not invent, scores. After D-017, production should no longer warn for `noindex` / empty sitemap. Preview hosts should still show noindex.
 
 Performance notes already in the app:
 

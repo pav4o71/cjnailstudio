@@ -92,14 +92,14 @@ export const pageMetadata = z
       path: "/book",
       title: "Book or Contact the Studio",
       description:
-        "Contact Beauty Nail Studio by Cj by WhatsApp or phone, or view the Knightsbridge studio details.",
+        "Request a time with Beauty Nail Studio by Cj, or contact the Knightsbridge studio by WhatsApp or phone.",
       h1: "Book or contact the studio",
     },
     privacy: {
       path: "/privacy",
       title: "Privacy",
       description:
-        "How this phase-0 website handles information: no first-party booking forms, uploads or payments, and what external contact tools may collect.",
+        "How this website handles information: no first-party booking forms, uploads or payments, the Pavells Booking panel, and what external contact tools may collect.",
       h1: "Privacy on this website",
     },
     terms: {
@@ -199,8 +199,8 @@ export const pageCopy = pageCopySchema.parse({
   },
   bookIntro: {
     id: "book-intro",
-    text: "Choose how you'd like to contact the studio. The website does not show live availability or confirm an appointment.",
-    evidence: ownerConfirmation(["D-006"]),
+    text: "Request a time in the booking panel, or contact the studio on WhatsApp, phone or as a walk-in. This website does not confirm an appointment by itself.",
+    evidence: ownerConfirmation(["D-016", "D-003", "D-006"]),
   },
   bookIntent: {
     id: "book-intent-note",
@@ -209,23 +209,23 @@ export const pageCopy = pageCopySchema.parse({
   },
   bookLoading: {
     id: "book-loading",
-    text: "WhatsApp, phone and visit options stay available. A live booking service is not connected.",
-    evidence: ownerConfirmation(["D-006", "ODR-008"]),
+    text: "WhatsApp, phone and visit options stay available while the booking panel loads.",
+    evidence: ownerConfirmation(["D-016", "D-003"]),
   },
   bookUnavailable: {
     id: "book-unavailable",
-    text: "Online scheduling is not available on this website. Use WhatsApp, phone or a walk-in visit instead.",
-    evidence: ownerConfirmation(["D-006", "D-012", "ODR-008", "ODR-025"]),
+    text: "Online scheduling is not available on this website right now. Use WhatsApp, phone or a walk-in visit instead.",
+    evidence: ownerConfirmation(["D-016", "D-012", "ODR-008"]),
   },
   bookError: {
     id: "book-error",
     text: "The website could not complete an online booking step. WhatsApp, phone and walk-in options still work.",
-    evidence: ownerConfirmation(["D-006", "ODR-008"]),
+    evidence: ownerConfirmation(["D-016", "D-003"]),
   },
   bookReturn: {
     id: "book-return",
     text: "If you came back from another site, this page still cannot confirm an appointment. Contact the studio to check your request.",
-    evidence: ownerConfirmation(["D-006", "D-011"]),
+    evidence: ownerConfirmation(["D-016", "D-011"]),
   },
   privacyIntro: {
     id: "privacy-intro",
@@ -234,7 +234,7 @@ export const pageCopy = pageCopySchema.parse({
   },
   termsIntro: {
     id: "terms-intro",
-    text: "These terms describe website use and the current booking handoff. They are not a substitute for owner-approved salon operating rules.",
+    text: "These terms describe website use and the current booking panel plus contact fallbacks. They are not a substitute for owner-approved salon operating rules.",
     evidence: ownerConfirmation(["D-006", "SECURITY_AND_PRIVACY"]),
   },
 });
@@ -326,6 +326,11 @@ export const privacySections = z.array(copyBlockSchema).parse([
     evidence: ownerConfirmation(["D-011", "SECURITY_AND_PRIVACY"]),
   },
   {
+    id: "privacy-pavells-booking",
+    text: "If you use the booking panel, Pavells Booking at booking.pavells.com processes the information you enter under that service's terms. This website does not store those details.",
+    evidence: ownerConfirmation(["D-016", "D-011", "SECURITY_AND_PRIVACY"]),
+  },
+  {
     id: "privacy-external-handoffs",
     text: "WhatsApp, phone, email, Instagram and Google Maps search are external services. If you use those links, their operators process the information you send them under their own terms.",
     evidence: ownerConfirmation(["D-003", "SECURITY_AND_PRIVACY"]),
@@ -345,8 +350,8 @@ export const termsSections = z.array(copyBlockSchema).parse([
   },
   {
     id: "terms-manual-handoff",
-    text: "Booking on this site is a manual handoff to WhatsApp, a phone call or a walk-in visit. The website does not show live availability or confirm bookings.",
-    evidence: ownerConfirmation(["D-006"]),
+    text: "You can request a time through the booking panel from Pavells Booking, or contact the studio on WhatsApp, phone or as a walk-in. Completing a request in the panel is handled by that service. This website does not confirm an appointment by itself.",
+    evidence: ownerConfirmation(["D-016", "D-003", "D-006"]),
   },
   {
     id: "terms-unpublished-policies",

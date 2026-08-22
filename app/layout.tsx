@@ -14,7 +14,7 @@ import { createManualHandoffs } from "@/src/domain/booking";
 
 import "./globals.css";
 
-const previewOrigin = siteMetadataBase();
+const metadataOrigin = siteMetadataBase();
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: site.business.name,
     locale: "en",
   },
-  ...(previewOrigin ? { metadataBase: previewOrigin } : {}),
+  ...(metadataOrigin ? { metadataBase: metadataOrigin } : {}),
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

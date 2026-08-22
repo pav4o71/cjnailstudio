@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { publicPageList } from "@/src/content/pages";
+import { approvedProductionOrigin } from "@/src/content/production-origin";
 import { site, type SiteContent } from "@/src/content/site";
 
-export const approvedProductionOrigin = null;
+export { approvedProductionOrigin } from "@/src/content/production-origin";
 
 const netlifyPreviewHost = /\.netlify\.app$/i;
 
 export function siteMetadataBase(): URL | undefined {
+  if (approvedProductionOrigin) {
+    return new URL(approvedProductionOrigin);
+  }
+
   const candidate = process.env.DEPLOY_PRIME_URL ?? process.env.URL;
   if (!candidate) {
     return undefined;
@@ -38,8 +43,8 @@ export function siteMetadataBase(): URL | undefined {
 }
 
 export const robotsPolicy = {
-  index: false,
-  follow: false,
+  index: true,
+  follow: true,
 } as const;
 
 export const launchSitemapPaths = publicPageList.map((page) => page.path);
@@ -105,6 +110,7 @@ export type LocalBusinessJsonLd = Readonly<{
   };
   openingHoursSpecification: OpeningHoursSpecification;
   sameAs: readonly [string, string];
+  url?: string;
 }>;
 
 export function localBusinessJsonLd(
@@ -126,11 +132,18 @@ export function localBusinessJsonLd(
       record.business.facebookUrl,
       instagramProfileUrl(record.business.instagramHandle),
     ],
+    ...(approvedProductionOrigin ? { url: approvedProductionOrigin } : {}),
   };
 }
 
-export function sitemapEntries(): [] {
-  return [];
+export function sitemapEntries(): { url: string }[] {
+  if (!approvedProductionOrigin) {
+    return [];
+  }
+
+  return launchSitemapPaths.map((path) => ({
+    url: new URL(path, `${approvedProductionOrigin}/`).href,
+  }));
 }
 
 export function createRouteMetadata(page: {
@@ -144,12 +157,6 @@ export function createRouteMetadata(page: {
     robots: {
       index: robotsPolicy.index,
       follow: robotsPolicy.follow,
-      nocache: true,
-      googleBot: {
-        index: false,
-        follow: false,
-        noimageindex: true,
-      },
     },
     openGraph: {
       title: page.title,

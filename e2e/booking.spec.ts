@@ -14,11 +14,28 @@ function bookingCallLink(page: Page) {
     .getByRole("link", { name: /Call \+63/ });
 }
 
-test("manual handoff stays the production booking path", async ({ page }) => {
+test("Pavells widget and contact fallbacks are the production booking path", async ({
+  page,
+}) => {
   await page.goto("/book");
   await expect(
     page.getByRole("heading", { name: "Book or contact the studio" }),
   ).toBeVisible();
+  await expect(page.locator("#pavells-booking")).toHaveAttribute(
+    "data-business",
+    "beauty-nail-studio-by-cj2",
+  );
+  const widgetScript = page.locator(
+    'script[src="https://booking.pavells.com/api/public/widget.js"]',
+  );
+  await expect(widgetScript).toHaveCount(1);
+  await expect(widgetScript).toHaveAttribute("async", "");
+  await expect(
+    page.locator('#pavells-booking iframe[title="Book an appointment"]'),
+  ).toHaveAttribute(
+    "src",
+    "https://booking.pavells.com/b/beauty-nail-studio-by-cj2?embed=1",
+  );
   await expect(
     page.getByRole("link", { name: "Message the studio on WhatsApp" }),
   ).toHaveAttribute("href", "https://wa.me/639617400664");
@@ -33,6 +50,7 @@ test("manual handoff stays the production booking path", async ({ page }) => {
   expect(main).not.toMatch(confirmationPattern);
   expect(main).not.toContain("booking.test.invalid");
   expect(main).not.toContain(FAKE_HOSTED_ORIGIN);
+  expect(main).not.toContain("Beauty Nail Studio by Cj 2");
   await expect(page.locator("#main .eyebrow")).toHaveText("Contact the studio");
 });
 
@@ -86,6 +104,7 @@ test("unavailable and error return statuses keep contact fallbacks", async ({
   await expect(
     page.getByRole("heading", { name: "Online scheduling is not available" }),
   ).toBeVisible();
+  await expect(page.locator("#pavells-booking")).toHaveCount(0);
   await expect(bookingCallLink(page)).toBeVisible();
 
   await page.goto("/book?status=timeout");
@@ -136,6 +155,10 @@ test.describe("no JavaScript", () => {
     await expect(
       page.getByRole("link", { name: "Visit and walk-in information" }),
     ).toHaveAttribute("href", "/visit");
+    await expect(page.locator("#pavells-booking")).toHaveAttribute(
+      "data-business",
+      "beauty-nail-studio-by-cj2",
+    );
     await expect(page.getByText(/Starting point: Soft gel/)).toBeVisible();
   });
 });
