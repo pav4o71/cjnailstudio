@@ -172,6 +172,10 @@ p {
   width: 100%;
 }
 
+.hero-art-slot figure {
+  max-width: none;
+}
+
 .hero-cta {
   margin-top: 0;
 }
@@ -190,6 +194,24 @@ p {
   font-size: 1.125rem;
   line-height: 1.75rem;
   max-width: 42rem;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: var(--space-8) 0 0;
+  padding: 0;
+}
+
+.gallery-grid figure {
+  max-width: none;
+}
+
+.media-stack {
+  display: grid;
+  gap: var(--space-6);
 }
 
 .actions {
@@ -443,7 +465,8 @@ p {
     );
   }
 
-  .card-grid {
+  .card-grid,
+  .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -451,10 +474,11 @@ p {
 @media (max-width: 48rem) {
   .hero-art-slot {
     margin-inline: auto;
-    max-width: 28rem;
+    max-width: 40rem;
   }
 
-  .card-grid {
+  .card-grid,
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 }

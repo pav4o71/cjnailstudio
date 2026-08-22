@@ -22,7 +22,7 @@ test.describe("reduced-motion hero art", () => {
 
   test("does not run a hero enter animation", async ({ page }) => {
     await page.goto("/");
-    const art = page.locator(".hero-art-slot [aria-hidden='true']").first();
+    const art = page.locator(".hero-art-slot figure").first();
     await expect(art).toBeVisible();
     await expect
       .poll(async () =>
@@ -67,7 +67,7 @@ test.describe("default-motion hero art", () => {
 
   test("uses a one-shot opacity and transform transition", async ({ page }) => {
     await page.goto("/");
-    const art = page.locator(".hero-art-slot [aria-hidden='true']").first();
+    const art = page.locator(".hero-art-slot figure").first();
     const transition = await art.evaluate((element) => {
       const style = getComputedStyle(element);
       return {

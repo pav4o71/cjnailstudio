@@ -33,7 +33,12 @@ test("capture post-rc home and gallery fallback evidence", async ({
 
   await page.goto("/gallery");
   await expect(
-    page.getByRole("heading", { name: "Website gallery in preparation" }),
+    page.getByRole("heading", {
+      name: "Nail art by Beauty Nail Studio by Cj",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.locator("#main img, #main [data-gallery-item]").first(),
   ).toBeVisible();
   await page.screenshot({
     path: evidencePath(testInfo, "gallery-fallback.png"),

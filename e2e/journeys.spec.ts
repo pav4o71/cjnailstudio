@@ -27,7 +27,7 @@ test("home primary CTA reaches WhatsApp and call handoff", async ({ page }) => {
     name: "Knightsbridge studio",
   });
   const galleryPreview = page.getByRole("heading", {
-    name: "See the work when it is cleared to publish",
+    name: "Selected looks from the studio",
   });
   await expect(visitHeading).toBeVisible();
   await expect(galleryPreview).toBeVisible();
@@ -81,13 +81,15 @@ test("lashes inquiry reaches WhatsApp and call handoff", async ({ page }) => {
   await expectManualHandoff(page);
 });
 
-test("gallery fallback books through to manual contact", async ({ page }) => {
+test("gallery publishes cleared looks and books through to manual contact", async ({
+  page,
+}) => {
   await page.goto("/gallery");
   await expect(
-    page.getByRole("heading", { name: "Website gallery in preparation" }),
+    page.getByText(/^[1-9]\d* looks published on this website\.$/),
   ).toBeVisible();
   await expect(
-    page.getByText("0 looks published on this website."),
+    page.locator("#main img, #main [data-gallery-item]").first(),
   ).toBeVisible();
   await page
     .locator("#main")

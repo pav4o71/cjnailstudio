@@ -28,7 +28,12 @@ test("capture milestone 6 release evidence", async ({ page }, testInfo) => {
     await page.goto(path);
     if (name === "gallery-fallback.png") {
       await expect(
-        page.getByRole("heading", { name: "Website gallery in preparation" }),
+        page.getByRole("heading", {
+          name: "Nail art by Beauty Nail Studio by Cj",
+        }),
+      ).toBeVisible();
+      await expect(
+        page.locator("#main img, #main [data-gallery-item]").first(),
       ).toBeVisible();
     }
     if (name === "book-unavailable.png") {

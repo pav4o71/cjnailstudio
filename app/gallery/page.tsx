@@ -3,11 +3,13 @@ import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { MediaFallback } from "@/src/components/ui/media-fallback";
+import { StudioPhoto } from "@/src/components/ui/studio-photo";
 import { galleryItems, publishedGalleryItems } from "@/src/content/gallery";
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
+import { photoById } from "@/src/content/studio-photos";
 import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.gallery);
@@ -46,7 +48,32 @@ export default function GalleryPage() {
             }
           />
         </div>
-      ) : null}
+      ) : (
+        <div className="section">
+          <p>{pageCopy.galleryPublished.text}</p>
+          <ul className="gallery-grid">
+            {published.map((item) => (
+              <li data-gallery-item={item.id} key={item.id}>
+                <StudioPhoto
+                  photo={photoById(item.mediaId)}
+                  sizes="(max-width: 48rem) 100vw, 36rem"
+                />
+              </li>
+            ))}
+          </ul>
+          <div className="actions">
+            <Link
+              className="button"
+              href={bookingHref({ entryPoint: "gallery" })}
+            >
+              Book or contact the studio
+            </Link>
+            <a className="button-secondary" href={instagramHref}>
+              Instagram {site.business.instagramHandle}
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

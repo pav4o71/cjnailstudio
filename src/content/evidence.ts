@@ -13,6 +13,7 @@ export const allowedSourceIds = [
   "D-010",
   "D-011",
   "D-012",
+  "D-015",
   "ODR-003",
   "ODR-008",
   "ODR-025",

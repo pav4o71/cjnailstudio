@@ -3,10 +3,12 @@ import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { StatusCallout } from "@/src/components/ui/status-callout";
+import { StudioPhoto } from "@/src/components/ui/studio-photo";
 import { instagramProfileUrl } from "@/src/content/navigation";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
+import { studioPhotos } from "@/src/content/studio-photos";
 import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.visit);
@@ -22,6 +24,12 @@ export default function VisitPage() {
       <p className="eyebrow">Visit</p>
       <h1>{pageMetadata.visit.h1}</h1>
       <p className="lede">{pageCopy.visitIntro.text}</p>
+      <div className="section">
+        <StudioPhoto
+          photo={studioPhotos.visitStorefront}
+          sizes="(max-width: 48rem) 100vw, 52rem"
+        />
+      </div>
       <div className="card section">
         <h2>Knightsbridge studio</h2>
         <address>{site.location.address}</address>

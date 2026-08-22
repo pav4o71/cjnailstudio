@@ -1,6 +1,6 @@
 # Owner Decisions Required
 
-Last updated: 2026-08-17
+Last updated: 2026-08-22
 
 This register keeps owner-dependent business rules out of production configuration. The public marketing experience may launch with the verified WhatsApp, phone and walk-in handoff while these decisions remain unresolved. No item below should be inferred from reviews, competitor sites or third-party listings.
 
@@ -23,7 +23,7 @@ This register keeps owner-dependent business rules out of production configurati
 | --- | --- | --- | --- |
 | ODR-009 | Relationship among Knightsbridge, Beacon Tower 3, Medical Towers and “Beauty Nail Studio by Cj 2” | Publish only the approved Knightsbridge location; do not call other listings branches or create redirects | Decision D-001 approved; D-004 pending |
 | ODR-010 | Current matcha-café status, menu, hours and relationship to appointments | Treat matcha only as an emerging concept in internal strategy; omit public operational claims | Decision D-005 pending |
-| ODR-011 | Publication approval and model/customer releases for each retained media asset | Ship consent-safe graphic fallbacks; no retained social asset is public by default | media manifest `rights_note` |
+| ODR-011 | Publication approval and model/customer releases for each retained media asset | The 22 August 2026 owner-supplied batch in D-015 may be published. Retained social `media-001`–`media-030` stay unpublished. Later assets still need per-item clearance. | Decision D-015; media manifest `rights_note` |
 | ODR-012 | Original logo files, formal brand colors and font licenses | Use a text wordmark and documented, accessible research-derived palette | dataset `brand_signals.visual_style` |
 | ODR-013 | Official TikTok handle and content ownership | Do not publish a TikTok link | dataset `information_gaps` |
 | ODR-014 | Google Business Profile ownership and canonical website update | Document launch-time update; do not mutate the profile | dataset `information_gaps` |

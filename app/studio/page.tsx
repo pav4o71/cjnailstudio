@@ -4,9 +4,11 @@ import Link from "next/link";
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { StatusCallout } from "@/src/components/ui/status-callout";
+import { StudioPhoto } from "@/src/components/ui/studio-photo";
 import { pageCopy, pageMetadata, reviewThemes } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
+import { studioPhotos } from "@/src/content/studio-photos";
 import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.studio);
@@ -32,6 +34,17 @@ export default function StudioPage() {
         </Link>
       </div>
 
+      <section className="section media-stack">
+        <StudioPhoto
+          photo={studioPhotos.studioInterior}
+          sizes="(max-width: 48rem) 100vw, 52rem"
+        />
+        <StudioPhoto
+          photo={studioPhotos.studioSign}
+          sizes="(max-width: 48rem) 100vw, 52rem"
+        />
+      </section>
+
       <section className="section">
         <StatusCallout title="Care between appointments" tone="info">
           <p>{pageCopy.hygiene.text}</p>
@@ -40,6 +53,12 @@ export default function StudioPage() {
             equipment and frequency are not published.
           </p>
         </StatusCallout>
+        <div className="section">
+          <StudioPhoto
+            photo={studioPhotos.studioHygiene}
+            sizes="(max-width: 48rem) 100vw, 52rem"
+          />
+        </div>
       </section>
 
       <section className="section" aria-labelledby="studio-proof-heading">

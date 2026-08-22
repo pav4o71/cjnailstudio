@@ -6,7 +6,8 @@ import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { ServiceCard } from "@/src/components/ui/service-card";
 import { StatusCallout } from "@/src/components/ui/status-callout";
-import { StudioArt } from "@/src/components/ui/studio-art";
+import { StudioPhoto } from "@/src/components/ui/studio-photo";
+import { previewGalleryItems } from "@/src/content/gallery";
 import {
   pageCopy,
   pageMetadata,
@@ -17,12 +18,14 @@ import {
 } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
+import { photoById, studioPhotos } from "@/src/content/studio-photos";
 import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.home);
 
 export default function HomePage() {
   const directions = mapsSearchUrl(site.location.address);
+  const previewLooks = previewGalleryItems();
 
   return (
     <div className="page">
@@ -30,16 +33,17 @@ export default function HomePage() {
       <section className="hero">
         <p className="eyebrow">Knightsbridge, Makati</p>
         <h1>{pageMetadata.home.h1}</h1>
-        <p className="visually-hidden">
-          Decorative studio artwork; no customer image is used.
-        </p>
         <div className="hero-cta actions">
           <Link className="button" href={bookingHref({ entryPoint: "home" })}>
             Book or contact the studio
           </Link>
         </div>
         <div className="hero-art-slot">
-          <StudioArt variant="hero" />
+          <StudioPhoto
+            photo={studioPhotos.hero}
+            priority
+            sizes="(max-width: 48rem) 100vw, 42vw"
+          />
         </div>
         <p className="lede">{pageCopy.homeLede.text}</p>
       </section>
@@ -147,19 +151,41 @@ export default function HomePage() {
       <section className="section" aria-labelledby="gallery-preview-heading">
         <SectionIntro
           eyebrow="Gallery"
-          heading="See the work when it is cleared to publish"
+          heading="Selected looks from the studio"
           headingId="gallery-preview-heading"
-        />
-        <MediaFallback
-          eyebrow="Consent-safe gallery"
-          title="Website gallery in preparation"
-          description={pageCopy.galleryFallback.text}
-          action={
-            <Link className="button" href="/gallery">
-              Open the gallery page
-            </Link>
-          }
-        />
+        >
+          <p>{pageCopy.galleryPublished.text}</p>
+        </SectionIntro>
+        {previewLooks.length === 0 ? (
+          <MediaFallback
+            eyebrow="Consent-safe gallery"
+            title="Website gallery in preparation"
+            description={pageCopy.galleryFallback.text}
+            action={
+              <Link className="button" href="/gallery">
+                Open the gallery page
+              </Link>
+            }
+          />
+        ) : (
+          <>
+            <ul className="gallery-grid">
+              {previewLooks.map((item) => (
+                <li data-gallery-item={item.id} key={item.id}>
+                  <StudioPhoto
+                    photo={photoById(item.mediaId)}
+                    sizes="(max-width: 48rem) 100vw, 28rem"
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className="actions">
+              <Link className="button" href="/gallery">
+                Open the gallery page
+              </Link>
+            </div>
+          </>
+        )}
       </section>
     </div>
   );

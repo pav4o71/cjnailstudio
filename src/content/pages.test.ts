@@ -198,16 +198,20 @@ describe("claim and media traceability", () => {
     expect(walkInFaq?.answer.evidence).toEqual(pageCopy.walkIn.evidence);
   });
 
-  it("does not publish retained gallery media without rights and consent", () => {
+  it("does not publish retained social gallery media without rights and consent", () => {
     const galleryPageSource = readFileSync(
       join(process.cwd(), "app/gallery/page.tsx"),
       "utf8",
     );
     const published = publishedGalleryItems();
+    const retainedSocial = galleryItems.filter((item) =>
+      /^media-0(0[1-9]|[12][0-9]|30)$/.test(item.mediaId),
+    );
 
     expect(galleryItems.length).toBeGreaterThan(0);
+    expect(retainedSocial.length).toBeGreaterThan(0);
     expect(
-      galleryItems.every(
+      retainedSocial.every(
         (item) =>
           item.status !== "published" && item.publishability === "blocked",
       ),
@@ -215,14 +219,17 @@ describe("claim and media traceability", () => {
     expect(galleryItems.some((item) => item.mediaId === "media-023")).toBe(
       true,
     );
-
-    if (published.length > 0) {
-      expect(galleryPageHasPublishedRenderer(galleryPageSource)).toBe(true);
-    } else {
-      expect(published).toEqual([]);
-      expect(galleryPageSource).toMatch(/published\.length === 0/);
-      expect(galleryPageSource).toContain("Website gallery in preparation");
-      expect(galleryPageHasPublishedRenderer(galleryPageSource)).toBe(false);
-    }
+    expect(published.length).toBeGreaterThan(0);
+    expect(
+      published.every(
+        (item) =>
+          item.mediaId.startsWith("studio-photo-") &&
+          Boolean(item.src) &&
+          !/media-0(0[1-9]|[12][0-9]|30)/.test(item.src ?? ""),
+      ),
+    ).toBe(true);
+    expect(galleryPageHasPublishedRenderer(galleryPageSource)).toBe(true);
+    expect(galleryPageSource).toContain("data-gallery-item");
+    expect(galleryPageSource).toMatch(/published\.length === 0/);
   });
 });

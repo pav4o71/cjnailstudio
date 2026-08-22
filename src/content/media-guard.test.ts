@@ -17,6 +17,8 @@ const textExtensions = new Set([
 const retainedMediaId = /media-0(0[1-9]|[12][0-9]|30)/;
 const imageSource =
   /(src|href|url)\s*[=:(]\s*['"`][^'"`]*media-0(0[1-9]|[12][0-9]|30)/i;
+const retainedImageFile =
+  /media-0(0[1-9]|[12][0-9]|30)[^"'`\s]*\.(png|jpe?g|webp|gif|avif)/i;
 
 function walk(directory: string, files: string[]) {
   for (const entry of readdirSync(directory)) {
@@ -54,14 +56,14 @@ describe("consent-safe public art", () => {
         return [];
       }
 
-      if (imageSource.test(contents) || /['"`]\/.*media-0/.test(contents)) {
+      if (
+        imageSource.test(contents) ||
+        /['"`]\/[^'"`]*media-0(0[1-9]|[12][0-9]|30)/.test(contents)
+      ) {
         return [file];
       }
 
-      if (
-        retainedMediaId.test(contents) &&
-        /\.(png|jpe?g|webp|gif|avif)/i.test(contents)
-      ) {
+      if (retainedImageFile.test(contents)) {
         return [file];
       }
 

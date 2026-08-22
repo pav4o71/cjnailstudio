@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
-import { MediaFallback } from "@/src/components/ui/media-fallback";
+import { StudioPhoto } from "@/src/components/ui/studio-photo";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
+import { studioPhotos } from "@/src/content/studio-photos";
 import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.lashes);
@@ -34,22 +35,11 @@ export default function LashesPage() {
         </a>
       </div>
       <div className="section">
-        <MediaFallback
-          eyebrow="No model imagery"
-          title="Lash results stay off the website until consent is cleared"
-          description={pageCopy.lashesMedia.text}
-          action={
-            <Link
-              className="button-secondary"
-              href={bookingHref({
-                entryPoint: "services",
-                serviceCategoryId: "lashes",
-              })}
-            >
-              Book or contact the studio
-            </Link>
-          }
+        <StudioPhoto
+          photo={studioPhotos.lashes}
+          sizes="(max-width: 48rem) 100vw, 48rem"
         />
+        <p>{pageCopy.lashesMedia.text}</p>
       </div>
     </div>
   );
