@@ -3,9 +3,11 @@ import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
 import { MediaFallback } from "@/src/components/ui/media-fallback";
+import { PageStudioPhoto } from "@/src/components/ui/studio-photo";
 import { pageCopy, pageMetadata } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { site } from "@/src/content/site";
+import { studioPhotos } from "@/src/content/studio-photos";
 import { bookingHref, createManualHandoffs } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(
@@ -39,21 +41,16 @@ export default function CustomNailArtPage() {
         </Link>
       </div>
       <div className="section">
-        <MediaFallback
-          eyebrow="Consent-safe example"
-          title="Portfolio images are not published here yet"
-          description={pageCopy.galleryFallback.text}
-          action={
-            <Link
-              className="button-secondary"
-              href={bookingHref({
-                entryPoint: "services",
-                serviceCategoryId: "custom-nail-art",
-              })}
-            >
-              Book or contact the studio
-            </Link>
+        <PageStudioPhoto
+          fallback={
+            <MediaFallback
+              eyebrow="Consent-safe gallery"
+              title="Website gallery in preparation"
+              description={pageCopy.galleryFallback.text}
+            />
           }
+          photoId={studioPhotos.customNailArt.id}
+          sizes="(max-width: 48rem) 100vw, 48rem"
         />
       </div>
     </div>

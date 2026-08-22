@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CanonicalLink } from "@/src/components/seo/canonical-link";
+import { MediaFallback } from "@/src/components/ui/media-fallback";
 import { SectionIntro } from "@/src/components/ui/section-intro";
 import { StatusCallout } from "@/src/components/ui/status-callout";
+import { PageStudioPhoto } from "@/src/components/ui/studio-photo";
 import { pageCopy, pageMetadata, reviewThemes } from "@/src/content/pages";
 import { createRouteMetadata } from "@/src/content/seo";
 import { mapsSearchUrl, site } from "@/src/content/site";
+import { studioPhotos } from "@/src/content/studio-photos";
 import { bookingHref } from "@/src/domain/booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.studio);
@@ -32,6 +35,31 @@ export default function StudioPage() {
         </Link>
       </div>
 
+      <section className="section media-stack">
+        <PageStudioPhoto
+          fallback={
+            <MediaFallback
+              eyebrow="Consent-safe gallery"
+              title="Website gallery in preparation"
+              description={pageCopy.galleryFallback.text}
+            />
+          }
+          photoId={studioPhotos.studioInterior.id}
+          sizes="(max-width: 48rem) 100vw, 52rem"
+        />
+        <PageStudioPhoto
+          fallback={
+            <MediaFallback
+              eyebrow="Consent-safe gallery"
+              title="Website gallery in preparation"
+              description={pageCopy.galleryFallback.text}
+            />
+          }
+          photoId={studioPhotos.studioSign.id}
+          sizes="(max-width: 48rem) 100vw, 52rem"
+        />
+      </section>
+
       <section className="section">
         <StatusCallout title="Care between appointments" tone="info">
           <p>{pageCopy.hygiene.text}</p>
@@ -40,6 +68,19 @@ export default function StudioPage() {
             equipment and frequency are not published.
           </p>
         </StatusCallout>
+        <div className="section">
+          <PageStudioPhoto
+            fallback={
+              <MediaFallback
+                eyebrow="Consent-safe gallery"
+                title="Website gallery in preparation"
+                description={pageCopy.galleryFallback.text}
+              />
+            }
+            photoId={studioPhotos.studioHygiene.id}
+            sizes="(max-width: 48rem) 100vw, 52rem"
+          />
+        </div>
       </section>
 
       <section className="section" aria-labelledby="studio-proof-heading">

@@ -7,7 +7,7 @@ Ongoing work after Milestone 6 release readiness. This is not a production-launc
 - Public facts stay in validated records (`src/content/site.ts`, page copy, gallery schema).
 - Every public claim needs an allowed source ID or owner decision.
 - Do not invent prices, durations, deposits, payment methods, staff schedules, Matcha operations, extra locations, or policies.
-- Gallery remains an honest empty state until ODR-011 / D-010 consent is cleared per asset.
+- Gallery publishes only D-015 owner-cleared `/media/` photographs. Retained social `media-001`–`media-030` stay blocked (D-010). Later assets still need per-item clearance (ODR-011).
 
 ## Capabilities that stay off
 

@@ -64,7 +64,7 @@ export const pageMetadata = z
       path: "/gallery",
       title: "Nail Art Gallery",
       description:
-        "Website gallery information and a consent-safe contact path for Beauty Nail Studio by Cj in Knightsbridge, Makati.",
+        "Selected studio photographs and a contact path for Beauty Nail Studio by Cj in Knightsbridge, Makati.",
       h1: "Nail art by Beauty Nail Studio by Cj",
     },
     studio: {
@@ -125,6 +125,7 @@ const pageCopySchema = z.object({
   customNailArtIntro: copyBlockSchema,
   lashesIntro: copyBlockSchema,
   galleryFallback: copyBlockSchema,
+  galleryPublished: copyBlockSchema,
   lashesMedia: copyBlockSchema,
   studioIntro: copyBlockSchema,
   hygiene: copyBlockSchema,
@@ -166,10 +167,15 @@ export const pageCopy = pageCopySchema.parse({
     text: "Portfolio images are being reviewed for website-use rights and customer consent. No social image is published here by default. You can still discuss the look you have in mind with the studio, or see official posts on Instagram.",
     evidence: ownerConfirmation(["D-010"]),
   },
+  galleryPublished: {
+    id: "gallery-published",
+    text: "These photographs were cleared for this website. They are examples of studio work, not a menu, price list or promised result. Ask the studio about the look you have in mind.",
+    evidence: ownerConfirmation(["D-015"]),
+  },
   lashesMedia: {
     id: "lashes-media",
-    text: "Lash services are offered, but no customer or model photo is published here. Ask the studio about current options.",
-    evidence: ownerConfirmation(["D-010", "instagram-profile"]),
+    text: "This photograph is a cleared studio result. Ask the studio about current lash options. The website does not map a photo to a specific service.",
+    evidence: ownerConfirmation(["D-015", "instagram-profile"]),
   },
   studioIntro: {
     id: "studio-intro",
