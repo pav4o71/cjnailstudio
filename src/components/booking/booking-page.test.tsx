@@ -6,12 +6,6 @@ import { createManualHandoffs } from "@/src/domain/booking";
 
 import { BookingPage } from "./booking-page";
 
-vi.mock("next/script", () => ({
-  default: function Script({ src }: { src: string }) {
-    return <div data-testid="booking-widget-script" data-src={src} />;
-  },
-}));
-
 const handoffs = createManualHandoffs("+639617400664");
 const confirmationPattern =
   /you(?:'re| are) booked|appointment (?:is |has been )?confirmed|booking confirmed/i;
@@ -67,13 +61,12 @@ describe("booking page states", () => {
     const mount = document.body.querySelector("#pavells-booking");
     expect(mount).not.toBeNull();
     expect(mount).toHaveAttribute("data-business", "beauty-nail-studio-by-cj2");
-    expect(screen.getByTestId("booking-widget-script")).toHaveAttribute(
-      "data-src",
-      "https://booking.pavells.com/api/public/widget.js",
-    );
+    expect(mount?.parentElement?.querySelector("h2")).toBeNull();
     expect(document.body.textContent).not.toContain(
       "Beauty Nail Studio by Cj 2",
     );
+    expect(document.body.textContent).not.toContain("8 hr 20 min");
+    expect(document.body.querySelector("form")).toBeNull();
   });
 
   it("hides the widget when online scheduling is unavailable", () => {

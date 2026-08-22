@@ -25,11 +25,17 @@ test("Pavells widget and contact fallbacks are the production booking path", asy
     "data-business",
     "beauty-nail-studio-by-cj2",
   );
+  const widgetScript = page.locator(
+    'script[src="https://booking.pavells.com/api/public/widget.js"]',
+  );
+  await expect(widgetScript).toHaveCount(1);
+  await expect(widgetScript).toHaveAttribute("async", "");
   await expect(
-    page.locator(
-      'script[src="https://booking.pavells.com/api/public/widget.js"]',
-    ),
-  ).toHaveCount(1);
+    page.locator('#pavells-booking iframe[title="Book an appointment"]'),
+  ).toHaveAttribute(
+    "src",
+    "https://booking.pavells.com/b/beauty-nail-studio-by-cj2?embed=1",
+  );
   await expect(
     page.getByRole("link", { name: "Message the studio on WhatsApp" }),
   ).toHaveAttribute("href", "https://wa.me/639617400664");
