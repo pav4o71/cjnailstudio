@@ -8,6 +8,10 @@ import { site } from "@/src/content/site";
 import { createManualHandoffs, resolveBookingView } from "@/src/domain/booking";
 import { createProductionAdapter } from "@/src/domain/booking-config";
 import { parseBookingQuery } from "@/src/domain/booking-query";
+import {
+  pavellsWidgetMount,
+  readPavellsBookingConfig,
+} from "@/src/domain/pavells-booking";
 
 export const metadata: Metadata = createRouteMetadata(pageMetadata.book);
 
@@ -26,6 +30,13 @@ export default async function BookPage({
     telE164: site.phone.e164,
     viewHint: query.viewHint,
   });
+  const widgetConfig = readPavellsBookingConfig();
+  const widget =
+    adapter.mode === "embedded-widget" &&
+    widgetConfig &&
+    (resolution.view === "widget" || resolution.view === "return")
+      ? pavellsWidgetMount(widgetConfig)
+      : undefined;
   const categoryLabel = site.services.find(
     (service) => service.id === query.intent.serviceCategoryId,
   )?.label;
@@ -38,6 +49,7 @@ export default async function BookPage({
         handoffs={createManualHandoffs(site.phone.e164)}
         intent={query.intent}
         view={resolution.view}
+        widget={widget}
       />
     </>
   );

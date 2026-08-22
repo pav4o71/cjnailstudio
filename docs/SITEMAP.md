@@ -2,7 +2,7 @@
 
 Status: APPROVED FOR PHASE-0 IMPLEMENTATION
 
-Milestone 3 implements the launch routes below as evidence-backed pages. Deferred routes remain absent (HTTP 404). `/gallery` is a consent-safe empty state. `/book` remains manual-handoff and does not activate a live scheduler.
+Milestone 3 implements the launch routes below as evidence-backed pages. Deferred routes remain absent (HTTP 404). `/book` mounts the Pavells Booking panel and keeps WhatsApp, phone and walk-in fallbacks.
 
 ## Launch routes
 

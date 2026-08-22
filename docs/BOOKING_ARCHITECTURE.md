@@ -1,10 +1,14 @@
 # Booking Architecture
 
-Status: APPROVED FOR PHASE-0 MANUAL HANDOFF
+Status: APPROVED FOR PAVELLS EMBED WITH MANUAL FALLBACK
 
 ## Current mode
 
-`manual-handoff` is the default and only production-eligible mode with current owner information. The site may offer the verified WhatsApp/phone path and walk-in/Visit information. It may not expose live slots, prices, durations, staff selection, deposits, policies, uploads, confirmations or automated messages.
+`embedded-widget` is the default production mode after D-016. `/book` mounts the owner-supplied Pavells Booking panel (`beauty-nail-studio-by-cj2` on `booking.pavells.com`) and keeps WhatsApp, phone and walk-in visible. The provider slug is an account id, not a second public location.
+
+`manual-handoff` remains the fail-closed and rollback mode (`BOOKING_MODE=manual-handoff`). Hosted-redirect and custom-scheduler stay unauthorized.
+
+The site still must not invent prices, durations, staff, deposits, policies, first-party confirmations or automated messages.
 
 ## Contract
 
@@ -42,7 +46,7 @@ interface BookingAdapter {
 }
 ```
 
-The implementation uses controlled enums/IDs rather than arbitrary query text. Provider mapping belongs to the adapter, not page components.
+The implementation uses controlled enums/IDs rather than arbitrary query text. Provider mapping belongs to the adapter, not page components. Category query values are not forwarded as Pavells `data-service` attributes.
 
 ## Customer flow
 
@@ -52,36 +56,34 @@ sequenceDiagram
   participant S as Website
   participant G as BookingGateway
   participant A as Adapter
+  participant P as Pavells
   C->>S: Activate Book
   S->>G: Controlled BookingIntent
   G->>A: createHandoff
-  alt Manual/default or provider unavailable
+  alt Embedded widget
+    A-->>S: Allowlisted embed
+    S-->>C: Pavells panel plus WhatsApp / call / visit
+    C->>P: Request a time in the iframe
+  else Manual/default or provider unavailable
     A-->>S: Verified contact options
     S-->>C: WhatsApp / call / visit
-  else Future approved provider
-    A-->>S: Allowlisted target
-    S-->>C: Continue with fallbacks visible
   end
 ```
 
-## Canonical phase-0 copy
+## Canonical copy
 
 Heading: **Book or contact the studio**
 
-Explanation: **Choose how you'd like to contact the studio. The website does not show live availability or confirm an appointment.**
+Explanation: **Request a time in the booking panel, or contact the studio on WhatsApp, phone or as a walk-in. This website does not confirm an appointment by itself.**
 
-Walk-ins are described only as accepted. Manual messages are requests, not confirmations.
-
-## Future provider evaluation
-
-A branded hosted specialist page is the preferred category for evaluation after the P0 owner packet is complete. It must pass mobile, accessibility, security/privacy, export, failure, lifecycle, data ownership and support tests. An embed is conditional because cross-origin accessibility, performance, CSP and failure recovery are harder to control. A custom scheduler is deferred.
+Walk-ins are described only as accepted. Website query parameters still cannot confirm an appointment.
 
 ## Capability gates
 
 | Capability | Required gate |
 | --- | --- |
-| Provider sandbox | Complete P0 operations packet and synthetic-data evaluation |
-| Live scheduling | Explicit activation, privacy/policies, operator training, rollback/export drill |
+| Pavells embed | Owner-supplied public widget snippet (D-016); CSP `script-src`/`frame-src` allowlist; WhatsApp/phone/walk-in remain |
+| Hosted redirect | Separate owner URL and origin allowlist |
 | Payment | Separate payment decision, credentials, sandbox, webhook and reconciliation tests |
 | Notifications | Approved channels/templates/consent and failure escalation |
 | Upload | Approved purpose, rights notice, private storage and retention/deletion |
@@ -89,7 +91,7 @@ A branded hosted specialist page is the preferred category for evaluation after 
 
 ## Security rules
 
-- Default/failure mode is manual handoff.
+- Default production mode is the validated Pavells embed; failure and unauthorized modes are manual handoff.
 - Allowlist outbound origins and reject unsafe schemes/open redirects.
 - Treat provider return parameters as untrusted; show a neutral return state.
 - Never put PII, free text or image URLs in analytics, logs or query strings.
@@ -101,7 +103,8 @@ A branded hosted specialist page is the preferred category for evaluation after 
 - canonical WhatsApp/tel URL generation;
 - missing/invalid config safe default;
 - unsafe URL and arbitrary intent rejection;
-- manual/fake-hosted adapter conformance;
+- Pavells embed mount plus manual fallback;
+- fake-hosted adapter stays test-only;
 - provider timeout/malformed/blocked-script fallbacks;
 - JavaScript-disabled contact path;
 - false-success return query remains unconfirmed;

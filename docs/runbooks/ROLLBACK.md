@@ -1,10 +1,10 @@
 # Rollback runbook
 
-Matches `IMPLEMENTATION_PLAN.md` and `docs/ARCHITECTURE.md`. No live booking provider is active, so rollback cannot cancel provider appointments.
+Matches `IMPLEMENTATION_PLAN.md` and `docs/ARCHITECTURE.md`. Website rollback does not cancel Pavells appointments.
 
 ## 1. Booking capability
 
-Keep or restore `BOOKING_MODE=manual-handoff`.
+Restore `BOOKING_MODE=manual-handoff`.
 
 Smoke-test:
 
@@ -13,6 +13,7 @@ Smoke-test:
 - Call `tel:+639617400664`
 - Visit/walk-in path `/visit`
 - Untrusted `status=confirmed` does not show an appointment confirmation
+- With default `embedded-widget`, `#pavells-booking` is present; after rollback it is absent
 
 Production config cannot select the test-only fake hosted adapter.
 
@@ -26,7 +27,7 @@ Restore the last known-good immutable host artifact (previous successful deploy 
 
 - Home
 - Services
-- Book (manual handoff)
+- Book (Pavells panel plus contact fallbacks, or manual handoff after rollback)
 - Visit (address, hours, directions, Book)
 - WhatsApp and phone links
 

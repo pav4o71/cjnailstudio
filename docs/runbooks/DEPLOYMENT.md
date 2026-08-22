@@ -2,7 +2,7 @@
 
 Portable artifacts only. This file does not authorize a production deploy, DNS change, or credential.
 
-ODR-024 still owns production host, domain, DNS, credentials, deployment approval, and the accountable operator. ODR-025 still owns live scheduling, payments, notifications, and production secrets.
+ODR-024 still owns production host, domain, DNS, credentials, deployment approval, and the accountable operator. D-016 authorizes the Pavells embed only. First-party payments, notifications, and production secrets stay off.
 
 Do not run `netlify deploy --prod`, mutate DNS, or store tokens in the repository.
 
@@ -31,9 +31,9 @@ Safe public configuration:
 
 | Name | Required value until separately authorized |
 | --- | --- |
-| `BOOKING_MODE` | `manual-handoff` |
+| `BOOKING_MODE` | `embedded-widget` (rollback: `manual-handoff`) |
 
-Do not set hosted booking URLs, payment keys, analytics destinations, or webhook secrets. Invalid or missing booking configuration must fail closed to manual-handoff.
+Do not set payment keys, analytics destinations, or webhook secrets. Invalid or missing booking configuration must fail closed to manual-handoff.
 
 ## Preview versus production
 
@@ -73,7 +73,7 @@ See `ROLLBACK.md`. Restore the last known-good immutable deploy and smoke-test H
 ## After a future authorized production attach
 
 1. Confirm ODR-024 (host/domain/DNS/operator) in writing.
-2. Confirm ODR-025 remains closed unless live scheduling/payments are separately approved.
+2. Confirm first-party payments and notifications remain off unless separately approved.
 3. Follow `INDEXATION.md` before allowing indexation.
-4. Keep `BOOKING_MODE=manual-handoff` unless a later owner decision replaces it.
+4. Keep `BOOKING_MODE=embedded-widget` unless rolling back to `manual-handoff`.
 5. Store credentials in the host's secret store, never in git.

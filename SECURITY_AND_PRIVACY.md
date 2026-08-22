@@ -5,7 +5,8 @@ Status: APPROVED FOR PHASE 0
 ## Phase-0 boundary
 
 - No first-party booking/contact form or customer database.
-- No inspiration upload, payment or automated notification.
+- Pavells Booking may collect details in its iframe; this website does not store them.
+- No inspiration upload, first-party payment or automated notification.
 - Analytics port is no-op unless separately approved; fixed events contain no PII.
 - WhatsApp, phone, Instagram and directions are explicit external handoffs.
 - No secret is exposed to browser code, repository, logs or screenshots.
@@ -13,7 +14,8 @@ Status: APPROVED FOR PHASE 0
 ## Required controls
 
 - Runtime/build schemas reject blocked content and invalid configuration.
-- Booking fails closed to `manual-handoff`.
+- Booking defaults to the validated Pavells embed and fails closed to `manual-handoff`.
+- CSP allows `https://booking.pavells.com` for `script-src` and `frame-src` only. Analytics hosts stay blocked.
 - Outbound destinations are fixed or HTTPS/origin-allowlisted; unsafe schemes and open redirects are rejected.
 - Use semantic output encoding, restrictive CSP and no PII in URLs/storage.
 - Use a frozen lockfile, dependency/license review and secret scan.

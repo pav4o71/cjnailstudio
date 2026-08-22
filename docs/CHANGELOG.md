@@ -4,7 +4,7 @@ All notable project changes are recorded here. Milestone merge commits and tags 
 
 ## Unreleased
 
-No further product changes after the `release-candidate` tag. A docs-only follow-up on `main` records that tag; it is not a production publish.
+- Owner-supplied Pavells Booking embed on `/book` (D-016), with WhatsApp, phone and walk-in fallbacks. Production host, indexation, first-party payments and notifications stay off.
 
 ## release-candidate — 2026-08-17
 

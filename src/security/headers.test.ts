@@ -18,18 +18,22 @@ describe("production security headers", () => {
     expect(header("X-Frame-Options")).toBe("DENY");
     expect(header("Referrer-Policy")).toBe("strict-origin-when-cross-origin");
     expect(header("Permissions-Policy")).toBe(
-      "camera=(), microphone=(), geolocation=(), payment=()",
+      'camera=(), microphone=(), geolocation=(), payment=("https://booking.pavells.com"), clipboard-write=("https://booking.pavells.com")',
     );
     expect(header("X-Robots-Tag")).toBe("noindex, nofollow");
   });
 
-  it("keeps CSP first-party only so analytics pixels cannot load", () => {
+  it("allows the Pavells booking origin and still blocks analytics pixels", () => {
     const csp = header("Content-Security-Policy") ?? "";
 
     expect(csp).toContain("default-src 'self'");
     expect(csp).toContain("connect-src 'self'");
     expect(csp).toContain("frame-ancestors 'none'");
     expect(csp).toContain("object-src 'none'");
+    expect(csp).toContain(
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://booking.pavells.com",
+    );
+    expect(csp).toContain("frame-src https://booking.pavells.com");
     expect(csp).not.toMatch(/googletagmanager|google-analytics|facebook\.net/i);
   });
 

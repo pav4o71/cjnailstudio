@@ -107,7 +107,7 @@ test("structured data uses only verified LocalBusiness facts", async ({
   );
 });
 
-test("privacy and terms still describe no-op analytics and manual booking", async ({
+test("privacy and terms still describe no-op analytics and the Pavells panel", async ({
   page,
 }) => {
   await page.goto("/privacy");
@@ -115,11 +115,12 @@ test("privacy and terms still describe no-op analytics and manual booking", asyn
   await expect(page.locator("#main")).toContainText(
     /does not include a first-party booking or contact form/i,
   );
+  await expect(page.locator("#main")).toContainText(/Pavells Booking/i);
 
   await page.goto("/terms");
-  await expect(page.locator("#main")).toContainText(/manual handoff/i);
+  await expect(page.locator("#main")).toContainText(/Pavells Booking/i);
   await expect(page.locator("#main")).toContainText(
-    /does not show live availability or confirm bookings/i,
+    /does not confirm an appointment by itself/i,
   );
 });
 

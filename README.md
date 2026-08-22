@@ -15,7 +15,7 @@ npm run validate
 npm run test:e2e
 ```
 
-Local development: `npm run dev`. Booking stays `manual-handoff`. The site stays non-indexable until ODR-024.
+Local development: `npm run dev`. Booking defaults to the Pavells embed on `/book` (`BOOKING_MODE=embedded-widget`) with WhatsApp, phone and walk-in fallbacks. Rollback is `BOOKING_MODE=manual-handoff`. The site stays non-indexable until ODR-024.
 
 ## Operations
 
@@ -28,4 +28,4 @@ Local development: `npm run dev`. Booking stays `manual-handoff`. The site stays
 | Manual QA / Lighthouse                                           | `docs/runbooks/MANUAL_QA.md`         |
 | `release-candidate` tag (on `main`; not a production publish)    | `docs/runbooks/RELEASE_CANDIDATE.md` |
 
-Production deployment, custom domain, live scheduling, payments, and analytics destinations are owner-gated. This repository does not ship those capabilities.
+Production deployment, custom domain, first-party payments, and analytics destinations are owner-gated. This repository does not ship those capabilities.

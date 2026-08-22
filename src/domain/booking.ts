@@ -1,4 +1,8 @@
 import type { ServiceCategoryId } from "@/src/content/site";
+import {
+  PAVELLS_EMBED_INTEGRATION_KEY,
+  type PavellsBookingConfig,
+} from "@/src/domain/pavells-booking";
 
 export type BookingMode =
   "manual-handoff" | "hosted-redirect" | "embedded-widget" | "custom-scheduler";
@@ -31,6 +35,11 @@ export type BookingHandoff =
       external: boolean;
     }>
   | Readonly<{
+      kind: "embed";
+      channel: "embedded";
+      integrationKey: string;
+    }>
+  | Readonly<{
       kind: "unavailable";
       reason: "disabled" | "misconfigured" | "upstream-unavailable";
     }>;
@@ -48,7 +57,7 @@ export type ManualHandoffs = Readonly<{
 }>;
 
 export type BookingView =
-  "manual" | "loading" | "unavailable" | "error" | "return";
+  "manual" | "widget" | "loading" | "unavailable" | "error" | "return";
 
 export const noBookingCapabilities: BookingCapability = {
   liveAvailability: false,
@@ -87,6 +96,32 @@ export function createManualHandoffs(
     phone: new URL(`tel:${e164}`),
     visit: new URL(visitPath, MANUAL_VISIT_ORIGIN),
   };
+}
+
+export class PavellsWidgetAdapter implements BookingAdapter {
+  readonly mode = "embedded-widget" as const;
+
+  constructor(private readonly config: PavellsBookingConfig) {}
+
+  capabilities(): BookingCapability {
+    return {
+      liveAvailability: true,
+      customerReschedule: false,
+      customerCancel: false,
+      inspirationUpload: false,
+      paymentOrchestration: false,
+    };
+  }
+
+  async createHandoff(intent: BookingIntent): Promise<BookingHandoff> {
+    void intent;
+    void this.config;
+    return {
+      kind: "embed",
+      channel: "embedded",
+      integrationKey: PAVELLS_EMBED_INTEGRATION_KEY,
+    };
+  }
 }
 
 export class ManualHandoffAdapter implements BookingAdapter {
@@ -177,6 +212,13 @@ export function sanitizeHandoff(
     return handoff;
   }
 
+  if (handoff.kind === "embed") {
+    return handoff.channel === "embedded" &&
+      handoff.integrationKey === PAVELLS_EMBED_INTEGRATION_KEY
+      ? handoff
+      : { kind: "unavailable", reason: "misconfigured" };
+  }
+
   if (handoff.channel === "whatsapp") {
     return isSafeHandoffUrl(handoff.href, {
       httpsHosts: ["wa.me"],
@@ -240,6 +282,10 @@ export async function resolveBookingView(input: {
 
     if (handoff.kind === "unavailable") {
       return { view: "unavailable", unavailableReason: handoff.reason };
+    }
+
+    if (handoff.kind === "embed") {
+      return { view: "widget" };
     }
 
     if (handoff.channel === "hosted") {

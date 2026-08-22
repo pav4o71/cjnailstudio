@@ -6,6 +6,12 @@ import { createManualHandoffs } from "@/src/domain/booking";
 
 import { BookingPage } from "./booking-page";
 
+vi.mock("next/script", () => ({
+  default: function Script({ src }: { src: string }) {
+    return <div data-testid="booking-widget-script" data-src={src} />;
+  },
+}));
+
 const handoffs = createManualHandoffs("+639617400664");
 const confirmationPattern =
   /you(?:'re| are) booked|appointment (?:is |has been )?confirmed|booking confirmed/i;
@@ -15,7 +21,7 @@ afterEach(() => {
 });
 
 function renderView(
-  view: "manual" | "loading" | "unavailable" | "error" | "return",
+  view: "manual" | "widget" | "loading" | "unavailable" | "error" | "return",
   categoryLabel?: string,
 ) {
   return render(
@@ -27,13 +33,22 @@ function renderView(
         serviceCategoryId: categoryLabel ? "lashes" : undefined,
       }}
       view={view}
+      widget={
+        view === "widget" || view === "return"
+          ? {
+              mountId: "pavells-booking",
+              businessSlug: "beauty-nail-studio-by-cj2",
+              scriptSrc: "https://booking.pavells.com/api/public/widget.js",
+            }
+          : undefined
+      }
     />,
   );
 }
 
 describe("booking page states", () => {
   it("always keeps no-JS contact links and never confirms a booking", () => {
-    renderView("manual");
+    renderView("widget");
 
     expect(
       screen.getByRole("link", { name: "Message the studio on WhatsApp" }),
@@ -49,6 +64,24 @@ describe("booking page states", () => {
     expect(document.body.textContent).not.toContain("booking.test.invalid");
     expect(screen.getByText("Contact the studio")).toBeVisible();
     expect(document.body.textContent).not.toContain("Manual booking handoff");
+    const mount = document.body.querySelector("#pavells-booking");
+    expect(mount).not.toBeNull();
+    expect(mount).toHaveAttribute("data-business", "beauty-nail-studio-by-cj2");
+    expect(screen.getByTestId("booking-widget-script")).toHaveAttribute(
+      "data-src",
+      "https://booking.pavells.com/api/public/widget.js",
+    );
+    expect(document.body.textContent).not.toContain(
+      "Beauty Nail Studio by Cj 2",
+    );
+  });
+
+  it("hides the widget when online scheduling is unavailable", () => {
+    renderView("unavailable");
+    expect(document.body.querySelector("#pavells-booking")).toBeNull();
+    expect(
+      screen.getByRole("link", { name: "Message the studio on WhatsApp" }),
+    ).toBeVisible();
   });
 
   it("shows loading, unavailable, error and return copy without a confirmation", () => {
