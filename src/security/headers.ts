@@ -12,8 +12,11 @@ export function shouldSendNoindexRobotsTag(
     return true;
   }
 
-  const prime = env.DEPLOY_PRIME_URL ?? env.DEPLOY_URL ?? "";
-  return prime.includes("--");
+  if (context === "production") {
+    return false;
+  }
+
+  return (env.DEPLOY_PRIME_URL ?? "").includes("--");
 }
 
 const alwaysOnHeaders = [

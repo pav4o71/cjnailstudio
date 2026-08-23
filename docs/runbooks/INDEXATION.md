@@ -10,7 +10,7 @@ Owner decision D-017 records the production origin as `https://cjnailstudio.netl
 | Meta robots | `index: true`, `follow: true` on launch routes | `src/content/seo.ts` `robotsPolicy` / `createRouteMetadata` |
 | `robots.txt` | `Allow: /`; disallow deferred paths; Sitemap + Host | `app/robots.ts` |
 | Sitemap | `launchSitemapPaths` against the approved origin, including `/visit` | `app/sitemap.ts` + `sitemapEntries()` |
-| `X-Robots-Tag` | omitted on the production surface | `src/security/headers.ts` |
+| `X-Robots-Tag` | omitted on the production host; set at request time when `Host` contains `--` | `src/security/headers.ts`, `proxy.ts` |
 | Netlify CDN header | `noindex, nofollow` on deploy-preview and branch-deploy only | `netlify.toml` |
 | Visit assertion | `/visit` is indexable in production e2e | `e2e/seo.spec.ts` |
 
@@ -36,7 +36,7 @@ Completed 22 August 2026 under D-017 / ODR-024:
 3. **`robots.txt`:** allow `/`; disallow deferred paths; Sitemap line to the approved origin.
 4. **Sitemap:** emit only `launchSitemapPaths`, including `/visit`.
 5. **Meta robots:** index/follow for public launch pages.
-6. **`X-Robots-Tag`:** omitted when `CONTEXT` is not preview/branch and the deploy URL has no `--`.
+6. **`X-Robots-Tag`:** omitted on `CONTEXT=production` builds. Request-time `proxy.ts` still noindexes any `Host` that contains `--` (CLI drafts and unique deploy permalinks). `DEPLOY_URL` is not used as a preview signal because it always contains `--`.
 7. **`netlify.toml`:** noindex only on `deploy-preview` and `branch-deploy`.
 8. **Canonicals:** absolute URLs on the approved origin.
 9. **JSON-LD:** NailSalon verified facts plus `url` set to the approved origin. No ratings, prices, extra locations, or `cjnailstudio.com`.

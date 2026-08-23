@@ -50,7 +50,7 @@ Performance notes already in the app:
 
 - No retained customer images; no social-CDN hotlink
 - CSS hero fallback instead of a large LCP photograph
-- No analytics or booking SDKs
+- No analytics pixels; Pavells `widget.js` is authorized only on `/book` (D-016)
 - Static-first App Router pages
 
 Accessibility: Playwright axe already fails the suite on serious/critical first-party violations. Manual screen-reader, zoom, reflow, and focus-visible checks remain operator-owned (P0-12).

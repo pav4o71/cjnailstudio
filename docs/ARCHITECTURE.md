@@ -77,7 +77,7 @@ Phase 0 deploys to the approved Netlify origin `https://cjnailstudio.netlify.app
 
 ## Security boundaries
 
-- Restrictive Content Security Policy with no provider script/frame in phase 0.
+- Restrictive Content Security Policy. `script-src` and `frame-src` allow `https://booking.pavells.com` for the `/book` widget (D-016). Analytics hosts stay blocked.
 - Fixed outbound contact/directions destinations.
 - No browser secrets or sensitive local storage.
 - Security headers: HSTS in production, content-type protection, conservative referrer and permissions policies, and anti-framing unless a reviewed exception exists.
