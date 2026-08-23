@@ -13,7 +13,7 @@
     "start": "next start",
     "format": "prettier --check app src e2e *.json *.ts *.mjs .github/workflows",
     "format:fix": "prettier --write app src e2e *.json *.ts *.mjs .github/workflows",
-    "lint": "eslint app src e2e",
+    "lint": "eslint app src e2e proxy.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",

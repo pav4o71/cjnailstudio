@@ -47,7 +47,7 @@ Production:
 
 Preview / branch / draft URLs (`*--*.netlify.app`):
 
-- Keep `X-Robots-Tag: noindex, nofollow` via `netlify.toml` context headers
+- Keep `X-Robots-Tag: noindex, nofollow` via `netlify.toml` context headers and request-time `proxy.ts` when `Host` contains `--`
 - Do not write a draft hostname as `approvedProductionOrigin`
 
 Still forbidden:

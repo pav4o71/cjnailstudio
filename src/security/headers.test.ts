@@ -8,6 +8,7 @@ import {
   securityHeaders,
   shouldSendNoindexRobotsTag,
 } from "./headers";
+import { previewHostnameNeedsNoindex } from "./preview-host";
 
 function header(
   name: string,
@@ -60,6 +61,30 @@ describe("production security headers", () => {
         DEPLOY_PRIME_URL: "https://cjnailstudio.netlify.app",
       }),
     ).toBe(false);
+    expect(
+      shouldSendNoindexRobotsTag({
+        CONTEXT: "production",
+        DEPLOY_URL: "https://abc123--cjnailstudio.netlify.app",
+        DEPLOY_PRIME_URL: "https://cjnailstudio.netlify.app",
+      }),
+    ).toBe(false);
+    expect(
+      shouldSendNoindexRobotsTag({
+        CONTEXT: "production",
+        DEPLOY_URL: "https://abc123--cjnailstudio.netlify.app",
+      }),
+    ).toBe(false);
+    expect(
+      shouldSendNoindexRobotsTag({
+        DEPLOY_URL: "https://abc123--cjnailstudio.netlify.app",
+      }),
+    ).toBe(false);
+
+    expect(
+      previewHostnameNeedsNoindex("abc123--cjnailstudio.netlify.app"),
+    ).toBe(true);
+    expect(previewHostnameNeedsNoindex("cjnailstudio.netlify.app")).toBe(false);
+    expect(previewHostnameNeedsNoindex("127.0.0.1:3017")).toBe(false);
 
     expect(
       header(

@@ -1,6 +1,6 @@
 # Maintenance runbook
 
-Ongoing work after Milestone 6 release readiness. This is not a production-launch authorization.
+Ongoing work after D-017 production on `https://cjnailstudio.netlify.app`.
 
 ## Content
 
@@ -11,9 +11,11 @@ Ongoing work after Milestone 6 release readiness. This is not a production-launc
 
 ## Capabilities that stay off
 
+Pavells embedded scheduling is authorized (D-016). Keep WhatsApp, phone and walk-in visible.
+
 | Gate | Keep off until |
 | --- | --- |
-| Live scheduling / payments / notifications / production secrets | ODR-025 |
+| First-party payments, notifications and production secrets | ODR-025 |
 | Analytics destination | ODR-019 |
 | Custom domain (not `*.netlify.app`) | still unapproved; production origin is D-017 |
 | Hosted booking adapter in production config | ODR-008 and ODR-025 |
@@ -29,7 +31,7 @@ Ongoing work after Milestone 6 release readiness. This is not a production-launc
 ## Security and privacy
 
 - No secrets in the repository, client bundle, logs, or screenshots.
-- Keep HSTS, CSP `connect-src 'self'`, anti-framing, and `X-Robots-Tag` until an approved indexation change.
+- Keep HSTS, CSP `connect-src 'self'`, and anti-framing. Production omits `X-Robots-Tag`; preview/branch/draft `--` hosts stay noindex (D-017).
 - Privacy and terms pages must match implemented behavior (no first-party booking form, no-op analytics).
 
 ## GitHub
